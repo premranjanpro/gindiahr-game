@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIndia Game | Free Educational Games for Students | Math, GK Quiz & Brain Games Online India</title>
+    <meta name="description" content="GIndia Game – Free educational games for students in India. Play Math Blitz, GK Quiz, Memory Match, Word Builder, Typing Sprint and Logic Puzzles. Fun learning games for kids and students online." />
+    <meta name="keywords" content="free educational games for students, math games for kids India, GK quiz game online India, brain games for children, typing speed game online, memory game for students, word game online India, free learning games" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://game.gindiahr.com/" />
+    <meta property="og:title" content="GIndia Game | Free Educational Games Online India" />
+    <meta property="og:description" content="Play free educational games – Math, GK Quiz, Memory, Word Building, Typing Sprint. Fun and learning combined!" />
+    <meta property="og:url" content="https://game.gindiahr.com/" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --purple: #6C3FC4;
+            --purple-light: #8B5CF6;
+            --yellow: #F59E0B;
+            --pink: #EC4899;
+            --cyan: #06B6D4;
+            --green: #10B981;
+            --red: #EF4444;
+            --orange: #F97316;
+            --bg: #0F0A1E;
+            --card: rgba(255,255,255,0.05);
+            --border: rgba(255,255,255,0.10);
+            --white: #FFFFFF;
+            --text: #E2E8F0;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(15,10,30,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 26px;
+            color: var(--yellow);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span { color: var(--purple-light); }
+        .header-links { display: flex; gap: 16px; list-style: none; }
+        .header-links a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+        .header-links a:hover { color: var(--yellow); }
+
+        /* HERO */
+        .hero {
+            padding: 80px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 30%, rgba(108,63,196,0.25), transparent),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(245,158,11,0.15), transparent);
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-emoji { font-size: 64px; animation: bounce 2s ease-in-out infinite; display: block; margin-bottom: 16px; }
+        @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-16px); } }
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 60px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--yellow), var(--pink), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p { font-size: 18px; color: var(--text); opacity: 0.85; max-width: 560px; margin: 0 auto 32px; }
+        .hero-badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        .h-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* GAME GRID */
+        .games-section { padding: 60px 24px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+        .section-sub { text-align: center; color: var(--text); opacity: 0.7; font-size: 16px; margin-bottom: 48px; }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .game-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .game-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .game-card.math::before { background: radial-gradient(circle at center, rgba(16,185,129,0.15), transparent 70%); }
+        .game-card.word::before { background: radial-gradient(circle at center, rgba(6,182,212,0.15), transparent 70%); }
+        .game-card.memory::before { background: radial-gradient(circle at center, rgba(236,72,153,0.15), transparent 70%); }
+        .game-card.gk::before { background: radial-gradient(circle at center, rgba(245,158,11,0.15), transparent 70%); }
+        .game-card.typing::before { background: radial-gradient(circle at center, rgba(249,115,22,0.15), transparent 70%); }
+        .game-card.logic::before { background: radial-gradient(circle at center, rgba(139,92,246,0.15), transparent 70%); }
+        .game-card:hover { transform: translateY(-10px) scale(1.02); }
+        .game-card:hover::before { opacity: 1; }
+        .game-card.math:hover { border-color: var(--green); box-shadow: 0 20px 60px rgba(16,185,129,0.25); }
+        .game-card.word:hover { border-color: var(--cyan); box-shadow: 0 20px 60px rgba(6,182,212,0.25); }
+        .game-card.memory:hover { border-color: var(--pink); box-shadow: 0 20px 60px rgba(236,72,153,0.25); }
+        .game-card.gk:hover { border-color: var(--yellow); box-shadow: 0 20px 60px rgba(245,158,11,0.25); }
+        .game-card.typing:hover { border-color: var(--orange); box-shadow: 0 20px 60px rgba(249,115,22,0.25); }
+        .game-card.logic:hover { border-color: var(--purple-light); box-shadow: 0 20px 60px rgba(139,92,246,0.25); }
+
+        .game-icon { font-size: 56px; margin-bottom: 16px; display: block; animation: float 3s ease-in-out infinite; }
+        .game-card:nth-child(2) .game-icon { animation-delay: 0.4s; }
+        .game-card:nth-child(3) .game-icon { animation-delay: 0.8s; }
+        .game-card:nth-child(4) .game-icon { animation-delay: 1.2s; }
+        .game-card:nth-child(5) .game-icon { animation-delay: 1.6s; }
+        .game-card:nth-child(6) .game-icon { animation-delay: 2.0s; }
+        @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+
+        .game-card h3 { font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 10px; }
+        .game-card p { font-size: 14px; color: var(--text); opacity: 0.75; line-height: 1.55; margin-bottom: 20px; }
+        .diff-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .diff-easy { background: rgba(16,185,129,0.2); color: #34d399; }
+        .diff-medium { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .diff-hard { background: rgba(239,68,68,0.2); color: #f87171; }
+        .play-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .play-btn:hover { transform: scale(1.05); }
+        .math .play-btn { background: var(--green); }
+        .word .play-btn { background: var(--cyan); }
+        .memory .play-btn { background: var(--pink); }
+        .gk .play-btn { background: var(--yellow); color: #000; }
+        .typing .play-btn { background: var(--orange); }
+        .logic .play-btn { background: var(--purple-light); }
+
+        /* GAME MODALS */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: #1a1030;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: popIn 0.3s ease;
+        }
+        @keyframes popIn { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-close:hover { color: #fff; }
+        .modal h2 { font-family: 'Fredoka One', cursive; font-size: 30px; margin-bottom: 8px; }
+        .modal-desc { color: var(--text); opacity: 0.75; font-size: 15px; margin-bottom: 24px; }
+        .game-area { min-height: 200px; }
+
+        /* MATH GAME */
+        .math-display {
+            font-family: 'Fredoka One', cursive;
+            font-size: 52px;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--green);
+        }
+        .math-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .math-opt {
+            background: rgba(255,255,255,0.06);
+            border: 2px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            padding: 18px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .math-opt:hover { border-color: var(--green); background: rgba(16,185,129,0.15); }
+        .math-opt.correct { border-color: var(--green); background: rgba(16,185,129,0.3); }
+        .math-opt.wrong { border-color: var(--red); background: rgba(239,68,68,0.2); }
+        .game-score { display: flex; justify-content: space-between; font-weight: 700; font-size: 15px; margin-bottom: 16px; }
+        .score-val { color: var(--yellow); font-family: 'Fredoka One', cursive; font-size: 20px; }
+        .timer-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 50px; height: 8px; margin-bottom: 20px; }
+        .timer-bar { height: 100%; border-radius: 50px; background: linear-gradient(90deg, var(--green), var(--yellow)); transition: width 0.1s linear; }
+        .feedback { text-align: center; font-family: 'Fredoka One', cursive; font-size: 22px; min-height: 32px; margin-bottom: 8px; }
+        .start-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            font-family: 'Fredoka One', cursive;
+            font-size: 22px;
+            color: #fff;
+            background: var(--green);
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 12px;
+        }
+        .start-btn:hover { opacity: 0.85; transform: scale(1.02); }
+
+        /* TYPING GAME */
+        .typing-word {
+            font-family: 'Fredoka One', cursive;
+            font-size: 52px;
+            text-align: center;
+            color: var(--orange);
+            margin: 16px 0;
+            letter-spacing: 4px;
+        }
+        .typing-input {
+            width: 100%;
+            background: rgba(255,255,255,0.06);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            outline: none;
+            text-align: center;
+        }
+        .typing-input:focus { border-color: var(--orange); }
+        .wpm-display { font-family: 'Fredoka One', cursive; font-size: 40px; color: var(--yellow); text-align: center; margin: 12px 0; }
+
+        /* MEMORY GAME */
+        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+        .mem-card {
+            aspect-ratio: 1;
+            background: rgba(236,72,153,0.2);
+            border: 2px solid rgba(236,72,153,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+        .mem-card.flipped { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+        .mem-card.matched { background: rgba(16,185,129,0.25); border-color: var(--green); }
+        .mem-card.hidden-face { font-size: 28px; }
+
+        /* FEATURES */
+        .features { padding: 60px 24px; background: rgba(255,255,255,0.02); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .feat-card { text-align: center; padding: 32px 20px; }
+        .feat-icon { font-size: 44px; margin-bottom: 14px; }
+        .feat-card h4 { font-family: 'Fredoka One', cursive; font-size: 20px; margin-bottom: 8px; }
+        .feat-card p { font-size: 14px; color: var(--text); opacity: 0.7; }
+
+        /* FOOTER */
+        footer { padding: 30px 24px; border-top: 1px solid var(--border); text-align: center; }
+        footer p { color: var(--text); opacity: 0.5; font-size: 13px; }
+        footer a { color: var(--yellow); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .games-grid { grid-template-columns: 1fr 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .games-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 30px; }
+            .math-options { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">🎮 GIndia <span>Game</span></a>
+            <ul class="header-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="https://kids.gindiahr.com">Kids Zone</a></li>
+                <li><a href="https://gindiahr.com">GIndiaHR</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-emoji">🎮</span>
+            <h1>Learn. Play. Win!</h1>
+            <p>India's most fun educational game hub for students. Sharpen your brain with Math, GK, Vocabulary, Memory, Typing and Logic Games — completely free!</p>
+            <div class="hero-badge-row">
+                <span class="h-badge">🆓 100% Free</span>
+                <span class="h-badge">🧠 Brain Boosting</span>
+                <span class="h-badge">🏆 Score Tracking</span>
+                <span class="h-badge">📱 Mobile Friendly</span>
+                <span class="h-badge">🇮🇳 Made for India</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="games">
+        <div class="container">
+            <h2 class="section-title">🕹️ Choose Your Game</h2>
+            <p class="section-sub">6 educational games. Infinite fun. Play directly in your browser — no download needed!</p>
+            <div class="games-grid">
+                <!-- MATH BLITZ -->
+                <div class="game-card math">
+                    <span class="game-icon">🔢</span>
+                    <div class="diff-badge diff-medium">Medium</div>
+                    <h3>Math Blitz</h3>
+                    <p>Fast-paced arithmetic quiz. Solve Addition, Subtraction, Multiplication & Division questions before the timer runs out!</p>
+                    <button class="play-btn" onclick="openGame('math')" id="play-math">▶ Play Now</button>
+                </div>
+                <!-- WORD BUILDER -->
+                <div class="game-card word">
+                    <span class="game-icon">🔤</span>
+                    <div class="diff-badge diff-easy">Easy</div>
+                    <h3>Word Builder</h3>
+                    <p>Unscramble letters to form the correct word. Improve your English vocabulary and spelling skills!</p>
+                    <button class="play-btn" onclick="openGame('word')" id="play-word">▶ Play Now</button>
+                </div>
+                <!-- MEMORY MATCH -->
+                <div class="game-card memory">
+                    <span class="game-icon">🧩</span>
+                    <div class="diff-badge diff-easy">Easy</div>
+                    <h3>Memory Match</h3>
+                    <p>Flip cards and match emoji pairs. Train your visual memory and concentration — great for all ages!</p>
+                    <button class="play-btn" onclick="openGame('memory')" id="play-memory">▶ Play Now</button>
+                </div>
+                <!-- GK QUIZ -->
+                <div class="game-card gk">
+                    <span class="game-icon">🇮🇳</span>
+                    <div class="diff-badge diff-medium">Medium</div>
+                    <h3>India GK Quiz</h3>
+                    <p>Test your knowledge on Indian History, Geography, Science, Sports and Current Affairs. 4 options, 30 seconds!</p>
+                    <button class="play-btn" onclick="openGame('gk')" id="play-gk">▶ Play Now</button>
+                </div>
+                <!-- TYPING SPRINT -->
+                <div class="game-card typing">
+                    <span class="game-icon">⌨️</span>
+                    <div class="diff-badge diff-hard">Hard</div>
+                    <h3>Typing Sprint</h3>
+                    <p>Type the displayed words as fast and accurately as possible. Track your WPM (Words Per Minute) score!</p>
+                    <button class="play-btn" onclick="openGame('typing')" id="play-typing">▶ Play Now</button>
+                </div>
+                <!-- LOGIC PUZZLE -->
+                <div class="game-card logic">
+                    <span class="game-icon">🧠</span>
+                    <div class="diff-badge diff-hard">Hard</div>
+                    <h3>Logic Patterns</h3>
+                    <p>Find the next number or letter in the sequence. Visual pattern recognition and logical thinking challenges!</p>
+                    <button class="play-btn" onclick="openGame('logic')" id="play-logic">▶ Play Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATH GAME MODAL -->
+    <div class="modal-overlay" id="modal-math">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('math')">✕</button>
+            <h2>🔢 Math Blitz</h2>
+            <p class="modal-desc">Solve as many arithmetic questions as you can in 60 seconds!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="math-score">0</span></span>
+                    <span>⏱️ <span class="score-val" id="math-timer">60</span>s</span>
+                    <span>Streak: <span class="score-val" id="math-streak">0</span>🔥</span>
+                </div>
+                <div class="timer-bar-wrap"><div class="timer-bar" id="math-timer-bar"></div></div>
+                <div class="math-display" id="math-question">Ready?</div>
+                <div class="math-options" id="math-options"></div>
+                <div class="feedback" id="math-feedback"></div>
+                <button class="start-btn" id="math-start-btn" onclick="startMath()">🚀 Start Game!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GK QUIZ MODAL -->
+    <div class="modal-overlay" id="modal-gk">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('gk')">✕</button>
+            <h2>🇮🇳 India GK Quiz</h2>
+            <p class="modal-desc">10 questions. 30 seconds each. How much do you know about India?</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="gk-score">0</span></span>
+                    <span>Q: <span class="score-val" id="gk-qnum">0</span>/10</span>
+                    <span>⏱️ <span class="score-val" id="gk-timer">30</span>s</span>
+                </div>
+                <div class="timer-bar-wrap"><div class="timer-bar" id="gk-timer-bar" style="background: linear-gradient(90deg, var(--yellow), var(--orange));"></div></div>
+                <div class="math-display" id="gk-question" style="font-size: 20px; color: var(--yellow); font-family: 'Nunito', sans-serif; font-weight: 800; line-height: 1.4;">Ready to test your GK?</div>
+                <div class="math-options" id="gk-options" style="margin-top: 20px;"></div>
+                <div class="feedback" id="gk-feedback"></div>
+                <button class="start-btn" id="gk-start-btn" onclick="startGK()" style="background: var(--yellow); color: #000;">🧠 Start GK Quiz!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TYPING MODAL -->
+    <div class="modal-overlay" id="modal-typing">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('typing')">✕</button>
+            <h2>⌨️ Typing Sprint</h2>
+            <p class="modal-desc">Type the word shown. 60 seconds. How fast can you go?</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Words: <span class="score-val" id="type-words">0</span></span>
+                    <span>⏱️ <span class="score-val" id="type-timer">60</span>s</span>
+                    <span>Accuracy: <span class="score-val" id="type-acc">100</span>%</span>
+                </div>
+                <div class="timer-bar-wrap"><div class="timer-bar" id="type-timer-bar" style="background: linear-gradient(90deg, var(--orange), var(--yellow));"></div></div>
+                <div class="typing-word" id="typing-word">READY</div>
+                <input type="text" class="typing-input" id="typing-input" placeholder="Type the word here..." autocomplete="off" autocorrect="off" spellcheck="false">
+                <div class="wpm-display" id="wpm-display">WPM: 0</div>
+                <button class="start-btn" id="type-start-btn" onclick="startTyping()" style="background: var(--orange);">⌨️ Start Typing!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORY MODAL -->
+    <div class="modal-overlay" id="modal-memory">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('memory')">✕</button>
+            <h2>🧩 Memory Match</h2>
+            <p class="modal-desc">Match all emoji pairs. Track your moves!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Pairs: <span class="score-val" id="mem-pairs">0</span>/8</span>
+                    <span>Moves: <span class="score-val" id="mem-moves">0</span></span>
+                </div>
+                <div class="memory-grid" id="memory-grid"></div>
+                <div class="feedback" id="mem-feedback"></div>
+                <button class="start-btn" id="mem-start-btn" onclick="startMemory()" style="background: var(--pink);">🎴 New Game!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WORD MODAL -->
+    <div class="modal-overlay" id="modal-word">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('word')">✕</button>
+            <h2>🔤 Word Builder</h2>
+            <p class="modal-desc">Unscramble the letters to form the correct word!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="word-score">0</span></span>
+                    <span>Q: <span class="score-val" id="word-qnum">1</span>/10</span>
+                </div>
+                <div class="math-display" id="word-scrambled" style="font-size: 40px; letter-spacing: 8px; color: var(--cyan);">?</div>
+                <input type="text" class="typing-input" id="word-input" placeholder="Type your answer..." autocomplete="off" style="border-color: rgba(6,182,212,0.4);">
+                <div class="feedback" id="word-feedback" style="margin-top: 12px;"></div>
+                <div style="display: flex; gap: 12px; margin-top: 12px;">
+                    <button class="start-btn" id="word-check-btn" onclick="checkWord()" style="background: var(--cyan); color: #000; flex: 1;">✓ Check Answer</button>
+                    <button class="start-btn" id="word-skip-btn" onclick="nextWord()" style="background: rgba(255,255,255,0.1); flex: 0.5;">Skip →</button>
+                </div>
+                <button class="start-btn" id="word-start-btn" onclick="startWord()" style="background: var(--cyan); color: #000;">🔤 Start Game!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIC MODAL -->
+    <div class="modal-overlay" id="modal-logic">
+        <div class="modal">
+            <button class="modal-close" onclick="closeGame('logic')">✕</button>
+            <h2>🧠 Logic Patterns</h2>
+            <p class="modal-desc">Find the next number in the sequence!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="logic-score">0</span></span>
+                    <span>Q: <span class="score-val" id="logic-qnum">1</span>/10</span>
+                </div>
+                <div class="math-display" id="logic-sequence" style="font-size: 32px; color: var(--purple-light);">2, 4, 8, 16, ?</div>
+                <div class="math-options" id="logic-options"></div>
+                <div class="feedback" id="logic-feedback"></div>
+                <button class="start-btn" id="logic-start-btn" onclick="startLogic()" style="background: var(--purple-light);">🧠 Start Puzzle!</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">✨ Why Students Love GIndia Game</h2>
+            <div class="features-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">🆓</div>
+                    <h4>100% Free Forever</h4>
+                    <p>All games are completely free. No subscription, no ads, no sign-up required.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🧠</div>
+                    <h4>Curriculum-Aligned</h4>
+                    <p>Games designed around school curriculum topics — Math, English, Science, GK and more.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">📱</div>
+                    <h4>Play Anywhere</h4>
+                    <p>Fully optimized for mobile, tablet, and desktop. Play from anywhere, anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>🎮 GIndia Game | Free Educational Games for Students | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        Keywords: free educational games, math games for kids India, GK quiz online, typing speed game, brain games for students</p>
+    </footer>
+
+    <script>
+        // ======= UTILITY =======
+        function openGame(name) {
+            document.getElementById('modal-' + name).classList.add('open');
+            if (name === 'memory') initMemory();
+        }
+        function closeGame(name) {
+            document.getElementById('modal-' + name).classList.remove('open');
+            if (name === 'math') clearInterval(mathInterval);
+            if (name === 'gk') clearInterval(gkInterval);
+            if (name === 'typing') clearInterval(typeInterval);
+        }
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', function(e) { if (e.target === this) closeGame(this.id.replace('modal-', '')); });
+        });
+
+        // ======= MATH BLITZ =======
+        let mathInterval, mathScore = 0, mathStreak = 0, mathTime = 60, mathAnswered = false;
+        const mathOps = ['+', '-', '×', '÷'];
+        function genMath() {
+            const op = mathOps[Math.floor(Math.random() * mathOps.length)];
+            let a, b, ans;
+            if (op === '+') { a = Math.floor(Math.random()*50)+1; b = Math.floor(Math.random()*50)+1; ans = a+b; }
+            else if (op === '-') { a = Math.floor(Math.random()*50)+10; b = Math.floor(Math.random()*a)+1; ans = a-b; }
+            else if (op === '×') { a = Math.floor(Math.random()*12)+1; b = Math.floor(Math.random()*12)+1; ans = a*b; }
+            else { b = Math.floor(Math.random()*9)+1; ans = Math.floor(Math.random()*10)+1; a = b*ans; }
+            return { q: `${a} ${op} ${b} = ?`, ans };
+        }
+        function startMath() {
+            mathScore = 0; mathStreak = 0; mathTime = 60; mathAnswered = false;
+            document.getElementById('math-start-btn').style.display = 'none';
+            document.getElementById('math-score').textContent = 0;
+            document.getElementById('math-streak').textContent = 0;
+            nextMathQ();
+            mathInterval = setInterval(() => {
+                mathTime--;
+                document.getElementById('math-timer').textContent = mathTime;
+                document.getElementById('math-timer-bar').style.width = (mathTime / 60 * 100) + '%';
+                if (mathTime <= 0) {
+                    clearInterval(mathInterval);
+                    document.getElementById('math-question').textContent = `⏰ Time Up! Score: ${mathScore}`;
+                    document.getElementById('math-options').innerHTML = '';
+                    document.getElementById('math-feedback').textContent = mathScore >= 10 ? '🏆 Excellent!' : mathScore >= 5 ? '👍 Good job!' : '💪 Keep practicing!';
+                    document.getElementById('math-start-btn').style.display = 'block';
+                    document.getElementById('math-start-btn').textContent = '🔄 Play Again';
+                }
+            }, 1000);
+        }
+        function nextMathQ() {
+            const { q, ans } = genMath();
+            document.getElementById('math-question').textContent = q;
+            const wrongs = new Set();
+            while (wrongs.size < 3) {
+                const w = ans + Math.floor(Math.random() * 20) - 10;
+                if (w !== ans && w >= 0) wrongs.add(w);
+            }
+            const opts = [...wrongs, ans].sort(() => Math.random() - 0.5);
+            const oDiv = document.getElementById('math-options');
+            oDiv.innerHTML = '';
+            opts.forEach(o => {
+                const btn = document.createElement('button');
+                btn.className = 'math-opt';
+                btn.textContent = o;
+                btn.onclick = () => checkMath(btn, o, ans);
+                oDiv.appendChild(btn);
+            });
+            mathAnswered = false;
+        }
+        function checkMath(btn, chosen, ans) {
+            if (mathAnswered) return;
+            mathAnswered = true;
+            if (chosen === ans) {
+                mathScore += 1 + Math.floor(mathStreak / 3);
+                mathStreak++;
+                btn.classList.add('correct');
+                document.getElementById('math-feedback').textContent = mathStreak >= 3 ? `🔥 ${mathStreak} Streak!` : '✅ Correct!';
+                document.getElementById('math-score').textContent = mathScore;
+                document.getElementById('math-streak').textContent = mathStreak;
+                setTimeout(nextMathQ, 700);
+            } else {
+                mathStreak = 0;
+                btn.classList.add('wrong');
+                document.querySelectorAll('.math-opt').forEach(b => { if (parseInt(b.textContent) === ans) b.classList.add('correct'); });
+                document.getElementById('math-feedback').textContent = `❌ Answer: ${ans}`;
+                document.getElementById('math-streak').textContent = 0;
+                setTimeout(nextMathQ, 1200);
+            }
+        }
+
+        // ======= GK QUIZ =======
+        const gkQuestions = [
+            { q: "What is the capital of India?", opts: ["Mumbai", "Delhi", "Kolkata", "Chennai"], ans: 1 },
+            { q: "Who was the first Prime Minister of India?", opts: ["Sardar Patel", "Mahatma Gandhi", "Jawaharlal Nehru", "B. R. Ambedkar"], ans: 2 },
+            { q: "Which river is the longest in India?", opts: ["Yamuna", "Ganga", "Godavari", "Brahmaputra"], ans: 3 },
+            { q: "In which year did India gain independence?", opts: ["1945", "1947", "1950", "1952"], ans: 1 },
+            { q: "What is the national animal of India?", opts: ["Lion", "Elephant", "Tiger", "Leopard"], ans: 2 },
+            { q: "Which is the largest state in India by area?", opts: ["Madhya Pradesh", "Uttar Pradesh", "Rajasthan", "Maharashtra"], ans: 2 },
+            { q: "Who wrote the Indian National Anthem?", opts: ["Rabindranath Tagore", "Bankim Chandra", "Sarojini Naidu", "Subramania Bharati"], ans: 0 },
+            { q: "Mount Everest is located in which mountain range?", opts: ["Aravalli", "Vindhya", "Himalayas", "Western Ghats"], ans: 2 },
+            { q: "What is the currency of India?", opts: ["Dollar", "Rupee", "Euro", "Yen"], ans: 1 },
+            { q: "Which planet is known as the Red Planet?", opts: ["Venus", "Jupiter", "Saturn", "Mars"], ans: 3 },
+        ];
+        let gkIdx = 0, gkScore = 0, gkInterval, gkTime = 30, gkAnswered = false;
+        function startGK() {
+            gkIdx = 0; gkScore = 0;
+            document.getElementById('gk-start-btn').style.display = 'none';
+            showGKQ();
+        }
+        function showGKQ() {
+            if (gkIdx >= gkQuestions.length) {
+                clearInterval(gkInterval);
+                document.getElementById('gk-question').textContent = `🏆 Quiz Complete! Score: ${gkScore}/${gkQuestions.length}`;
+                document.getElementById('gk-options').innerHTML = '';
+                document.getElementById('gk-feedback').textContent = gkScore >= 8 ? '🌟 Genius!' : gkScore >= 5 ? '👍 Well Done!' : '📚 Study More!';
+                document.getElementById('gk-start-btn').style.display = 'block';
+                document.getElementById('gk-start-btn').textContent = '🔄 Play Again';
+                return;
+            }
+            const q = gkQuestions[gkIdx];
+            gkTime = 30; gkAnswered = false;
+            document.getElementById('gk-qnum').textContent = gkIdx + 1;
+            document.getElementById('gk-score').textContent = gkScore;
+            document.getElementById('gk-question').textContent = q.q;
+            document.getElementById('gk-feedback').textContent = '';
+            const oDiv = document.getElementById('gk-options');
+            oDiv.innerHTML = '';
+            q.opts.forEach((o, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'math-opt';
+                btn.style.fontSize = '16px';
+                btn.textContent = o;
+                btn.onclick = () => checkGK(btn, i, q.ans);
+                oDiv.appendChild(btn);
+            });
+            clearInterval(gkInterval);
+            gkInterval = setInterval(() => {
+                gkTime--;
+                document.getElementById('gk-timer').textContent = gkTime;
+                document.getElementById('gk-timer-bar').style.width = (gkTime / 30 * 100) + '%';
+                if (gkTime <= 0) {
+                    clearInterval(gkInterval);
+                    if (!gkAnswered) { document.getElementById('gk-feedback').textContent = `⏰ Time Up! Correct: ${q.opts[q.ans]}`; gkIdx++; setTimeout(showGKQ, 1500); }
+                }
+            }, 1000);
+        }
+        function checkGK(btn, chosen, ans) {
+            if (gkAnswered) return;
+            gkAnswered = true;
+            clearInterval(gkInterval);
+            if (chosen === ans) { gkScore++; btn.classList.add('correct'); document.getElementById('gk-feedback').textContent = '✅ Correct!'; }
+            else { btn.classList.add('wrong'); document.querySelectorAll('#gk-options .math-opt')[ans].classList.add('correct'); document.getElementById('gk-feedback').textContent = `❌ Correct: ${gkQuestions[gkIdx].opts[ans]}`; }
+            document.getElementById('gk-score').textContent = gkScore;
+            gkIdx++;
+            setTimeout(showGKQ, 1500);
+        }
+
+        // ======= TYPING GAME =======
+        const typingWords = ['apple','india','learn','happy','world','brain','speed','quick','focus','smart','power','solve','think','write','score','sharp','click','globe','space','study','games','books','ready','skill'];
+        let typeIdx = 0, typeCorrect = 0, typeTotal = 0, typeInterval, typeTime = 60, typeStart;
+        function startTyping() {
+            typeCorrect = 0; typeTotal = 0; typeTime = 60;
+            document.getElementById('type-start-btn').style.display = 'none';
+            document.getElementById('typing-input').disabled = false;
+            document.getElementById('typing-input').focus();
+            typeStart = Date.now();
+            showTypingWord();
+            typeInterval = setInterval(() => {
+                typeTime--;
+                document.getElementById('type-timer').textContent = typeTime;
+                document.getElementById('type-timer-bar').style.width = (typeTime / 60 * 100) + '%';
+                const elapsed = (Date.now() - typeStart) / 60000;
+                const wpm = elapsed > 0 ? Math.round(typeCorrect / elapsed) : 0;
+                document.getElementById('wpm-display').textContent = 'WPM: ' + wpm;
+                if (typeTime <= 0) {
+                    clearInterval(typeInterval);
+                    document.getElementById('typing-input').disabled = true;
+                    document.getElementById('typing-word').textContent = `Score: ${typeCorrect} words`;
+                    document.getElementById('type-start-btn').style.display = 'block';
+                    document.getElementById('type-start-btn').textContent = '🔄 Play Again';
+                }
+            }, 1000);
+        }
+        function showTypingWord() {
+            const w = typingWords[Math.floor(Math.random() * typingWords.length)];
+            document.getElementById('typing-word').textContent = w.toUpperCase();
+            document.getElementById('typing-word').dataset.word = w;
+            document.getElementById('typing-input').value = '';
+        }
+        document.getElementById('typing-input').addEventListener('input', function() {
+            if (typeTime <= 0) return;
+            const typed = this.value.trim().toLowerCase();
+            const target = document.getElementById('typing-word').dataset.word;
+            typeTotal++;
+            if (typed === target) {
+                typeCorrect++;
+                document.getElementById('type-words').textContent = typeCorrect;
+                document.getElementById('type-acc').textContent = Math.round(typeCorrect / typeTotal * 100);
+                showTypingWord();
+            }
+        });
+
+        // ======= MEMORY GAME =======
+        const memEmojis = ['🦁','🐯','🦊','🐸','🦋','🐬','🦄','🌈'];
+        let memCards = [], memFlipped = [], memPairs = 0, memMoves = 0;
+        function initMemory() {}
+        function startMemory() {
+            memPairs = 0; memMoves = 0;
+            document.getElementById('mem-pairs').textContent = 0;
+            document.getElementById('mem-moves').textContent = 0;
+            document.getElementById('mem-feedback').textContent = '';
+            const allCards = [...memEmojis, ...memEmojis].sort(() => Math.random() - 0.5);
+            const grid = document.getElementById('memory-grid');
+            grid.innerHTML = '';
+            memCards = [];
+            allCards.forEach((emoji, i) => {
+                const card = document.createElement('div');
+                card.className = 'mem-card';
+                card.innerHTML = '❓';
+                card.dataset.emoji = emoji;
+                card.dataset.idx = i;
+                card.addEventListener('click', () => flipCard(card));
+                grid.appendChild(card);
+                memCards.push(card);
+            });
+            memFlipped = [];
+        }
+        function flipCard(card) {
+            if (card.classList.contains('matched') || card.classList.contains('flipped') || memFlipped.length >= 2) return;
+            card.innerHTML = card.dataset.emoji;
+            card.classList.add('flipped');
+            memFlipped.push(card);
+            if (memFlipped.length === 2) {
+                memMoves++;
+                document.getElementById('mem-moves').textContent = memMoves;
+                if (memFlipped[0].dataset.emoji === memFlipped[1].dataset.emoji) {
+                    memFlipped.forEach(c => c.classList.add('matched'));
+                    memPairs++;
+                    document.getElementById('mem-pairs').textContent = memPairs;
+                    memFlipped = [];
+                    if (memPairs === 8) document.getElementById('mem-feedback').textContent = `🏆 You Won in ${memMoves} moves!`;
+                } else {
+                    setTimeout(() => {
+                        memFlipped.forEach(c => { c.innerHTML = '❓'; c.classList.remove('flipped'); });
+                        memFlipped = [];
+                    }, 900);
+                }
+            }
+        }
+        startMemory();
+
+        // ======= WORD GAME =======
+        const wordBank = [
+            { word: 'APPLE', hint: 'A fruit' }, { word: 'TIGER', hint: 'National animal of India' },
+            { word: 'CLOUD', hint: 'Found in the sky' }, { word: 'MUSIC', hint: 'Art of sound' },
+            { word: 'PLANT', hint: 'Green organism' }, { word: 'RIVER', hint: 'Flowing water body' },
+            { word: 'BRAIN', hint: 'Thinking organ' }, { word: 'EARTH', hint: 'Our planet' },
+            { word: 'STONE', hint: 'Hard rock' }, { word: 'LIGHT', hint: 'Opposite of dark' }
+        ];
+        let wordIdx = 0, wordScore = 0;
+        function scramble(w) {
+            const a = w.split('');
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a.join('') === w ? scramble(w) : a.join('');
+        }
+        function startWord() {
+            wordIdx = 0; wordScore = 0;
+            document.getElementById('word-start-btn').style.display = 'none';
+            document.getElementById('word-check-btn').style.display = 'block';
+            document.getElementById('word-skip-btn').style.display = 'block';
+            showWordQ();
+        }
+        function showWordQ() {
+            if (wordIdx >= wordBank.length) {
+                document.getElementById('word-scrambled').textContent = `🏆 Done! ${wordScore}/10`;
+                document.getElementById('word-feedback').textContent = wordScore >= 8 ? '🌟 Word Master!' : '👍 Keep it up!';
+                document.getElementById('word-start-btn').style.display = 'block';
+                document.getElementById('word-start-btn').textContent = '🔄 Play Again';
+                document.getElementById('word-check-btn').style.display = 'none';
+                document.getElementById('word-skip-btn').style.display = 'none';
+                return;
+            }
+            const { word, hint } = wordBank[wordIdx];
+            document.getElementById('word-scrambled').textContent = scramble(word);
+            document.getElementById('word-scrambled').dataset.ans = word;
+            document.getElementById('word-feedback').textContent = `💡 Hint: ${hint}`;
+            document.getElementById('word-input').value = '';
+            document.getElementById('word-qnum').textContent = wordIdx + 1;
+            document.getElementById('word-score').textContent = wordScore;
+        }
+        function checkWord() {
+            const typed = document.getElementById('word-input').value.trim().toUpperCase();
+            const ans = document.getElementById('word-scrambled').dataset.ans;
+            if (typed === ans) { wordScore++; document.getElementById('word-feedback').textContent = '✅ Correct!'; }
+            else { document.getElementById('word-feedback').textContent = `❌ Answer: ${ans}`; }
+            wordIdx++;
+            setTimeout(showWordQ, 1000);
+        }
+        function nextWord() { wordIdx++; showWordQ(); }
+
+        // ======= LOGIC PATTERNS =======
+        const logicQs = [
+            { seq: '2, 4, 8, 16, ?', ans: 32, opts: [24, 32, 18, 20] },
+            { seq: '3, 6, 9, 12, ?', ans: 15, opts: [15, 14, 16, 13] },
+            { seq: '1, 4, 9, 16, ?', ans: 25, opts: [20, 25, 24, 21] },
+            { seq: '5, 10, 20, 40, ?', ans: 80, opts: [70, 80, 60, 75] },
+            { seq: '1, 2, 4, 7, 11, ?', ans: 16, opts: [14, 15, 16, 13] },
+            { seq: '100, 50, 25, ?', ans: 12.5, opts: [12, 12.5, 15, 10] },
+            { seq: '1, 3, 7, 15, 31, ?', ans: 63, opts: [60, 61, 62, 63] },
+            { seq: '2, 6, 12, 20, 30, ?', ans: 42, opts: [36, 40, 42, 44] },
+            { seq: '10, 9, 7, 4, ?', ans: 0, opts: [1, 0, -1, 2] },
+            { seq: '1, 1, 2, 3, 5, 8, ?', ans: 13, opts: [10, 11, 12, 13] },
+        ];
+        let logicIdx = 0, logicScore = 0;
+        function startLogic() {
+            logicIdx = 0; logicScore = 0;
+            document.getElementById('logic-start-btn').style.display = 'none';
+            showLogicQ();
+        }
+        function showLogicQ() {
+            if (logicIdx >= logicQs.length) {
+                document.getElementById('logic-sequence').textContent = `🏆 Score: ${logicScore}/10`;
+                document.getElementById('logic-options').innerHTML = '';
+                document.getElementById('logic-feedback').textContent = logicScore >= 8 ? '🧠 Logic Master!' : '💪 Great effort!';
+                document.getElementById('logic-start-btn').style.display = 'block';
+                document.getElementById('logic-start-btn').textContent = '🔄 Play Again';
+                return;
+            }
+            const q = logicQs[logicIdx];
+            document.getElementById('logic-qnum').textContent = logicIdx + 1;
+            document.getElementById('logic-score').textContent = logicScore;
+            document.getElementById('logic-sequence').textContent = q.seq;
+            document.getElementById('logic-feedback').textContent = '';
+            const oDiv = document.getElementById('logic-options');
+            oDiv.innerHTML = '';
+            [...q.opts].sort(() => Math.random() - 0.5).forEach(o => {
+                const btn = document.createElement('button');
+                btn.className = 'math-opt';
+                btn.textContent = o;
+                btn.onclick = () => checkLogic(btn, o, q.ans);
+                oDiv.appendChild(btn);
+            });
+        }
+        function checkLogic(btn, chosen, ans) {
+            if (chosen == ans) { logicScore++; btn.classList.add('correct'); document.getElementById('logic-feedback').textContent = '✅ Correct!'; }
+            else { btn.classList.add('wrong'); document.getElementById('logic-feedback').textContent = `❌ Answer: ${ans}`; document.querySelectorAll('#logic-options .math-opt').forEach(b => { if (b.textContent == ans) b.classList.add('correct'); }); }
+            document.getElementById('logic-score').textContent = logicScore;
+            logicIdx++;
+            setTimeout(showLogicQ, 1300);
+        }
+    </script>
+</body>
+</html>
