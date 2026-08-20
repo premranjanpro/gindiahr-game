@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Memory Card Game for Kids | GIndia Game</title>
+<meta name="description" content="Fun memory card flip game for kids! Match emoji pairs, beat the clock. GIndia Game — free educational games from Patna, India."/>
+<meta name="keywords" content="memory game kids, card flip game kids india, educational game kids online, free kids game india"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#6D28D9,#A855F7);min-height:100vh;display:flex;flex-direction:column;}
+nav{background:rgba(255,255,255,.12);padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);}
+.nl{font-size:18px;font-weight:900;color:#fff;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.12);text-decoration:none;}
+.game-wrap{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px;}
+/* INTRO */
+.intro{text-align:center;max-width:440px;margin:auto;}
+.intro h1{font-size:36px;font-weight:900;color:#fff;margin-bottom:8px;}
+.intro p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;}
+.start-btn{background:#fff;color:#6D28D9;border:none;padding:14px 36px;border-radius:24px;font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;cursor:pointer;transition:all .2s;}
+.start-btn:hover{transform:scale(1.04);}
+/* HUD */
+.hud{background:rgba(255,255,255,.15);border-radius:16px;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;width:100%;max-width:480px;margin-bottom:16px;}
+.hud-item{text-align:center;}.hud-val{font-size:22px;font-weight:900;color:#fff;}.hud-lbl{font-size:10px;color:rgba(255,255,255,.65);text-transform:uppercase;}
+/* GRID */
+.grid{display:grid;gap:10px;width:100%;max-width:480px;}
+.grid.g4{grid-template-columns:repeat(4,1fr);}
+.grid.g5{grid-template-columns:repeat(5,1fr);}
+.card{aspect-ratio:1;border-radius:14px;cursor:pointer;perspective:600px;transition:transform .1s;}
+.card:hover .inner{box-shadow:0 0 0 3px rgba(255,255,255,.5);}
+.card.flipped .inner{transform:rotateY(180deg);}
+.card.matched .inner{box-shadow:0 0 0 3px #22c55e;}
+.inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.front,.back{position:absolute;inset:0;border-radius:14px;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;}
+.back{background:#fff;font-size:clamp(20px,6vw,36px);transform:rotateY(180deg);}
+.front{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));border:2px solid rgba(255,255,255,.25);font-size:clamp(20px,5vw,30px);}
+/* RESULT */
+.result{text-align:center;max-width:380px;margin:auto;}
+.result h2{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;}
+.stars{font-size:36px;margin-bottom:12px;letter-spacing:4px;}
+.result p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:22px;}
+.rbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.rbtn{background:#fff;color:#6D28D9;border:none;padding:12px 24px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;cursor:pointer;}
+.rbtn.out{background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.4);}
+.hide{display:none;}
+footer{text-align:center;padding:14px;font-size:12px;color:rgba(255,255,255,.4);}footer a{color:rgba(255,255,255,.6);}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🎮 GIndia Game</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="math-quiz.html">Math</a>
+<a href="word-game.html">Words</a>
+</div>
+</nav>
+
+<div class="game-wrap">
+<div class="intro" id="intro">
+<h1>🃏 Memory Match!</h1>
+<p>Flip cards and find matching emoji pairs. Remember where they are!</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
+<button class="start-btn" style="font-size:15px;padding:11px 24px;" onclick="initGame(4)">😊 Easy (4×4)</button>
+<button class="start-btn" style="font-size:15px;padding:11px 24px;" onclick="initGame(5)">🔥 Hard (5×5)</button>
+</div>
+</div>
+
+<div class="hud hide" id="hud">
+<div class="hud-item"><div class="hud-val" id="h-pairs">0</div><div class="hud-lbl">Pairs Found</div></div>
+<div class="hud-item"><div class="hud-val" id="h-moves">0</div><div class="hud-lbl">Moves</div></div>
+<div class="hud-item"><div class="hud-val" id="h-time">0:00</div><div class="hud-lbl">Time</div></div>
+</div>
+
+<div class="grid g4 hide" id="grid"></div>
+
+<div class="result hide" id="result">
+<h2>🎉 You Did It!</h2>
+<div class="stars" id="rstars"></div>
+<p id="rmsg"></p>
+<div class="rbtns">
+<button class="rbtn" onclick="initGame(lastSize)">🔄 Play Again</button>
+<button class="rbtn out" onclick="showIntro()">🏠 Menu</button>
+</div>
+</div>
+</div>
+
+<footer>© 2025 GIndia Game — Free Kids Games | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var ems=["🐱","🐶","🐘","🦁","🐬","🦜","🌈","⭐","🍎","🌺","🚀","🎸","🎯","🍕","🌙","💎","🦋","🐢","🎃","🏆","🦄","🧩","🎪","🌟","🦊"];
+var flipped=[],matched=[],moves=0,pairs=0,timer=null,secs=0,lastSize=4;
+
+function showIntro(){
+  document.getElementById("intro").classList.remove("hide");
+  document.getElementById("hud").classList.add("hide");
+  document.getElementById("grid").classList.add("hide");
+  document.getElementById("result").classList.add("hide");
+  if(timer)clearInterval(timer);
+}
+
+function initGame(sz){
+  lastSize=sz;
+  document.getElementById("intro").classList.add("hide");
+  document.getElementById("result").classList.add("hide");
+  var hud=document.getElementById("hud");hud.classList.remove("hide");
+  var g=document.getElementById("grid");
+  g.className="grid "+(sz===4?"g4":"g5");
+  g.classList.remove("hide");
+  var total=sz*sz;
+  var pick=ems.slice(0,Math.floor(total/2));
+  if(total%2!==0){pick.push("🎉");}
+  var deck=pick.concat(pick);
+  deck.sort(function(){return Math.random()-.5;});
+  g.innerHTML="";
+  flipped=[];matched=[];moves=0;pairs=0;secs=0;
+  updateHud();
+  deck.forEach(function(em,i){
+    var card=document.createElement("div");card.className="card";card.dataset.em=em;card.dataset.idx=i;
+    card.innerHTML='<div class="inner"><div class="front">?</div><div class="back">'+em+'</div></div>';
+    card.onclick=function(){flipCard(card);};
+    g.appendChild(card);
+  });
+  if(timer)clearInterval(timer);
+  timer=setInterval(function(){secs++;var m=Math.floor(secs/60),s=secs%60;document.getElementById("h-time").textContent=m+":"+(s<10?"0":"")+s;},1000);
+}
+
+function flipCard(card){
+  if(card.classList.contains("flipped")||card.classList.contains("matched")||flipped.length>=2)return;
+  card.classList.add("flipped");flipped.push(card);
+  if(flipped.length===2){moves++;updateHud();check();}
+}
+
+function check(){
+  var a=flipped[0],b=flipped[1];
+  if(a.dataset.em===b.dataset.em){
+    setTimeout(function(){a.classList.add("matched");b.classList.add("matched");pairs++;updateHud();flipped=[];
+      var total=document.getElementById("grid").querySelectorAll(".card").length;
+      if(pairs===Math.floor(total/2))endGame();
+    },400);
+  }else{
+    setTimeout(function(){a.classList.remove("flipped");b.classList.remove("flipped");flipped=[];},900);
+  }
+}
+
+function updateHud(){
+  document.getElementById("h-pairs").textContent=pairs;
+  document.getElementById("h-moves").textContent=moves;
+}
+
+function endGame(){
+  clearInterval(timer);
+  var efficiency=pairs/moves;
+  var stars=efficiency>=.7?"⭐⭐⭐":efficiency>=.5?"⭐⭐":"⭐";
+  var msg=efficiency>=.7?"Amazing memory! You are a match master!":efficiency>=.5?"Great job! Very good memory!":"Good effort! Practice makes perfect!";
+  document.getElementById("hud").classList.add("hide");
+  document.getElementById("grid").classList.add("hide");
+  var r=document.getElementById("result");r.classList.remove("hide");
+  document.getElementById("rstars").textContent=stars;
+  document.getElementById("rmsg").textContent=msg+" ("+moves+" moves, "+document.getElementById("h-time").textContent+")";
+}
+</script>
+</body>
+</html>

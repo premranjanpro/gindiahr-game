@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Math Quiz for Kids | Fun Number Game | GIndia Game</title>
+<meta name="description" content="Fun math quiz game for kids! Addition, subtraction, multiplication. Stars and scores. GIndia Game — free educational games from Patna, India."/>
+<meta name="keywords" content="math quiz kids, fun maths game kids india, addition subtraction game kids, kids educational game online india"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#1e3a8a,#3b82f6);min-height:100vh;display:flex;flex-direction:column;}
+nav{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);padding:0 20px;height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.15);}
+.nl{font-size:18px;font-weight:900;color:#fff;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.12);text-decoration:none;}
+.game-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+/* SCREENS */
+.screen{display:none;width:100%;max-width:440px;text-align:center;}
+.screen.show{display:block;}
+/* INTRO */
+.intro-title{font-size:38px;font-weight:900;color:#fff;margin-bottom:8px;}
+.intro-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:28px;}
+.level-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.lvl-btn{background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;padding:10px 22px;border-radius:24px;cursor:pointer;transition:all .2s;}
+.lvl-btn.sel{background:#fff;color:#1e3a8a;}
+.start-btn{background:#fff;color:#1e3a8a;border:none;padding:14px 36px;border-radius:24px;font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;cursor:pointer;transition:all .2s;}
+.start-btn:hover{transform:scale(1.04);}
+/* GAME */
+.hud{background:rgba(255,255,255,.15);border-radius:20px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.hud-item{text-align:center;}.hud-val{font-size:22px;font-weight:900;color:#fff;}.hud-lbl{font-size:11px;color:rgba(255,255,255,.65);text-transform:uppercase;}
+.qbox{background:#fff;border-radius:24px;padding:32px 24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,.2);}
+.qtxt{font-size:36px;font-weight:900;color:#1e3a8a;margin-bottom:6px;}
+.qsub{font-size:14px;color:#888;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.opt{background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.3);color:#fff;font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;padding:16px;border-radius:16px;cursor:pointer;transition:all .2s;}
+.opt:hover:not([disabled]){background:rgba(255,255,255,.3);transform:scale(1.03);}
+.opt.correct{background:#22c55e;border-color:#22c55e;}
+.opt.wrong{background:#ef4444;border-color:#ef4444;}
+.progress-bar{background:rgba(255,255,255,.2);border-radius:20px;height:8px;margin-bottom:6px;overflow:hidden;}
+.progress-fill{height:100%;background:#fff;border-radius:20px;transition:width .3s;}
+.progress-txt{font-size:12px;color:rgba(255,255,255,.7);text-align:right;}
+/* RESULT */
+.score-circle{width:120px;height:120px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;}
+.score-num{font-size:36px;font-weight:900;color:#1e3a8a;}
+.score-lbl{font-size:11px;color:#888;}
+.stars-row{font-size:32px;margin-bottom:14px;letter-spacing:4px;}
+.result-msg{font-size:18px;font-weight:800;color:#fff;margin-bottom:20px;}
+.result-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.rbtn{background:#fff;color:#1e3a8a;border:none;padding:12px 24px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;cursor:pointer;}
+.rbtn.outline{background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.4);}
+footer{text-align:center;padding:14px;font-size:12px;color:rgba(255,255,255,.4);}footer a{color:rgba(255,255,255,.6);}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🎮 GIndia Game</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="memory-game.html">Memory</a>
+<a href="word-game.html">Words</a>
+</div>
+</nav>
+
+<div class="game-wrap">
+<!-- INTRO -->
+<div class="screen show" id="intro-screen">
+<div class="intro-title">🧮 Math Quiz!</div>
+<div class="intro-sub">Test your number skills! Answer 10 questions and earn stars!</div>
+<div class="level-row">
+<button class="lvl-btn sel" id="lvl-easy" onclick="setLevel('easy',this)">😊 Easy (1-10)</button>
+<button class="lvl-btn" id="lvl-mid" onclick="setLevel('medium',this)">🤔 Medium (1-20)</button>
+<button class="lvl-btn" id="lvl-hard" onclick="setLevel('hard',this)">🔥 Hard (1-50)</button>
+</div>
+<button class="start-btn" onclick="startGame()">▶ Start Quiz!</button>
+</div>
+
+<!-- GAME -->
+<div class="screen" id="game-screen" style="width:100%;max-width:440px;">
+<div class="hud">
+<div class="hud-item"><div class="hud-val" id="score-hud">0</div><div class="hud-lbl">Score</div></div>
+<div class="hud-item"><div class="hud-val" id="q-hud">1/10</div><div class="hud-lbl">Question</div></div>
+<div class="hud-item"><div class="hud-val" id="streak-hud">0🔥</div><div class="hud-lbl">Streak</div></div>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+<div class="progress-txt" id="prog-txt">Question 1 of 10</div>
+<div class="qbox" style="margin-top:14px;">
+<div class="qtxt" id="qtxt"></div>
+<div class="qsub">What is the answer?</div>
+</div>
+<div class="opts" id="opts"></div>
+</div>
+
+<!-- RESULT -->
+<div class="screen" id="result-screen">
+<div class="score-circle"><div class="score-num" id="final-score">0</div><div class="score-lbl">Points</div></div>
+<div class="stars-row" id="stars"></div>
+<div class="result-msg" id="result-msg"></div>
+<div class="result-btns">
+<button class="rbtn" onclick="startGame()">🔄 Play Again</button>
+<button class="rbtn outline" onclick="showIntro()">🏠 Menu</button>
+</div>
+</div>
+</div>
+
+<footer>© 2025 GIndia Game — Free Kids Games | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var level="easy",score=0,qIdx=0,streak=0,total=10,answered=false;
+var ops=["+","-","x"];
+
+function setLevel(l,btn){
+  level=l;
+  document.querySelectorAll(".lvl-btn").forEach(function(b){b.classList.remove("sel");});
+  btn.classList.add("sel");
+}
+
+function getRange(){return level==="easy"?10:level==="medium"?20:50;}
+
+function genQ(){
+  var r=getRange();
+  var a=Math.floor(Math.random()*r)+1;
+  var b=Math.floor(Math.random()*r)+1;
+  var op=ops[Math.floor(Math.random()*ops.length)];
+  var ans;
+  if(op==="+"){ans=a+b;}
+  else if(op==="-"){if(a<b){var t=a;a=b;b=t;}ans=a-b;}
+  else{ans=a*b;}
+  var opSym=op==="x"?"×":op;
+  return{text:a+" "+opSym+" "+b+" = ?",ans:ans};
+}
+
+function genOpts(correct){
+  var opts=new Set([correct]);
+  while(opts.size<4){
+    var r=getRange();
+    var fake=Math.max(0,correct+Math.floor((Math.random()-.5)*r));
+    opts.add(fake);
+  }
+  return Array.from(opts).sort(function(){return Math.random()-.5;});
+}
+
+var curQ=null;
+
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("show");});
+  document.getElementById(id).classList.add("show");
+}
+function showIntro(){showScreen("intro-screen");}
+
+function startGame(){
+  score=0;qIdx=0;streak=0;answered=false;
+  showScreen("game-screen");
+  loadQ();
+}
+
+function loadQ(){
+  if(qIdx>=total){showResult();return;}
+  answered=false;
+  curQ=genQ();
+  document.getElementById("qtxt").textContent=curQ.text;
+  document.getElementById("q-hud").textContent=(qIdx+1)+"/"+total;
+  document.getElementById("score-hud").textContent=score;
+  document.getElementById("streak-hud").textContent=streak+"🔥";
+  var pct=((qIdx)/total)*100;
+  document.getElementById("prog").style.width=pct+"%";
+  document.getElementById("prog-txt").textContent="Question "+(qIdx+1)+" of "+total;
+  var optArr=genOpts(curQ.ans);
+  var oc=document.getElementById("opts");oc.innerHTML="";
+  optArr.forEach(function(o){
+    var btn=document.createElement("button");
+    btn.className="opt";btn.textContent=o;
+    btn.onclick=function(){if(!answered)checkAns(o,btn);};
+    oc.appendChild(btn);
+  });
+}
+
+function checkAns(val,btn){
+  answered=true;
+  if(val===curQ.ans){
+    btn.classList.add("correct");
+    score+=streak>=3?150:100;
+    streak++;
+  }else{
+    btn.classList.add("wrong");
+    streak=0;
+    document.querySelectorAll(".opt").forEach(function(b){
+      if(parseInt(b.textContent)===curQ.ans)b.classList.add("correct");
+    });
+  }
+  document.querySelectorAll(".opt").forEach(function(b){b.disabled=true;});
+  setTimeout(function(){qIdx++;loadQ();},1200);
+}
+
+function showResult(){
+  showScreen("result-screen");
+  document.getElementById("final-score").textContent=score;
+  var pct=score/(total*150);
+  var stars=pct>=.9?"⭐⭐⭐":pct>=.7?"⭐⭐":pct>=.5?"⭐":"";
+  document.getElementById("stars").textContent=stars;
+  var msg=pct>=.9?"🎉 Outstanding! Math Champion!":pct>=.7?"😊 Great job! Well done!":pct>=.5?"👍 Good effort! Keep practising!":"💪 Try again — you can do better!";
+  document.getElementById("result-msg").textContent=msg;
+}
+</script>
+</body>
+</html>
