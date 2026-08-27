@@ -218,6 +218,18 @@
         .game-card.colorcatch::after { background: var(--red); }
         .game-card.colorcatch:hover { box-shadow: 0 20px 48px rgba(239,68,68,0.2); }
 
+        .game-card.cricket { border-color: #34D399; background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+        .game-card.cricket::after { background: #059669; }
+        .game-card.cricket:hover { box-shadow: 0 20px 48px rgba(5,150,105,0.3); }
+
+        .game-card.highway { border-color: #FBBF24; background: linear-gradient(135deg, #FFFBEB, #FEF3C7); }
+        .game-card.highway::after { background: #D97706; }
+        .game-card.highway:hover { box-shadow: 0 20px 48px rgba(217,119,6,0.3); }
+
+        .game-card.snakesladders { border-color: #C084FC; background: linear-gradient(135deg, #FAF5FF, #F3E8FF); }
+        .game-card.snakesladders::after { background: #9333EA; }
+        .game-card.snakesladders:hover { box-shadow: 0 20px 48px rgba(147,51,234,0.3); }
+
         .game-icon {
             font-size: 52px; margin-bottom: 12px; display: block;
             animation: iconBob 3s ease-in-out infinite;
@@ -570,15 +582,39 @@
                 <!-- ANTIGRAVITY LADOO CHOR -->
                 <div class="game-card ladoochor">
                     <span class="game-icon">🐭</span>
-                    <div class="diff-badge diff-hot">🔥 New Antigravity</div>
+                    <div class="diff-badge diff-hot">🔥 Antigravity</div>
                     <h3>Antigravity Ladoo Chor</h3>
                     <p>Tap / Space to invert gravity! Chintu the mouse sprints on ceiling & floor, snatching delicious motichoor ladoos 🟡 while dodging sneaky cats 🐱!</p>
                     <button class="play-btn" onclick="openGame('ladoochor')" id="play-ladoochor">▶ Launch Antigravity</button>
                 </div>
+                <!-- CRICKET SUPER OVER -->
+                <div class="game-card cricket">
+                    <span class="game-icon">🏏</span>
+                    <div class="diff-badge diff-hot">🔥 Super Over</div>
+                    <h3>Cricket Super Over</h3>
+                    <p>Step onto the pitch! Face 6 intense deliveries, time your shot to perfection, and smash thrilling 6s & 4s to chase the target!</p>
+                    <button class="play-btn" onclick="openGame('cricket')" id="play-cricket">▶ Play Cricket</button>
+                </div>
+                <!-- PATNA HIGHWAY RUSH -->
+                <div class="game-card highway">
+                    <span class="game-icon">🏎️</span>
+                    <div class="diff-badge diff-new">✨ Highway Racer</div>
+                    <h3>Patna Highway Rush</h3>
+                    <p>Steer your retro supercar on the Grand Trunk highway! Dodge auto-rickshaws 🛺 and buses 🚌 while collecting hot samosas 🥟!</p>
+                    <button class="play-btn" onclick="openGame('highway')" id="play-highway">▶ Start Engine</button>
+                </div>
+                <!-- SAANP SEEDHI VS AI BOT -->
+                <div class="game-card snakesladders">
+                    <span class="game-icon">🐍</span>
+                    <div class="diff-badge diff-easy">🎲 Classic Board</div>
+                    <h3>Saanp-Seedhi vs AI Bot</h3>
+                    <p>India's favourite classic board game! Roll the 3D dice, climb golden ladders 🪜, dodge dangerous cobras 🐍 and beat AI Chintu Bot!</p>
+                    <button class="play-btn" onclick="openGame('snakesladders')" id="play-snakesladders">▶ Roll Dice</button>
+                </div>
                 <!-- WAY FINDER MAZE -->
                 <div class="game-card wayfinder">
                     <span class="game-icon">🧭</span>
-                    <div class="diff-badge diff-new">✨ New Maze Puzzle</div>
+                    <div class="diff-badge diff-new">✨ Maze Puzzle</div>
                     <h3>Way Finder: Maze Adventure</h3>
                     <p>Guide the lost puppy 🐶 through winding maze pathways to reach home 🏡! Multi-level challenges with AI shortest-path hints!</p>
                     <button class="play-btn" onclick="openGame('wayfinder')" id="play-wayfinder">▶ Play Maze</button>
@@ -718,6 +754,90 @@
                 <div style="display:flex; gap:10px; margin-top:12px;">
                     <button class="start-btn" onclick="showMazeAIHint()" style="background:#059669; flex:1; font-size:15px; padding:10px;">🤖 AI Shortest Path Hint</button>
                     <button class="start-btn" onclick="initMazeGame()" style="background:#E2E8F0; color:var(--text); flex:1; font-size:15px; padding:10px;">🔄 New Maze</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CRICKET SUPER OVER MODAL -->
+    <div class="modal-overlay" id="modal-cricket">
+        <div class="modal" style="max-width:520px;">
+            <button class="modal-close" onclick="closeGame('cricket')">✕</button>
+            <h2 style="color:#059669;">🏏 Cricket Super Over</h2>
+            <p class="modal-desc">Face 6 balls, time your shot with the pitch gauge, and smash thrilling 6s & 4s!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Runs: <span class="score-val" id="cricket-score" style="color:#059669;">0</span>/<span id="cricket-wickets" style="color:var(--red);">0</span></span>
+                    <span>Balls: <span class="score-val" id="cricket-balls" style="color:var(--orange);">0/6</span></span>
+                    <span>Target: <span class="score-val" id="cricket-target" style="color:var(--amber);">18</span> 🏆</span>
+                </div>
+                <div style="position:relative; width:100%; border-radius:18px; overflow:hidden; border:3px solid #34D399; box-shadow:0 8px 24px rgba(5,150,105,0.2);">
+                    <canvas id="cricket-canvas" width="440" height="300" style="display:block; width:100%; background:#1E293B;"></canvas>
+                    <div id="cricket-overlay" style="position:absolute; inset:0; background:rgba(15,23,42,0.85); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center; color:#fff;">
+                        <div style="font-size:52px; margin-bottom:8px;">🏏 🏟️ 🏆</div>
+                        <h3 id="cricket-over-title" style="font-family:'Fredoka One',cursive; font-size:24px; color:#34D399; margin-bottom:6px;">Match Day: Super Over!</h3>
+                        <p id="cricket-over-sub" style="font-size:14px; color:#94A3B8; margin-bottom:16px;">Target: 18 runs in 6 balls. Watch the pitch marker and tap at the green sweet spot!</p>
+                        <button class="start-btn" onclick="startCricketGame()" style="background:linear-gradient(135deg,#059669,#10B981); width:auto; padding:12px 32px; border-radius:50px;">🚀 Start Match!</button>
+                    </div>
+                </div>
+                <div id="cricket-commentary" style="font-family:'Fredoka One',cursive; font-size:18px; color:#059669; text-align:center; min-height:28px; margin-top:10px;">Ready for the first ball!</div>
+                <button class="ladoo-flip-btn" id="cricket-hit-btn" onclick="triggerCricketHit()" style="background:linear-gradient(135deg,#059669,#10B981);">
+                    🏏 SMASH SHOT (TAP / SPACE) 🏏
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PATNA HIGHWAY RUSH MODAL -->
+    <div class="modal-overlay" id="modal-highway">
+        <div class="modal" style="max-width:500px;">
+            <button class="modal-close" onclick="closeGame('highway')">✕</button>
+            <h2 style="color:#D97706;">🏎️ Patna Highway Rush</h2>
+            <p class="modal-desc">Steer your racer on the Grand Trunk highway! Dodge autos 🛺, collect hot samosas 🥟!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Distance: <span class="score-val" id="highway-score" style="color:#D97706;">0m</span></span>
+                    <span>Samosas: <span class="score-val" id="highway-samosas" style="color:var(--amber);">0</span> 🥟</span>
+                    <span>Speed: <span class="score-val" id="highway-speed" style="color:var(--red);">60 km/h</span></span>
+                </div>
+                <div style="position:relative; width:100%; border-radius:18px; overflow:hidden; border:3px solid #FBBF24; box-shadow:0 8px 24px rgba(217,119,6,0.2);">
+                    <canvas id="highway-canvas" width="380" height="340" style="display:block; width:100%; background:#1E293B;"></canvas>
+                    <div id="highway-overlay" style="position:absolute; inset:0; background:rgba(15,23,42,0.85); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center; color:#fff;">
+                        <div style="font-size:52px; margin-bottom:8px;">🏎️ 🛺 🥟</div>
+                        <h3 id="highway-over-title" style="font-family:'Fredoka One',cursive; font-size:24px; color:#FBBF24; margin-bottom:6px;">Patna Grand Trunk Highway!</h3>
+                        <p id="highway-over-sub" style="font-size:14px; color:#94A3B8; margin-bottom:16px;">Use Left/Right arrows or tap buttons to dodge traffic and grab samosas!</p>
+                        <button class="start-btn" onclick="startHighwayGame()" style="background:linear-gradient(135deg,#F59E0B,#D97706); width:auto; padding:12px 32px; border-radius:50px;">🏁 Start Engine!</button>
+                    </div>
+                </div>
+                <div style="display:flex; gap:12px; margin-top:12px;">
+                    <button class="ladoo-flip-btn" onclick="moveHighwayCar(-1)" style="flex:1; background:#D97706; margin:0; padding:14px;">⬅️ STEER LEFT</button>
+                    <button class="ladoo-flip-btn" onclick="moveHighwayCar(1)" style="flex:1; background:#D97706; margin:0; padding:14px;">STEER RIGHT ➡️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAANP SEEDHI (SNAKES & LADDERS) MODAL -->
+    <div class="modal-overlay" id="modal-snakesladders">
+        <div class="modal" style="max-width:540px;">
+            <button class="modal-close" onclick="closeGame('snakesladders')">✕</button>
+            <h2 style="color:#9333EA;">🐍 Saanp-Seedhi vs AI Bot</h2>
+            <p class="modal-desc">Roll the dice, climb golden ladders 🪜, dodge cobras 🐍 and beat AI Chintu Bot to 100!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>🔴 You: <strong id="snakes-player-pos" style="color:var(--red);">1</strong></span>
+                    <span>🔵 AI Chintu: <strong id="snakes-bot-pos" style="color:var(--blue);">1</strong></span>
+                    <span>🎲 Dice: <strong id="snakes-dice-val" style="color:#9333EA;">-</strong></span>
+                </div>
+                <div style="position:relative; width:100%; border-radius:18px; overflow:hidden; border:3px solid #C084FC; box-shadow:0 8px 24px rgba(147,51,234,0.2);">
+                    <canvas id="snakes-canvas" width="380" height="380" style="display:block; width:100%; background:#FFFDF9;"></canvas>
+                </div>
+                <div id="snakes-log" style="font-size:14px; font-weight:700; color:#9333EA; text-align:center; min-height:24px; margin-top:8px;">Your turn! Roll the dice! 🎲</div>
+                <div style="display:flex; gap:10px; margin-top:10px;">
+                    <button class="ladoo-flip-btn" id="snakes-roll-btn" onclick="rollSnakesDice()" style="flex:2; background:linear-gradient(135deg,#9333EA,#A855F7); margin:0;">
+                        🎲 ROLL DICE (TAP) 🎲
+                    </button>
+                    <button class="board-btn" onclick="initSnakesGame()" style="flex:1; background:#E2E8F0; color:var(--text); padding:10px; font-size:14px;">🔄 Reset</button>
                 </div>
             </div>
         </div>
@@ -940,17 +1060,24 @@
     <script>
         // ======= UTILITY =======
         function openGame(name) {
-            document.getElementById('modal-' + name).classList.add('open');
+            const m = document.getElementById('modal-' + name);
+            if (m) m.classList.add('open');
             if (name === 'ladoochor') initLadooGame();
             if (name === 'wayfinder') initMazeGame();
+            if (name === 'cricket') initCricketGame();
+            if (name === 'highway') initHighwayGame();
+            if (name === 'snakesladders') initSnakesGame();
             if (name === 'memory') initMemory();
             if (name === 'runner') initRunnerCanvas();
             document.querySelector('.header-links').classList.remove('open');
         }
         function closeGame(name) {
-            document.getElementById('modal-' + name).classList.remove('open');
+            const m = document.getElementById('modal-' + name);
+            if (m) m.classList.remove('open');
             if (name === 'ladoochor') stopLadooGame();
             if (name === 'wayfinder') stopMazeGame();
+            if (name === 'cricket') stopCricketGame();
+            if (name === 'highway') stopHighwayGame();
             if (name === 'math') clearInterval(mathInterval);
             if (name === 'gk') clearInterval(gkInterval);
             if (name === 'typing') clearInterval(typeInterval);
@@ -2323,6 +2450,657 @@
             mazeCtx.textAlign = 'center';
             mazeCtx.textBaseline = 'middle';
             mazeCtx.fillText('🐶', px, py);
+        }
+
+        // ==========================================
+        // 🏏 CRICKET SUPER OVER GAME ENGINE
+        // ==========================================
+        let cricketCanvas, cricketCtx;
+        let cricketRunning = false, cricketScore = 0, cricketWickets = 0, cricketBalls = 0;
+        let cricketTarget = 18;
+        let cricketBallState = 'idle'; // idle, bowling, hit, out
+        let ballX = 220, ballY = 60, ballZ = 0.3, ballVx = 0, ballVy = 0;
+        let ballPitchProgress = 0;
+        let cricketAnimFrame = null;
+        let ballType = 'fast';
+
+        function initCricketGame() {
+            cricketCanvas = document.getElementById('cricket-canvas');
+            if (cricketCanvas) cricketCtx = cricketCanvas.getContext('2d');
+            document.getElementById('cricket-overlay').style.display = 'flex';
+            document.getElementById('cricket-over-title').textContent = 'Match Day: Super Over!';
+            document.getElementById('cricket-over-sub').textContent = 'Target: 18 runs in 6 balls. Time your shot when the ball reaches the pitch crease!';
+            renderCricketScene();
+        }
+
+        function startCricketGame() {
+            cricketScore = 0; cricketWickets = 0; cricketBalls = 0;
+            cricketTarget = 18;
+            cricketRunning = true;
+            document.getElementById('cricket-overlay').style.display = 'none';
+            document.getElementById('cricket-score').textContent = '0';
+            document.getElementById('cricket-wickets').textContent = '0';
+            document.getElementById('cricket-balls').textContent = '0/6';
+            document.getElementById('cricket-target').textContent = cricketTarget;
+            document.getElementById('cricket-commentary').textContent = 'Bowler is marking his run-up... Ready!';
+            
+            setTimeout(bowlNextCricketBall, 1200);
+        }
+
+        function stopCricketGame() {
+            cricketRunning = false;
+            if (cricketAnimFrame) cancelAnimationFrame(cricketAnimFrame);
+        }
+
+        function bowlNextCricketBall() {
+            if (!cricketRunning) return;
+            if (cricketBalls >= 6 || cricketWickets >= 2 || cricketScore >= cricketTarget) {
+                endCricketMatch();
+                return;
+            }
+
+            cricketBallState = 'bowling';
+            ballX = 220 + (Math.random() * 40 - 20);
+            ballY = 60;
+            ballZ = 0.2;
+            ballPitchProgress = 0;
+            
+            const types = ['fast', 'spin', 'yorker', 'bouncer'];
+            ballType = types[Math.floor(Math.random() * types.length)];
+            document.getElementById('cricket-commentary').textContent = `Ball ${cricketBalls + 1}: Bowler runs in (${ballType.toUpperCase()})...`;
+            
+            playSynthSound('flip');
+            lastCricketTime = performance.now();
+            if (cricketAnimFrame) cancelAnimationFrame(cricketAnimFrame);
+            cricketLoop();
+        }
+
+        let lastCricketTime = 0;
+        function cricketLoop() {
+            if (!cricketRunning) return;
+            const now = performance.now();
+            const dt = (now - lastCricketTime) / 1000;
+            lastCricketTime = now;
+
+            if (cricketBallState === 'bowling') {
+                const speed = ballType === 'fast' ? 1.4 : ballType === 'yorker' ? 1.6 : 1.1;
+                ballPitchProgress += dt * speed;
+                ballY = 60 + ballPitchProgress * 190;
+                ballZ = 0.2 + ballPitchProgress * 0.8;
+
+                if (ballPitchProgress >= 1.25) {
+                    // Batter missed the ball!
+                    cricketBallState = 'missed';
+                    handleCricketMiss();
+                }
+            } else if (cricketBallState === 'hit') {
+                ballX += ballVx * dt * 60;
+                ballY += ballVy * dt * 60;
+                ballZ = Math.max(0.1, ballZ - dt * 0.4);
+            }
+
+            renderCricketScene();
+
+            if (cricketBallState === 'bowling' || cricketBallState === 'hit') {
+                cricketAnimFrame = requestAnimationFrame(cricketLoop);
+            }
+        }
+
+        function triggerCricketHit() {
+            if (cricketBallState !== 'bowling') return;
+
+            // Timing calculation: optimal sweet spot is ballPitchProgress between 0.85 and 1.05
+            const progress = ballPitchProgress;
+            cricketBallState = 'hit';
+            cricketBalls++;
+            document.getElementById('cricket-balls').textContent = `${cricketBalls}/6`;
+
+            if (progress >= 0.88 && progress <= 1.02) {
+                // 🚀 MASSIVE SIX!
+                const runs = 6;
+                cricketScore += runs;
+                ballVx = (Math.random() - 0.5) * 8;
+                ballVy = -12;
+                document.getElementById('cricket-commentary').innerHTML = '🚀 <span style="color:#059669;">MASSIVE SIX! Out of the ground! 🎉</span>';
+                playSynthSound('katli');
+                vibratePhone(40);
+                launchConfetti();
+            } else if (progress >= 0.75 && progress <= 1.12) {
+                // 🏏 CRACKING FOUR!
+                const runs = 4;
+                cricketScore += runs;
+                ballVx = (Math.random() - 0.5) * 12;
+                ballVy = -8;
+                document.getElementById('cricket-commentary').innerHTML = '🏏 <span style="color:#2563EB;">CRACKING FOUR through the covers! ⚡</span>';
+                playSynthSound('ladoo');
+                vibratePhone(25);
+            } else if (progress >= 0.60 && progress <= 1.20) {
+                // Quick 2 runs
+                const runs = 2;
+                cricketScore += runs;
+                ballVx = (Math.random() - 0.5) * 6;
+                ballVy = -4;
+                document.getElementById('cricket-commentary').textContent = '🏃 Quick 2 runs taken between the wickets!';
+                playSynthSound('ladoo');
+            } else {
+                // Edged and Caught! Wicket!
+                cricketWickets++;
+                document.getElementById('cricket-wickets').textContent = cricketWickets;
+                ballVx = (Math.random() - 0.5) * 4;
+                ballVy = -4;
+                document.getElementById('cricket-commentary').innerHTML = '❌ <span style="color:#DC2626;">OUT! Edged and caught by keeper!</span>';
+                playSynthSound('hit');
+                vibratePhone(50);
+            }
+
+            document.getElementById('cricket-score').textContent = cricketScore;
+
+            setTimeout(() => {
+                if (cricketBalls < 6 && cricketWickets < 2 && cricketScore < cricketTarget) {
+                    bowlNextCricketBall();
+                } else {
+                    endCricketMatch();
+                }
+            }, 1800);
+        }
+
+        function handleCricketMiss() {
+            cricketBalls++;
+            document.getElementById('cricket-balls').textContent = `${cricketBalls}/6`;
+            // Check if bowled
+            if (Math.random() > 0.4) {
+                cricketWickets++;
+                document.getElementById('cricket-wickets').textContent = cricketWickets;
+                document.getElementById('cricket-commentary').innerHTML = '🔥 <span style="color:#DC2626;">CLEAN BOWLED! Timber! 🪵</span>';
+                playSynthSound('hit');
+                vibratePhone(60);
+            } else {
+                document.getElementById('cricket-commentary').textContent = 'Dot ball! Swing and a miss!';
+                playSynthSound('hit');
+            }
+
+            setTimeout(() => {
+                if (cricketBalls < 6 && cricketWickets < 2 && cricketScore < cricketTarget) {
+                    bowlNextCricketBall();
+                } else {
+                    endCricketMatch();
+                }
+            }, 1800);
+        }
+
+        function endCricketMatch() {
+            cricketRunning = false;
+            const won = cricketScore >= cricketTarget;
+            document.getElementById('cricket-overlay').style.display = 'flex';
+            document.getElementById('cricket-over-title').textContent = won ? '🏆 VICTORY! Match Won!' : '💔 Defeat! Good Effort!';
+            document.getElementById('cricket-over-sub').textContent = won 
+                ? `Sensational batting! You scored ${cricketScore} runs and chased down ${cricketTarget}!`
+                : `You scored ${cricketScore}/${cricketWickets}. Needed ${cricketTarget} to win. Play again!`;
+            if (won) launchConfetti();
+        }
+
+        function renderCricketScene() {
+            if (!cricketCtx) return;
+            const ctx = cricketCtx;
+            const w = cricketCanvas.width, h = cricketCanvas.height;
+
+            // Stadium grass gradient
+            const grass = ctx.createLinearGradient(0, 0, 0, h);
+            grass.addColorStop(0, '#065F46');
+            grass.addColorStop(1, '#047857');
+            ctx.fillStyle = grass;
+            ctx.fillRect(0, 0, w, h);
+
+            // Pitch trapezoid
+            ctx.fillStyle = '#D4A373';
+            ctx.beginPath();
+            ctx.moveTo(190, 50);
+            ctx.lineTo(250, 50);
+            ctx.lineTo(290, 270);
+            ctx.lineTo(150, 270);
+            ctx.closePath();
+            ctx.fill();
+
+            // Crease lines
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 3;
+            // Bowling crease
+            ctx.beginPath();
+            ctx.moveTo(180, 55);
+            ctx.lineTo(260, 55);
+            ctx.stroke();
+
+            // Batting crease (Sweet spot target zone)
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.beginPath();
+            ctx.moveTo(155, 245);
+            ctx.lineTo(285, 245);
+            ctx.stroke();
+
+            // Sweet spot highlight zone
+            ctx.fillStyle = 'rgba(52, 211, 153, 0.25)';
+            ctx.fillRect(150, 230, 140, 30);
+
+            // Stumps at bowler's end
+            ctx.fillStyle = '#FEF08A';
+            ctx.fillRect(216, 38, 8, 14);
+
+            // Stumps at batter's end
+            ctx.fillStyle = '#FEF08A';
+            ctx.fillRect(212, 260, 16, 22);
+
+            // Bowler icon (top)
+            ctx.font = '28px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🏃', 220, 42);
+
+            // Batter icon (bottom right)
+            ctx.font = '36px sans-serif';
+            ctx.fillText('🏏', 255, 265);
+
+            // Ball render
+            if (cricketBallState === 'bowling' || cricketBallState === 'hit' || cricketBallState === 'missed') {
+                const radius = Math.max(4, 14 * ballZ);
+                
+                // Ball Shadow on pitch
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.beginPath();
+                ctx.ellipse(ballX, ballY + radius * 0.8, radius, radius * 0.4, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Shiny Red Cricket Ball
+                const ballGrad = ctx.createRadialGradient(ballX - radius * 0.3, ballY - radius * 0.3, radius * 0.1, ballX, ballY, radius);
+                ballGrad.addColorStop(0, '#EF4444');
+                ballGrad.addColorStop(1, '#991B1B');
+                ctx.fillStyle = ballGrad;
+                ctx.beginPath();
+                ctx.arc(ballX, ballY, radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // White seam on ball
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.arc(ballX, ballY, radius * 0.7, 0, Math.PI);
+                ctx.stroke();
+            }
+        }
+
+        // ==========================================
+        // 🏎️ PATNA HIGHWAY RUSH GAME ENGINE
+        // ==========================================
+        let highwayCanvas, highwayCtx;
+        let highwayRunning = false, highwayDist = 0, highwaySamosas = 0, highwaySpeed = 60;
+        let highwayCarLane = 1; // 0=Left, 1=Middle, 2=Right
+        let highwayObstacles = [];
+        let highwayItems = [];
+        let highwayRoadOffset = 0;
+        let highwayAnimFrame = null;
+        const laneX = [95, 190, 285];
+
+        function initHighwayGame() {
+            highwayCanvas = document.getElementById('highway-canvas');
+            if (highwayCanvas) highwayCtx = highwayCanvas.getContext('2d');
+            document.getElementById('highway-overlay').style.display = 'flex';
+            renderHighwayScene();
+        }
+
+        function startHighwayGame() {
+            highwayDist = 0; highwaySamosas = 0; highwaySpeed = 60;
+            highwayCarLane = 1;
+            highwayObstacles = [];
+            highwayItems = [];
+            highwayRunning = true;
+            document.getElementById('highway-overlay').style.display = 'none';
+            document.getElementById('highway-score').textContent = '0m';
+            document.getElementById('highway-samosas').textContent = '0';
+            document.getElementById('highway-speed').textContent = '60 km/h';
+
+            lastHighwayTime = performance.now();
+            if (highwayAnimFrame) cancelAnimationFrame(highwayAnimFrame);
+            highwayLoop();
+        }
+
+        function stopHighwayGame() {
+            highwayRunning = false;
+            if (highwayAnimFrame) cancelAnimationFrame(highwayAnimFrame);
+        }
+
+        function moveHighwayCar(dir) {
+            if (!highwayRunning) return;
+            highwayCarLane = Math.max(0, Math.min(2, highwayCarLane + dir));
+            playSynthSound('flip');
+            vibratePhone(15);
+        }
+
+        let lastHighwayTime = 0;
+        let lastHighwaySpawn = 0;
+        function highwayLoop() {
+            if (!highwayRunning) return;
+            const now = performance.now();
+            const dt = (now - lastHighwayTime) / 1000;
+            lastHighwayTime = now;
+
+            highwayDist += dt * highwaySpeed * 1.5;
+            highwaySpeed = Math.min(140, 60 + Math.floor(highwayDist / 80) * 5);
+            highwayRoadOffset = (highwayRoadOffset + dt * highwaySpeed * 8) % 40;
+
+            document.getElementById('highway-score').textContent = `${Math.floor(highwayDist)}m`;
+            document.getElementById('highway-speed').textContent = `${highwaySpeed} km/h`;
+
+            // Spawning traffic obstacles & samosas
+            if (now - lastHighwaySpawn > Math.max(900, 2200 - highwaySpeed * 12)) {
+                lastHighwaySpawn = now;
+                const lane = Math.floor(Math.random() * 3);
+                const types = ['🛺', '🚌', '🚛', '🚕'];
+                highwayObstacles.push({
+                    lane: lane,
+                    y: -50,
+                    emoji: types[Math.floor(Math.random() * types.length)],
+                    speed: 20 + Math.random() * 20
+                });
+
+                // Spawn samosa occasionally
+                if (Math.random() > 0.4) {
+                    const freeLane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
+                    highwayItems.push({
+                        lane: freeLane,
+                        y: -80,
+                        emoji: Math.random() > 0.3 ? '🥟' : '☕',
+                        pts: 10
+                    });
+                }
+            }
+
+            // Update obstacles
+            for (let i = highwayObstacles.length - 1; i >= 0; i--) {
+                const obs = highwayObstacles[i];
+                obs.y += (highwaySpeed - obs.speed) * dt * 4;
+
+                // Collision detection with player car (at y=270)
+                if (obs.lane === highwayCarLane && obs.y > 230 && obs.y < 310) {
+                    // CRASH!
+                    highwayRunning = false;
+                    playSynthSound('hit');
+                    vibratePhone(70);
+                    document.getElementById('highway-overlay').style.display = 'flex';
+                    document.getElementById('highway-over-title').textContent = '💥 Highway Crash!';
+                    document.getElementById('highway-over-sub').textContent = `Distance: ${Math.floor(highwayDist)}m | Samosas: ${highwaySamosas} 🥟`;
+                    return;
+                }
+
+                if (obs.y > 380) highwayObstacles.splice(i, 1);
+            }
+
+            // Update items
+            for (let i = highwayItems.length - 1; i >= 0; i--) {
+                const item = highwayItems[i];
+                item.y += highwaySpeed * dt * 4;
+
+                // Collection detection
+                if (item.lane === highwayCarLane && item.y > 240 && item.y < 300) {
+                    highwaySamosas++;
+                    document.getElementById('highway-samosas').textContent = highwaySamosas;
+                    playSynthSound('ladoo');
+                    vibratePhone(20);
+                    highwayItems.splice(i, 1);
+                    continue;
+                }
+
+                if (item.y > 380) highwayItems.splice(i, 1);
+            }
+
+            renderHighwayScene();
+            highwayAnimFrame = requestAnimationFrame(highwayLoop);
+        }
+
+        function renderHighwayScene() {
+            if (!highwayCtx) return;
+            const ctx = highwayCtx;
+            const w = highwayCanvas.width, h = highwayCanvas.height;
+
+            // Road Asphalt
+            ctx.fillStyle = '#1E293B';
+            ctx.fillRect(0, 0, w, h);
+
+            // Road side shoulders (Green grass)
+            ctx.fillStyle = '#15803D';
+            ctx.fillRect(0, 0, 35, h);
+            ctx.fillRect(w - 35, 0, 35, h);
+
+            // Lane Divider Lines
+            ctx.strokeStyle = '#FBBF24';
+            ctx.lineWidth = 4;
+            ctx.setLineDash([20, 20]);
+            ctx.lineDashOffset = -highwayRoadOffset;
+
+            // Lane 1 divider
+            ctx.beginPath();
+            ctx.moveTo(145, 0);
+            ctx.lineTo(145, h);
+            ctx.stroke();
+
+            // Lane 2 divider
+            ctx.beginPath();
+            ctx.moveTo(235, 0);
+            ctx.lineTo(235, h);
+            ctx.stroke();
+
+            ctx.setLineDash([]); // Reset dash
+
+            // Draw Items (Samosas / Chai)
+            highwayItems.forEach(it => {
+                ctx.font = '28px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(it.emoji, laneX[it.lane], it.y);
+            });
+
+            // Draw Obstacles (Autos, Buses, Trucks)
+            highwayObstacles.forEach(obs => {
+                ctx.font = '36px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(obs.emoji, laneX[obs.lane], obs.y);
+            });
+
+            // Draw Player Supercar
+            const px = laneX[highwayCarLane];
+            const py = 280;
+            ctx.font = '44px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🏎️', px, py);
+        }
+
+        // ==========================================
+        // 🐍 SAANP-SEEDHI (SNAKES & LADDERS) ENGINE
+        // ==========================================
+        let snakesCanvas, snakesCtx;
+        let playerPos = 1, botPos = 1;
+        let isPlayerTurn = true, isSnakesRolling = false;
+        const snakesLaddersData = {
+            ladders: { 4: 14, 9: 31, 20: 38, 28: 84, 40: 59, 51: 67, 63: 81, 71: 91 },
+            snakes: { 98: 28, 95: 56, 88: 24, 62: 18, 48: 16, 36: 6 }
+        };
+
+        function initSnakesGame() {
+            snakesCanvas = document.getElementById('snakes-canvas');
+            if (snakesCanvas) snakesCtx = snakesCanvas.getContext('2d');
+            playerPos = 1; botPos = 1;
+            isPlayerTurn = true; isSnakesRolling = false;
+            document.getElementById('snakes-player-pos').textContent = '1';
+            document.getElementById('snakes-bot-pos').textContent = '1';
+            document.getElementById('snakes-dice-val').textContent = '-';
+            document.getElementById('snakes-log').textContent = 'Your turn! Tap ROLL DICE! 🎲';
+            renderSnakesBoard();
+        }
+
+        function rollSnakesDice() {
+            if (!isPlayerTurn || isSnakesRolling) return;
+            isSnakesRolling = true;
+            playSynthSound('flip');
+
+            let rolls = 0;
+            const diceInterval = setInterval(() => {
+                const tempVal = Math.floor(Math.random() * 6) + 1;
+                document.getElementById('snakes-dice-val').textContent = tempVal;
+                rolls++;
+                if (rolls > 8) {
+                    clearInterval(diceInterval);
+                    const dice = Math.floor(Math.random() * 6) + 1;
+                    document.getElementById('snakes-dice-val').textContent = dice;
+                    vibratePhone(30);
+
+                    // Move player
+                    if (playerPos + dice <= 100) {
+                        playerPos += dice;
+                        checkSnakesLadders('player');
+                    } else {
+                        document.getElementById('snakes-log').textContent = `Need exact ${100 - playerPos} to win!`;
+                    }
+                    document.getElementById('snakes-player-pos').textContent = playerPos;
+                    renderSnakesBoard();
+
+                    if (playerPos === 100) {
+                        document.getElementById('snakes-log').innerHTML = '🎉 <span style="color:#10B981;">YOU WON! Congratulations! 🏆</span>';
+                        playSynthSound('katli');
+                        launchConfetti();
+                        isSnakesRolling = false;
+                        return;
+                    }
+
+                    // Trigger AI Chintu Bot turn after delay
+                    isPlayerTurn = false;
+                    document.getElementById('snakes-log').textContent = 'AI Chintu Bot is rolling... 🤖';
+                    setTimeout(botSnakesTurn, 1400);
+                }
+            }, 70);
+        }
+
+        function botSnakesTurn() {
+            const dice = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('snakes-dice-val').textContent = `🤖 ${dice}`;
+            playSynthSound('flip');
+
+            if (botPos + dice <= 100) {
+                botPos += dice;
+                checkSnakesLadders('bot');
+            }
+            document.getElementById('snakes-bot-pos').textContent = botPos;
+            renderSnakesBoard();
+
+            if (botPos === 100) {
+                document.getElementById('snakes-log').innerHTML = '💔 <span style="color:#EF4444;">AI Chintu Won! Try again!</span>';
+                playSynthSound('hit');
+                isSnakesRolling = false;
+                return;
+            }
+
+            isPlayerTurn = true;
+            isSnakesRolling = false;
+            document.getElementById('snakes-log').textContent = 'Your turn! Tap ROLL DICE! 🎲';
+        }
+
+        function checkSnakesLadders(who) {
+            const currentPos = who === 'player' ? playerPos : botPos;
+            if (snakesLaddersData.ladders[currentPos]) {
+                const newPos = snakesLaddersData.ladders[currentPos];
+                if (who === 'player') playerPos = newPos; else botPos = newPos;
+                document.getElementById('snakes-log').innerHTML = `🪜 <span style="color:#059669;">${who === 'player' ? 'You' : 'Chintu'} climbed a LADDER from ${currentPos} to ${newPos}!</span>`;
+                playSynthSound('ladoo');
+                vibratePhone(30);
+            } else if (snakesLaddersData.snakes[currentPos]) {
+                const newPos = snakesLaddersData.snakes[currentPos];
+                if (who === 'player') playerPos = newPos; else botPos = newPos;
+                document.getElementById('snakes-log').innerHTML = `🐍 <span style="color:#DC2626;">${who === 'player' ? 'You' : 'Chintu'} bitten by a SNAKE from ${currentPos} down to ${newPos}!</span>`;
+                playSynthSound('hit');
+                vibratePhone(50);
+            }
+        }
+
+        function getSnakesCoordinates(tile) {
+            const row = Math.floor((tile - 1) / 10);
+            let col = (tile - 1) % 10;
+            if (row % 2 === 1) col = 9 - col; // Boustrophedon zigzag
+            const x = col * 38 + 19;
+            const y = 380 - (row * 38 + 19);
+            return { x, y };
+        }
+
+        function renderSnakesBoard() {
+            if (!snakesCtx) return;
+            const ctx = snakesCtx;
+            ctx.clearRect(0, 0, 380, 380);
+
+            // Draw 100 Squares
+            for (let tile = 1; tile <= 100; tile++) {
+                const { x, y } = getSnakesCoordinates(tile);
+                const isEven = (Math.floor((tile - 1) / 10) + (tile % 10)) % 2 === 0;
+                ctx.fillStyle = tile === 100 ? '#FEF08A' : isEven ? '#F8FAFC' : '#EFF6FF';
+                ctx.fillRect(x - 19, y - 19, 38, 38);
+                ctx.strokeStyle = '#CBD5E1';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(x - 19, y - 19, 38, 38);
+
+                ctx.fillStyle = '#64748B';
+                ctx.font = '10px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(tile, x - 16, y - 6);
+            }
+
+            // Draw Ladders (Gold lines with rungs)
+            Object.entries(snakesLaddersData.ladders).forEach(([from, to]) => {
+                const p1 = getSnakesCoordinates(parseInt(from));
+                const p2 = getSnakesCoordinates(parseInt(to));
+                ctx.strokeStyle = '#D97706';
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+
+                ctx.font = '16px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('🪜', (p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
+            });
+
+            // Draw Snakes (Red curvy indicators)
+            Object.entries(snakesLaddersData.snakes).forEach(([from, to]) => {
+                const p1 = getSnakesCoordinates(parseInt(from));
+                const p2 = getSnakesCoordinates(parseInt(to));
+                ctx.strokeStyle = '#EF4444';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.quadraticCurveTo((p1.x + p2.x) / 2 + 20, (p1.y + p2.y) / 2, p2.x, p2.y);
+                ctx.stroke();
+
+                ctx.font = '18px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('🐍', p1.x, p1.y + 4);
+            });
+
+            // Draw AI Bot Token 🔵
+            const botCoord = getSnakesCoordinates(botPos);
+            ctx.fillStyle = '#3B82F6';
+            ctx.beginPath();
+            ctx.arc(botCoord.x + 6, botCoord.y + 6, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw Player Token 🔴
+            const playerCoord = getSnakesCoordinates(playerPos);
+            ctx.fillStyle = '#EF4444';
+            ctx.beginPath();
+            ctx.arc(playerCoord.x - 6, playerCoord.y - 6, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFF';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.fillStyle = '#FFF';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('YOU', playerCoord.x - 6, playerCoord.y - 3);
         }
 
         // ======= BG SHAPES =======
