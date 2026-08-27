@@ -2,404 +2,610 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIndia Game | Free Educational Games for Students | Math, GK Quiz & Brain Games Online India</title>
-    <meta name="description" content="GIndia Game – Free educational games for students in India. Play Math Blitz, GK Quiz, Memory Match, Word Builder, Typing Sprint and Logic Puzzles. Fun learning games for kids and students online." />
-    <meta name="keywords" content="free educational games for students, math games for kids India, GK quiz game online India, brain games for children, typing speed game online, memory game for students, word game online India, free learning games" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GIndia Game | 10 Free Online Games for Students India | Antigravity Ladoo Chor, Maze Way Finder, Math & Arcade</title>
+    <meta name="description" content="Play 10 free interactive games for students & kids in India! Antigravity Ladoo Chor, Way Finder Maze, Math Blitz, GK Quiz, Memory Match, Color Catch & Cyber Runner. 100% Free, Mobile Ready." />
+    <meta name="keywords" content="Antigravity Ladoo Chor game, Way Finder maze game, free online games for students India, math quiz online, typing game free, Indian GK quiz, brain training games, GIndia Game" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://game.gindiahr.com/" />
-    <meta property="og:title" content="GIndia Game | Free Educational Games Online India" />
-    <meta property="og:description" content="Play free educational games – Math, GK Quiz, Memory, Word Building, Typing Sprint. Fun and learning combined!" />
+    <meta property="og:title" content="GIndia Game | 10 Free Online Games for Students & Kids" />
+    <meta property="og:description" content="Play free games – Antigravity Ladoo Chor, Way Finder Maze, Math Blitz, GK Quiz, Memory Match, Cyber Runner. Fun and learning combined! 100% Free, Mobile Ready." />
     <meta property="og:url" content="https://game.gindiahr.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="GIndiaHR Group" />
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"GIndiaHR Group","alternateName":["GIndia","GIndia Group","Global India HR Solutions"],"url":"https://gindiahr.com","logo":"https://gindiahr.com/images/logo/logo.png","sameAs":["https://tech.gindiahr.com","https://hello24.gindiahr.com","https://kids.gindiahr.com","https://game.gindiahr.com","https://social.gindiahr.com"],"contactPoint":{"@type":"ContactPoint","telephone":"+91-6202254762","contactType":"sales"}}
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-76x76.png">
+    <link rel="apple-touch-icon" href="favicon-76x76.png">
 
     <style>
         :root {
-            --purple: #5B21B6;
-            --purple-light: #7C3AED;
-            --yellow: #D97706;
-            --pink: #BE185D;
-            --cyan: #0284C7;
-            --green: #059669;
-            --red: #DC2626;
-            --orange: #EA580C;
-            --bg: #FFFFFF;
-            --card: #FFFFFF;
+            --orange: #F97316;
+            --yellow: #FBBF24;
+            --green: #22C55E;
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+            --pink: #EC4899;
+            --cyan: #06B6D4;
+            --red: #EF4444;
+            --emerald: #10B981;
+            --amber: #D97706;
+            --text: #1E293B;
+            --sub: #64748B;
             --border: #E2E8F0;
-            --white: #1A2030;
-            --text: #1A2030;
-            --text-sub: #5A6475;
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Nunito', sans-serif;
-            background: var(--bg);
+            background: #FFFDF9;
             color: var(--text);
+            min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* BG DECORATIVE SHAPES */
+        .bg-shapes {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .bg-shape {
+            position: absolute; border-radius: 50%;
+            opacity: 0.08; filter: blur(40px);
+            animation: floatShape linear infinite;
+        }
+        @keyframes floatShape {
+            0%,100% { transform: translate(0,0) scale(1); }
+            25% { transform: translate(30px,-40px) scale(1.1); }
+            50% { transform: translate(-20px,30px) scale(0.9); }
+            75% { transform: translate(40px,20px) scale(1.05); }
         }
 
         /* HEADER */
         header {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: #FFFFFF;
+            padding: 14px 20px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-bottom: 2px solid #FDE68A;
         }
         .header-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
         .logo {
-            font-family: 'Fredoka One', cursive;
-            font-size: 26px;
-            color: var(--yellow);
+            display: flex; align-items: center; gap: 10px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-        .logo span { color: var(--purple-light); }
-        .header-links { display: flex; gap: 16px; list-style: none; }
-        .header-links a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
-        .header-links a:hover { color: var(--yellow); }
+        .logo img { max-height: 46px; width: auto; border-radius: 6px; }
+        .logo-text {
+            font-family: 'Fredoka One', cursive; font-size: 24px;
+            background: linear-gradient(135deg, #F97316, #EF4444);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+        .header-links a {
+            background: #FEF3C7;
+            color: #92400E; text-decoration: none; font-size: 13px; font-weight: 700;
+            padding: 6px 14px; border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .header-links a:hover { background: #F97316; color: #fff; transform: scale(1.05); }
 
         /* HERO */
         .hero {
-            padding: 80px 24px 60px;
+            padding: 60px 20px 50px;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 70% 50% at 50% 30%, rgba(108,63,196,0.25), transparent),
-                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(245,158,11,0.15), transparent);
+            background: linear-gradient(180deg, #FFF7ED 0%, #FEF3C7 50%, #FFFBF5 100%);
         }
         .hero-content { position: relative; z-index: 1; }
-        .hero-emoji { font-size: 64px; animation: bounce 2s ease-in-out infinite; display: block; margin-bottom: 16px; }
-        @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-16px); } }
+        .hero-controller {
+            font-size: 72px;
+            animation: controllerFloat 2s ease-in-out infinite;
+            display: inline-block; margin-bottom: 16px;
+        }
+        @keyframes controllerFloat {
+            0%,100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-16px) rotate(3deg); }
+        }
         .hero h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: 60px;
-            line-height: 1.15;
-            margin-bottom: 16px;
-            background: linear-gradient(90deg, var(--yellow), var(--pink), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(32px, 6vw, 56px);
+            background: linear-gradient(135deg, #EA580C 0%, #DC2626 50%, #7C3AED 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 14px;
         }
-        .hero p { font-size: 18px; color: var(--text); opacity: 0.85; max-width: 560px; margin: 0 auto 32px; }
-        .hero-badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        .hero p {
+            font-size: clamp(15px, 2.5vw, 18px);
+            color: var(--sub); max-width: 600px;
+            margin: 0 auto 24px; line-height: 1.6;
+        }
+        .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
         .h-badge {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 50px;
-            padding: 6px 18px;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text);
+            background: #fff; border: 2px solid #FED7AA;
+            color: #C2410C; padding: 6px 16px; border-radius: 50px;
+            font-size: 13px; font-weight: 800; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
+        .hero-play-btn {
+            background: linear-gradient(135deg, #F97316, #EF4444);
+            color: #fff; border: none; padding: 14px 36px;
+            border-radius: 50px; font-family: 'Fredoka One', cursive;
+            font-size: 20px; cursor: pointer;
+            box-shadow: 0 8px 24px rgba(249,115,22,0.4);
+            transition: all 0.2s;
+        }
+        .hero-play-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 32px rgba(249,115,22,0.5); }
 
-        /* GAME GRID */
-        .games-section { padding: 60px 24px; }
-        .container { max-width: 1100px; margin: 0 auto; }
+        /* GAMES SECTION */
+        .games-section { padding: 40px 20px 60px; position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 40px;
-            text-align: center;
-            margin-bottom: 8px;
-            color: var(--white);
+            font-family: 'Fredoka One', cursive; font-size: 32px;
+            text-align: center; margin-bottom: 8px; color: var(--text);
         }
-        .section-sub { text-align: center; color: var(--text); opacity: 0.7; font-size: 16px; margin-bottom: 48px; }
+        .section-sub { text-align: center; color: var(--sub); margin-bottom: 36px; font-size: 15px; }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 24px;
         }
         .game-card {
-            background: var(--card);
-            border: 2px solid var(--border);
+            background: #fff;
             border-radius: 24px;
-            padding: 36px 28px;
+            padding: 28px 22px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
+            border: 3px solid transparent;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
         }
-        .game-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.3s;
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.12);
         }
-        .game-card.math::before { background: radial-gradient(circle at center, rgba(16,185,129,0.15), transparent 70%); }
-        .game-card.word::before { background: radial-gradient(circle at center, rgba(6,182,212,0.15), transparent 70%); }
-        .game-card.memory::before { background: radial-gradient(circle at center, rgba(236,72,153,0.15), transparent 70%); }
-        .game-card.gk::before { background: radial-gradient(circle at center, rgba(245,158,11,0.15), transparent 70%); }
-        .game-card.typing::before { background: radial-gradient(circle at center, rgba(249,115,22,0.15), transparent 70%); }
-        .game-card.logic::before { background: radial-gradient(circle at center, rgba(139,92,246,0.15), transparent 70%); }
-        .game-card:hover { transform: translateY(-10px) scale(1.02); }
-        .game-card:hover::before { opacity: 1; }
-        .game-card.math:hover { border-color: var(--green); box-shadow: 0 20px 60px rgba(16,185,129,0.25); }
-        .game-card.word:hover { border-color: var(--cyan); box-shadow: 0 20px 60px rgba(6,182,212,0.25); }
-        .game-card.memory:hover { border-color: var(--pink); box-shadow: 0 20px 60px rgba(236,72,153,0.25); }
-        .game-card.gk:hover { border-color: var(--yellow); box-shadow: 0 20px 60px rgba(245,158,11,0.25); }
-        .game-card.typing:hover { border-color: var(--orange); box-shadow: 0 20px 60px rgba(249,115,22,0.25); }
-        .game-card.logic:hover { border-color: var(--purple-light); box-shadow: 0 20px 60px rgba(139,92,246,0.25); }
+        .game-card::after {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 6px;
+        }
 
-        .game-icon { font-size: 56px; margin-bottom: 16px; display: block; animation: float 3s ease-in-out infinite; }
-        .game-card:nth-child(2) .game-icon { animation-delay: 0.4s; }
-        .game-card:nth-child(3) .game-icon { animation-delay: 0.8s; }
-        .game-card:nth-child(4) .game-icon { animation-delay: 1.2s; }
-        .game-card:nth-child(5) .game-icon { animation-delay: 1.6s; }
-        .game-card:nth-child(6) .game-icon { animation-delay: 2.0s; }
-        @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+        /* CARD THEMES */
+        .game-card.ladoochor { border-color: #FCD34D; background: linear-gradient(135deg, #FFFDF0, #FEF3C7); }
+        .game-card.ladoochor::after { background: var(--amber); }
+        .game-card.ladoochor:hover { box-shadow: 0 20px 48px rgba(217,119,6,0.25); }
 
-        .game-card h3 { font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 10px; }
-        .game-card p { font-size: 14px; color: var(--text); opacity: 0.75; line-height: 1.55; margin-bottom: 20px; }
+        .game-card.wayfinder { border-color: #6EE7B7; background: linear-gradient(135deg, #F0FDF4, #D1FAE5); }
+        .game-card.wayfinder::after { background: var(--emerald); }
+        .game-card.wayfinder:hover { box-shadow: 0 20px 48px rgba(16,185,129,0.25); }
+
+        .game-card.runner { border-color: #7DD3FC; background: linear-gradient(135deg, #F0F9FF, #E0F2FE); }
+        .game-card.runner::after { background: var(--cyan); }
+        .game-card.runner:hover { box-shadow: 0 20px 48px rgba(6,182,212,0.2); }
+
+        .game-card.math { border-color: #86EFAC; background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
+        .game-card.math::after { background: var(--green); }
+        .game-card.math:hover { box-shadow: 0 20px 48px rgba(34,197,94,0.2); }
+
+        .game-card.word { border-color: #93C5FD; background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
+        .game-card.word::after { background: var(--blue); }
+        .game-card.word:hover { box-shadow: 0 20px 48px rgba(59,130,246,0.2); }
+
+        .game-card.memory { border-color: #F9A8D4; background: linear-gradient(135deg, #FFF1F8, #FCE7F3); }
+        .game-card.memory::after { background: var(--pink); }
+        .game-card.memory:hover { box-shadow: 0 20px 48px rgba(236,72,153,0.2); }
+
+        .game-card.gk { border-color: #FDE68A; background: linear-gradient(135deg, #FFFBEB, #FEF3C7); }
+        .game-card.gk::after { background: var(--yellow); }
+        .game-card.gk:hover { box-shadow: 0 20px 48px rgba(245,158,11,0.2); }
+
+        .game-card.typing { border-color: #FDBA74; background: linear-gradient(135deg, #FFF7ED, #FFEDD5); }
+        .game-card.typing::after { background: var(--orange); }
+        .game-card.typing:hover { box-shadow: 0 20px 48px rgba(249,115,22,0.2); }
+
+        .game-card.logic { border-color: #C4B5FD; background: linear-gradient(135deg, #F5F3FF, #EDE9FE); }
+        .game-card.logic::after { background: var(--purple); }
+        .game-card.logic:hover { box-shadow: 0 20px 48px rgba(124,58,237,0.2); }
+
+        .game-card.colorcatch { border-color: #FCA5C0; background: linear-gradient(135deg, #FFF1F3, #FFE4E6); }
+        .game-card.colorcatch::after { background: var(--red); }
+        .game-card.colorcatch:hover { box-shadow: 0 20px 48px rgba(239,68,68,0.2); }
+
+        .game-icon {
+            font-size: 52px; margin-bottom: 12px; display: block;
+            animation: iconBob 3s ease-in-out infinite;
+        }
+        .game-card:nth-child(2) .game-icon { animation-delay: 0.3s; }
+        .game-card:nth-child(3) .game-icon { animation-delay: 0.6s; }
+        .game-card:nth-child(4) .game-icon { animation-delay: 0.9s; }
+        .game-card:nth-child(5) .game-icon { animation-delay: 1.2s; }
+        .game-card:nth-child(6) .game-icon { animation-delay: 1.5s; }
+        .game-card:nth-child(7) .game-icon { animation-delay: 1.8s; }
+        .game-card:nth-child(8) .game-icon { animation-delay: 2.1s; }
+        @keyframes iconBob {
+            0%,100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        .game-card h3 { font-family: 'Fredoka One', cursive; font-size: 20px; margin-bottom: 8px; color: var(--text); }
+        .game-card p { font-size: 14px; color: var(--sub); line-height: 1.55; margin-bottom: 16px; }
         .diff-badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
+            display: inline-block; font-size: 11px; font-weight: 800;
+            padding: 4px 12px; border-radius: 20px;
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;
         }
-        .diff-easy { background: rgba(16,185,129,0.2); color: #34d399; }
-        .diff-medium { background: rgba(245,158,11,0.2); color: #fbbf24; }
-        .diff-hard { background: rgba(239,68,68,0.2); color: #f87171; }
+        .diff-hot { background: #FEF3C7; color: #D97706; }
+        .diff-easy { background: #DCFCE7; color: #16A34A; }
+        .diff-medium { background: #FEF3C7; color: #D97706; }
+        .diff-hard { background: #FEE2E2; color: #DC2626; }
+        .diff-new { background: #E0F2FE; color: #0284C7; }
         .play-btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            font-weight: 800;
-            cursor: pointer;
-            border: none;
-            color: #fff;
-            transition: all 0.2s;
+            display: inline-block; padding: 10px 28px;
+            border-radius: 50px; font-family: 'Nunito', sans-serif;
+            font-size: 14px; font-weight: 800; cursor: pointer;
+            border: none; color: #fff; transition: all 0.2s;
             text-decoration: none;
         }
-        .play-btn:hover { transform: scale(1.05); }
+        .play-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .ladoochor .play-btn { background: linear-gradient(135deg, #F59E0B, #D97706); }
+        .wayfinder .play-btn { background: linear-gradient(135deg, #10B981, #059669); }
+        .runner .play-btn { background: var(--cyan); }
         .math .play-btn { background: var(--green); }
-        .word .play-btn { background: var(--cyan); }
+        .word .play-btn { background: var(--blue); }
         .memory .play-btn { background: var(--pink); }
         .gk .play-btn { background: var(--yellow); color: #000; }
         .typing .play-btn { background: var(--orange); }
-        .logic .play-btn { background: var(--purple-light); }
+        .logic .play-btn { background: var(--purple); }
+        .colorcatch .play-btn { background: var(--red); }
 
-        /* GAME MODALS */
+        /* MODALS */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: none; position: fixed; inset: 0;
+            background: rgba(30,41,59,0.6); backdrop-filter: blur(6px);
+            z-index: 1000; align-items: center; justify-content: center;
+            padding: 16px;
         }
         .modal-overlay.open { display: flex; }
         .modal {
-            background: #1a1030;
-            border: 2px solid rgba(255,255,255,0.15);
-            border-radius: 24px;
-            padding: 40px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            animation: popIn 0.3s ease;
+            background: #fff; border-radius: 24px; padding: 32px;
+            max-width: 620px; width: 100%; max-height: 90vh;
+            overflow-y: auto; position: relative;
+            animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18);
         }
-        @keyframes popIn { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
+        @keyframes popIn { from { opacity:0; transform: scale(0.8) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
         .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.5);
-            font-size: 24px;
-            cursor: pointer;
+            position: absolute; top: 14px; right: 18px;
+            background: #F1F5F9; border: none; color: var(--sub);
+            font-size: 20px; cursor: pointer;
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
         }
-        .modal-close:hover { color: #fff; }
-        .modal h2 { font-family: 'Fredoka One', cursive; font-size: 30px; margin-bottom: 8px; }
-        .modal-desc { color: var(--text); opacity: 0.75; font-size: 15px; margin-bottom: 24px; }
+        .modal-close:hover { background: #FEE2E2; color: var(--red); }
+        .modal h2 { font-family: 'Fredoka One', cursive; font-size: 26px; margin-bottom: 6px; color: var(--text); }
+        .modal-desc { color: var(--sub); font-size: 14px; margin-bottom: 20px; }
         .game-area { min-height: 200px; }
 
-        /* MATH GAME */
-        .math-display {
-            font-family: 'Fredoka One', cursive;
-            font-size: 52px;
-            text-align: center;
-            margin: 20px 0;
-            color: var(--green);
+        /* GAME UI COMPONENTS */
+        .game-score {
+            display: flex; justify-content: space-between; font-weight: 700;
+            font-size: 14px; margin-bottom: 12px; color: var(--text);
         }
-        .math-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .math-opt {
-            background: rgba(255,255,255,0.06);
-            border: 2px solid rgba(255,255,255,0.12);
-            border-radius: 14px;
-            padding: 18px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 28px;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
+        .score-val { font-family: 'Fredoka One', cursive; font-size: 18px; }
+        .timer-bar-wrap { background: #F1F5F9; border-radius: 50px; height: 8px; margin-bottom: 16px; }
+        .timer-bar { height: 100%; border-radius: 50px; transition: width 0.1s linear; }
+        .feedback {
+            text-align: center; font-family: 'Fredoka One', cursive;
+            font-size: 20px; min-height: 30px; margin-bottom: 8px; color: var(--text);
         }
-        .math-opt:hover { border-color: var(--green); background: rgba(16,185,129,0.15); }
-        .math-opt.correct { border-color: var(--green); background: rgba(16,185,129,0.3); }
-        .math-opt.wrong { border-color: var(--red); background: rgba(239,68,68,0.2); }
-        .game-score { display: flex; justify-content: space-between; font-weight: 700; font-size: 15px; margin-bottom: 16px; }
-        .score-val { color: var(--yellow); font-family: 'Fredoka One', cursive; font-size: 20px; }
-        .timer-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 50px; height: 8px; margin-bottom: 20px; }
-        .timer-bar { height: 100%; border-radius: 50px; background: linear-gradient(90deg, var(--green), var(--yellow)); transition: width 0.1s linear; }
-        .feedback { text-align: center; font-family: 'Fredoka One', cursive; font-size: 22px; min-height: 32px; margin-bottom: 8px; }
         .start-btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            border: none;
-            font-family: 'Fredoka One', cursive;
-            font-size: 22px;
-            color: #fff;
-            background: var(--green);
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-top: 12px;
+            display: block; width: 100%; padding: 14px;
+            border-radius: 14px; border: none;
+            font-family: 'Fredoka One', cursive; font-size: 20px;
+            color: #fff; cursor: pointer; transition: all 0.2s;
+            margin-top: 10px;
         }
-        .start-btn:hover { opacity: 0.85; transform: scale(1.02); }
+        .start-btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-        /* TYPING GAME */
-        .typing-word {
-            font-family: 'Fredoka One', cursive;
-            font-size: 52px;
+        /* ANTIGRAVITY LADOO CHOR */
+        .ladoo-wrap {
+            position: relative; width: 100%; max-width: 460px;
+            margin: 0 auto; border-radius: 20px; overflow: hidden;
+            border: 3px solid #FCD34D;
+            background: #FFFDF0;
+            box-shadow: 0 10px 30px rgba(245,158,11,0.25);
+            touch-action: none; user-select: none;
+        }
+        .ladoo-wrap canvas { display: block; width: 100%; height: auto; touch-action: none; }
+        .ladoo-overlay {
+            position: absolute; inset: 0;
+            background: rgba(255,255,255,0.94);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px; text-align: center;
+        }
+        .ladoo-flip-btn {
+            width: 100%; padding: 16px; margin-top: 10px;
+            border-radius: 16px; border: none;
+            background: linear-gradient(135deg, #F59E0B, #EA580C);
+            color: #fff; font-family: 'Fredoka One', cursive;
+            font-size: 22px; cursor: pointer;
+            box-shadow: 0 6px 20px rgba(245,158,11,0.4);
+            transition: all 0.15s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .ladoo-flip-btn:active { transform: scale(0.96); }
+
+        /* WAY FINDER MAZE */
+        .wayfinder-wrap {
+            position: relative; width: 100%; max-width: 420px;
+            margin: 0 auto; border-radius: 20px; overflow: hidden;
+            border: 3px solid #6EE7B7;
+            background: #F0FDF4;
+            box-shadow: 0 10px 30px rgba(16,185,129,0.25);
+            touch-action: none;
+        }
+        .wayfinder-wrap canvas { display: block; width: 100%; height: auto; touch-action: none; }
+        .dpad-container {
+            display: grid; grid-template-columns: repeat(3, 54px);
+            grid-template-rows: repeat(3, 54px); gap: 6px;
+            justify-content: center; margin-top: 12px;
+        }
+        .dpad-btn {
+            background: #F0FDF4; border: 2px solid #A7F3D0;
+            border-radius: 14px; font-size: 24px; color: #047857;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.15s; user-select: none;
+        }
+        .dpad-btn:active { background: #10B981; color: #fff; transform: scale(0.92); }
+        .dpad-up { grid-column: 2; grid-row: 1; }
+        .dpad-left { grid-column: 1; grid-row: 2; }
+        .dpad-center { grid-column: 2; grid-row: 2; background: #ECFDF5; border-color: #6EE7B7; font-size: 16px; font-weight: 800; }
+        .dpad-right { grid-column: 3; grid-row: 2; }
+        .dpad-down { grid-column: 2; grid-row: 3; }
+        .level-pills { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .level-pill {
+            padding: 6px 14px; border-radius: 50px; border: 2px solid #A7F3D0;
+            background: #fff; color: #047857; font-weight: 700; font-size: 12px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .level-pill.active { background: #10B981; color: #fff; border-color: #10B981; }
+
+        /* MATH */
+        .math-display {
+            font-family: 'Fredoka One', cursive; font-size: 48px;
+            text-align: center; margin: 16px 0; color: var(--green);
+        }
+        .math-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+        .math-opt {
+            background: #F8FAFC; border: 2px solid #E2E8F0;
+            border-radius: 14px; padding: 16px;
+            font-family: 'Fredoka One', cursive; font-size: 26px;
+            color: var(--text); cursor: pointer; transition: all 0.2s;
             text-align: center;
-            color: var(--orange);
-            margin: 16px 0;
-            letter-spacing: 4px;
+        }
+        .math-opt:hover { border-color: var(--green); background: #F0FDF4; transform: scale(1.03); }
+        .math-opt.correct { border-color: var(--green); background: #DCFCE7; }
+        .math-opt.wrong { border-color: var(--red); background: #FEE2E2; }
+
+        /* TYPING */
+        .typing-word {
+            font-family: 'Fredoka One', cursive; font-size: 44px;
+            text-align: center; color: var(--orange); margin: 12px 0; letter-spacing: 4px;
         }
         .typing-input {
-            width: 100%;
-            background: rgba(255,255,255,0.06);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 14px 18px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 20px;
-            color: #fff;
-            outline: none;
-            text-align: center;
+            width: 100%; background: #F8FAFC; border: 2px solid #E2E8F0;
+            border-radius: 12px; padding: 12px 16px;
+            font-family: 'Nunito', sans-serif; font-size: 20px;
+            color: var(--text); outline: none; text-align: center;
         }
-        .typing-input:focus { border-color: var(--orange); }
-        .wpm-display { font-family: 'Fredoka One', cursive; font-size: 40px; color: var(--yellow); text-align: center; margin: 12px 0; }
+        .typing-input:focus { border-color: var(--orange); background: #FFF7ED; }
+        .wpm-display { font-family: 'Fredoka One', cursive; font-size: 36px; color: var(--yellow); text-align: center; margin: 10px 0; }
 
-        /* MEMORY GAME */
-        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+        /* MEMORY */
+        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
         .mem-card {
-            aspect-ratio: 1;
-            background: rgba(236,72,153,0.2);
-            border: 2px solid rgba(236,72,153,0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            cursor: pointer;
-            transition: all 0.3s;
-            user-select: none;
+            aspect-ratio: 1; background: linear-gradient(135deg, #FCE7F3, #FFF1F8);
+            border: 2px solid #F9A8D4; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; cursor: pointer; transition: all 0.3s; user-select: none;
         }
-        .mem-card.flipped { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-        .mem-card.matched { background: rgba(16,185,129,0.25); border-color: var(--green); }
-        .mem-card.hidden-face { font-size: 28px; }
+        .mem-card:hover { transform: scale(1.05); }
+        .mem-card.flipped { background: #F8FAFC; border-color: #CBD5E1; }
+        .mem-card.matched { background: #DCFCE7; border-color: var(--green); }
+
+        /* RUNNER CANVAS */
+        .runner-wrap {
+            position: relative; width: 100%; max-width: 440px;
+            margin: 0 auto; border-radius: 16px; overflow: hidden;
+            border: 3px solid #7DD3FC;
+            box-shadow: 0 8px 24px rgba(6,182,212,0.2);
+        }
+        .runner-wrap canvas { display: block; width: 100%; touch-action: none; }
+        .runner-overlay {
+            position: absolute; inset: 0;
+            background: rgba(255,255,255,0.92);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px; text-align: center;
+        }
+        .runner-ctrl-row { display: flex; gap: 10px; margin-top: 12px; }
+        .runner-ctrl-btn {
+            flex: 1; padding: 12px 20px; border-radius: 12px;
+            border: 2px solid #BAE6FD; background: #F0F9FF;
+            font-family: 'Fredoka One', cursive; font-size: 16px;
+            color: var(--cyan); cursor: pointer; transition: all 0.2s;
+        }
+        .runner-ctrl-btn:hover { background: var(--cyan); color: #fff; }
+
+        /* COLOR CATCH GAME */
+        .colorcatch-area {
+            position: relative; width: 100%; max-width: 400px;
+            margin: 0 auto; height: 300px;
+            background: linear-gradient(180deg, #FFF1F3, #FFE4E6);
+            border-radius: 16px; overflow: hidden;
+            border: 3px solid #FCA5C0;
+            touch-action: none;
+        }
+        .color-target {
+            text-align: center; font-family: 'Fredoka One', cursive;
+            font-size: 22px; margin: 12px 0; color: var(--text);
+        }
+        .color-ball {
+            position: absolute; border-radius: 50%;
+            cursor: pointer; transition: transform 0.1s;
+        }
+        .color-ball:hover { transform: scale(1.2); }
+        .catch-bucket {
+            position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 60px; height: 30px;
+            background: var(--pink); border-radius: 8px 8px 0 0;
+            transition: left 0.1s;
+        }
 
         /* FEATURES */
-        .features { padding: 60px 24px; background: rgba(255,255,255,0.02); }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-        .feat-card { text-align: center; padding: 32px 20px; }
-        .feat-icon { font-size: 44px; margin-bottom: 14px; }
-        .feat-card h4 { font-family: 'Fredoka One', cursive; font-size: 20px; margin-bottom: 8px; }
-        .feat-card p { font-size: 14px; color: var(--text); opacity: 0.7; }
+        .features {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #F0FDF4, #ECFDF5);
+            position: relative; z-index: 1;
+        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 36px; }
+        .feat-card {
+            background: #fff; border-radius: 20px;
+            text-align: center; padding: 28px 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            transition: all 0.2s;
+        }
+        .feat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .feat-icon { font-size: 40px; margin-bottom: 12px; }
+        .feat-card h4 { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 6px; color: var(--text); }
+        .feat-card p { font-size: 14px; color: var(--sub); line-height: 1.5; }
 
         /* FOOTER */
-        footer { padding: 30px 24px; border-top: 1px solid var(--border); text-align: center; }
-        footer p { color: var(--text); opacity: 0.5; font-size: 13px; }
-        footer a { color: var(--yellow); text-decoration: none; }
+        footer {
+            background: #fff; border-top: 3px solid var(--border);
+            padding: 28px 20px; text-align: center;
+            position: relative; z-index: 1;
+        }
+        footer p { color: var(--sub); font-size: 13px; line-height: 1.6; }
+        footer a { color: var(--orange); text-decoration: none; font-weight: 700; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 38px; }
+            .header-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .header-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: #FFFFFF;
+                padding: 16px; gap: 8px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+                border-bottom: 2px solid #FDE68A;
+            }
+            .hero { padding: 40px 16px 32px; }
+            .hero-controller { font-size: 52px; }
             .games-grid { grid-template-columns: 1fr 1fr; }
-            .features-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 480px) {
-            .games-grid { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 30px; }
+            .games-grid { grid-template-columns: 1fr; }
+            .memory-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; }
             .math-options { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
+    <!-- BG SHAPES -->
+    <div class="bg-shapes" id="bg-shapes"></div>
 
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
-                <img src="images/logo/logo.jpg" alt="GINDiA Game Solutions" style="height:52px; width:auto; max-width:220px; object-fit:contain; filter: brightness(0) invert(1);">
+                <img src="images/logo/logo.png" alt="GIndia Game Logo">
+                <span class="logo-text">GIndia Game</span>
             </a>
-            <ul class="header-links">
-                <li><a href="#games">Games</a></li>
-                <li><a href="https://kids.gindiahr.com">Kids Zone</a></li>
-                <li><a href="https://gindiahr.com">GIndiaHR</a></li>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.header-links').classList.toggle('open')">☰</button>
+            <ul class="header-links" id="header-links">
+                <li><a href="#games">🎮 All 10 Games</a></li>
+                <li><a href="#" onclick="openGame('ladoochor')">🐭 Antigravity</a></li>
+                <li><a href="#" onclick="openGame('wayfinder')">🧭 Way Finder</a></li>
+                <li><a href="#" onclick="openGame('runner')">🚀 Runner</a></li>
+                <li><a href="#" onclick="openGame('math')">🔢 Math</a></li>
+                <li><a href="#" onclick="openGame('colorcatch')">🎯 Color Catch</a></li>
+                <li><a href="https://kids.gindiahr.com">👶 Kids Zone</a></li>
+                <li><a href="https://gindiahr.com">🏠 GIndiaHR</a></li>
             </ul>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
-            <span class="hero-emoji">🎮</span>
-            <h1>Learn. Play. Win!</h1>
-            <p>India's most fun educational game hub for students. Sharpen your brain with Math, GK, Vocabulary, Memory, Typing and Logic Games — completely free!</p>
-            <div class="hero-badge-row">
-                <span class="h-badge">🆓 100% Free</span>
-                <span class="h-badge">🧠 Brain Boosting</span>
-                <span class="h-badge">🏆 Score Tracking</span>
-                <span class="h-badge">📱 Mobile Friendly</span>
-                <span class="h-badge">🇮🇳 Made for India</span>
+            <div class="hero-controller">🎮</div>
+            <h1>Play. Learn. Conquer!</h1>
+            <p>India's ultimate free game arcade! Brain-sharpening puzzles, antigravity physics, reflex challenges, and educational fun — 10 exciting games, zero cost, instant play on any device!</p>
+            <div class="hero-badges">
+                <span class="h-badge">🆓 100% Free Forever</span>
+                <span class="h-badge">⚡ Instant Play (No Download)</span>
+                <span class="h-badge">📱 Mobile & Haptics Ready</span>
+                <span class="h-badge">🏆 High Score Leaderboards</span>
+                <span class="h-badge">🎯 10 Exciting Games</span>
             </div>
+            <button class="hero-play-btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+                🕹️ Start Playing Now!
+            </button>
         </div>
     </section>
 
     <section class="games-section" id="games">
         <div class="container">
             <h2 class="section-title">🕹️ Choose Your Game</h2>
-            <p class="section-sub">6 educational games. Infinite fun. Play directly in your browser — no download needed!</p>
+            <p class="section-sub">10 exciting games. Instant play. Pick your favourite and beat your high score!</p>
             <div class="games-grid">
+                <!-- ANTIGRAVITY LADOO CHOR -->
+                <div class="game-card ladoochor">
+                    <span class="game-icon">🐭</span>
+                    <div class="diff-badge diff-hot">🔥 New Antigravity</div>
+                    <h3>Antigravity Ladoo Chor</h3>
+                    <p>Tap / Space to invert gravity! Chintu the mouse sprints on ceiling & floor, snatching delicious motichoor ladoos 🟡 while dodging sneaky cats 🐱!</p>
+                    <button class="play-btn" onclick="openGame('ladoochor')" id="play-ladoochor">▶ Launch Antigravity</button>
+                </div>
+                <!-- WAY FINDER MAZE -->
+                <div class="game-card wayfinder">
+                    <span class="game-icon">🧭</span>
+                    <div class="diff-badge diff-new">✨ New Maze Puzzle</div>
+                    <h3>Way Finder: Maze Adventure</h3>
+                    <p>Guide the lost puppy 🐶 through winding maze pathways to reach home 🏡! Multi-level challenges with AI shortest-path hints!</p>
+                    <button class="play-btn" onclick="openGame('wayfinder')" id="play-wayfinder">▶ Play Maze</button>
+                </div>
+                <!-- CYBER RUNNER -->
+                <div class="game-card runner">
+                    <span class="game-icon">🚀</span>
+                    <div class="diff-badge diff-hot">🔥 Hot Arcade</div>
+                    <h3>Neon Sky Runner</h3>
+                    <p>Dodge cosmic obstacles, collect glowing energy gems, and chase the ultimate high score with lightning reflexes!</p>
+                    <button class="play-btn" onclick="openGame('runner')" id="play-runner">▶ Launch Arcade</button>
+                </div>
+                <!-- COLOR CATCH -->
+                <div class="game-card colorcatch">
+                    <span class="game-icon">🎯</span>
+                    <div class="diff-badge diff-new">✨ Arcade</div>
+                    <h3>Color Catch</h3>
+                    <p>Tap the correct colored balls as they fall! Tests your color recognition & reflexes. How many can you catch?</p>
+                    <button class="play-btn" onclick="openGame('colorcatch')" id="play-colorcatch">▶ Play Now</button>
+                </div>
                 <!-- MATH BLITZ -->
                 <div class="game-card math">
                     <span class="game-icon">🔢</span>
                     <div class="diff-badge diff-medium">Medium</div>
                     <h3>Math Blitz</h3>
-                    <p>Fast-paced arithmetic quiz. Solve Addition, Subtraction, Multiplication & Division questions before the timer runs out!</p>
+                    <p>Fast-paced arithmetic challenge! Solve +, -, ×, ÷ questions before the timer runs out! Beat your streak!</p>
                     <button class="play-btn" onclick="openGame('math')" id="play-math">▶ Play Now</button>
                 </div>
                 <!-- WORD BUILDER -->
@@ -407,7 +613,7 @@
                     <span class="game-icon">🔤</span>
                     <div class="diff-badge diff-easy">Easy</div>
                     <h3>Word Builder</h3>
-                    <p>Unscramble letters to form the correct word. Improve your English vocabulary and spelling skills!</p>
+                    <p>Unscramble the jumbled letters to form the correct word. Sharpen your vocabulary and spelling!</p>
                     <button class="play-btn" onclick="openGame('word')" id="play-word">▶ Play Now</button>
                 </div>
                 <!-- MEMORY MATCH -->
@@ -415,7 +621,7 @@
                     <span class="game-icon">🧩</span>
                     <div class="diff-badge diff-easy">Easy</div>
                     <h3>Memory Match</h3>
-                    <p>Flip cards and match emoji pairs. Train your visual memory and concentration — great for all ages!</p>
+                    <p>Flip cards and match emoji pairs! Train your visual memory and concentration — great for all ages!</p>
                     <button class="play-btn" onclick="openGame('memory')" id="play-memory">▶ Play Now</button>
                 </div>
                 <!-- GK QUIZ -->
@@ -423,7 +629,7 @@
                     <span class="game-icon">🇮🇳</span>
                     <div class="diff-badge diff-medium">Medium</div>
                     <h3>India GK Quiz</h3>
-                    <p>Test your knowledge on Indian History, Geography, Science, Sports and Current Affairs. 4 options, 30 seconds!</p>
+                    <p>Test your knowledge on Indian History, Geography, Science & Sports. 4 options, 30 seconds per question!</p>
                     <button class="play-btn" onclick="openGame('gk')" id="play-gk">▶ Play Now</button>
                 </div>
                 <!-- TYPING SPRINT -->
@@ -431,7 +637,7 @@
                     <span class="game-icon">⌨️</span>
                     <div class="diff-badge diff-hard">Hard</div>
                     <h3>Typing Sprint</h3>
-                    <p>Type the displayed words as fast and accurately as possible. Track your WPM (Words Per Minute) score!</p>
+                    <p>Type displayed words as fast and accurately as possible. Track your WPM and improve your speed!</p>
                     <button class="play-btn" onclick="openGame('typing')" id="play-typing">▶ Play Now</button>
                 </div>
                 <!-- LOGIC PUZZLE -->
@@ -439,12 +645,84 @@
                     <span class="game-icon">🧠</span>
                     <div class="diff-badge diff-hard">Hard</div>
                     <h3>Logic Patterns</h3>
-                    <p>Find the next number or letter in the sequence. Visual pattern recognition and logical thinking challenges!</p>
+                    <p>Find the next number in the sequence! Visual pattern recognition and logical thinking challenges!</p>
                     <button class="play-btn" onclick="openGame('logic')" id="play-logic">▶ Play Now</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ANTIGRAVITY LADOO CHOR MODAL -->
+    <div class="modal-overlay" id="modal-ladoochor">
+        <div class="modal" style="max-width:520px;">
+            <button class="modal-close" onclick="closeGame('ladoochor')">✕</button>
+            <h2 style="color:var(--amber);">🐭 Antigravity Ladoo Chor</h2>
+            <p class="modal-desc">Tap canvas or press <strong>SPACEBAR</strong> to flip gravity! Snatch sweet Ladoos 🟡 and dodge sneaky Cats 🐱!</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Ladoos: <span class="score-val" id="ladoo-score" style="color:var(--amber);">0</span> 🟡</span>
+                    <span>High: <span class="score-val" id="ladoo-high" style="color:var(--orange);">0</span> 🏆</span>
+                    <span>Combo: <span class="score-val" id="ladoo-combo" style="color:var(--red);">1x</span> 🔥</span>
+                </div>
+                <div class="ladoo-wrap" id="ladoo-wrap">
+                    <canvas id="ladoo-canvas" width="440" height="320"></canvas>
+                    <div class="ladoo-overlay" id="ladoo-overlay">
+                        <div style="font-size:54px; margin-bottom:8px;">🐭 🟡 🐱</div>
+                        <h3 id="ladoo-over-title" style="font-size:24px; color:var(--amber); margin-bottom:6px; font-family:'Fredoka One',cursive;">Antigravity Ladoo Run!</h3>
+                        <p id="ladoo-over-sub" style="font-size:14px; color:var(--sub); margin-bottom:16px;">Tap or Press SPACEBAR to flip gravity between floor and ceiling!</p>
+                        <button class="start-btn" onclick="startLadooGame()" style="background:linear-gradient(135deg,#F59E0B,#EA580C); width:auto; padding:12px 32px; border-radius:50px;">🚀 Play Now!</button>
+                    </div>
+                </div>
+                <button class="ladoo-flip-btn" id="ladoo-flip-btn" onclick="triggerGravityFlip()">
+                    ⚡ FLIP GRAVITY (TAP / SPACE) ⚡
+                </button>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; font-size:13px; color:var(--sub);">
+                    <span>🎮 Controls: <strong>Spacebar</strong> / <strong>Tap Anywhere</strong></span>
+                    <span id="ladoo-sound-status">🔊 Sound: ON</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAY FINDER MAZE MODAL -->
+    <div class="modal-overlay" id="modal-wayfinder">
+        <div class="modal" style="max-width:500px;">
+            <button class="modal-close" onclick="closeGame('wayfinder')">✕</button>
+            <h2 style="color:var(--emerald);">🧭 Way Finder: Maze Adventure</h2>
+            <p class="modal-desc">Guide the cute puppy 🐶 through the winding maze to reach home 🏡!</p>
+            <div class="game-area">
+                <div class="level-pills">
+                    <button class="level-pill active" onclick="setMazeLevel(1, this)">Level 1 (Easy 7x7)</button>
+                    <button class="level-pill" onclick="setMazeLevel(2, this)">Level 2 (Medium 11x11)</button>
+                    <button class="level-pill" onclick="setMazeLevel(3, this)">Level 3 (Hard 15x15)</button>
+                    <button class="level-pill" onclick="setMazeLevel(4, this)">Level 4 (Master 19x19)</button>
+                </div>
+                <div class="game-score">
+                    <span>🐾 Steps: <span class="score-val" id="maze-steps" style="color:var(--emerald);">0</span></span>
+                    <span>⏱️ Time: <span class="score-val" id="maze-time" style="color:var(--orange);">0</span>s</span>
+                    <span>⭐ Treats: <span class="score-val" id="maze-treats" style="color:var(--amber);">0/3</span></span>
+                </div>
+                <div class="wayfinder-wrap" id="wayfinder-wrap">
+                    <canvas id="wayfinder-canvas" width="380" height="380"></canvas>
+                </div>
+                <div class="feedback" id="maze-feedback" style="margin-top:8px;"></div>
+                
+                <!-- MOBILE D-PAD -->
+                <div class="dpad-container">
+                    <button class="dpad-btn dpad-up" onclick="moveMazePlayer(0, -1)" aria-label="Up">⬆️</button>
+                    <button class="dpad-btn dpad-left" onclick="moveMazePlayer(-1, 0)" aria-label="Left">⬅️</button>
+                    <button class="dpad-btn dpad-center" onclick="showMazeAIHint()" title="AI Hint">💡</button>
+                    <button class="dpad-btn dpad-right" onclick="moveMazePlayer(1, 0)" aria-label="Right">➡️</button>
+                    <button class="dpad-btn dpad-down" onclick="moveMazePlayer(0, 1)" aria-label="Down">⬇️</button>
+                </div>
+
+                <div style="display:flex; gap:10px; margin-top:12px;">
+                    <button class="start-btn" onclick="showMazeAIHint()" style="background:#059669; flex:1; font-size:15px; padding:10px;">🤖 AI Shortest Path Hint</button>
+                    <button class="start-btn" onclick="initMazeGame()" style="background:#E2E8F0; color:var(--text); flex:1; font-size:15px; padding:10px;">🔄 New Maze</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MATH GAME MODAL -->
     <div class="modal-overlay" id="modal-math">
@@ -454,15 +732,15 @@
             <p class="modal-desc">Solve as many arithmetic questions as you can in 60 seconds!</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Score: <span class="score-val" id="math-score">0</span></span>
-                    <span>⏱️ <span class="score-val" id="math-timer">60</span>s</span>
-                    <span>Streak: <span class="score-val" id="math-streak">0</span>🔥</span>
+                    <span>Score: <span class="score-val" id="math-score" style="color:var(--green);">0</span></span>
+                    <span>⏱️ <span class="score-val" id="math-timer" style="color:var(--orange);">60</span>s</span>
+                    <span>Streak: <span class="score-val" id="math-streak" style="color:var(--yellow);">0</span>🔥</span>
                 </div>
-                <div class="timer-bar-wrap"><div class="timer-bar" id="math-timer-bar"></div></div>
+                <div class="timer-bar-wrap"><div class="timer-bar" id="math-timer-bar" style="background: linear-gradient(90deg, var(--green), var(--yellow));"></div></div>
                 <div class="math-display" id="math-question">Ready?</div>
                 <div class="math-options" id="math-options"></div>
                 <div class="feedback" id="math-feedback"></div>
-                <button class="start-btn" id="math-start-btn" onclick="startMath()">🚀 Start Game!</button>
+                <button class="start-btn" id="math-start-btn" onclick="startMath()" style="background:var(--green);">🚀 Start Game!</button>
             </div>
         </div>
     </div>
@@ -472,18 +750,18 @@
         <div class="modal">
             <button class="modal-close" onclick="closeGame('gk')">✕</button>
             <h2>🇮🇳 India GK Quiz</h2>
-            <p class="modal-desc">10 questions. 30 seconds each. How much do you know about India?</p>
+            <p class="modal-desc">10 questions. 30 seconds each. How much do you know?</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Score: <span class="score-val" id="gk-score">0</span></span>
+                    <span>Score: <span class="score-val" id="gk-score" style="color:var(--yellow);">0</span></span>
                     <span>Q: <span class="score-val" id="gk-qnum">0</span>/10</span>
-                    <span>⏱️ <span class="score-val" id="gk-timer">30</span>s</span>
+                    <span>⏱️ <span class="score-val" id="gk-timer" style="color:var(--orange);">30</span>s</span>
                 </div>
                 <div class="timer-bar-wrap"><div class="timer-bar" id="gk-timer-bar" style="background: linear-gradient(90deg, var(--yellow), var(--orange));"></div></div>
-                <div class="math-display" id="gk-question" style="font-size: 20px; color: var(--yellow); font-family: 'Nunito', sans-serif; font-weight: 800; line-height: 1.4;">Ready to test your GK?</div>
-                <div class="math-options" id="gk-options" style="margin-top: 20px;"></div>
+                <div class="math-display" id="gk-question" style="font-size:18px; color:var(--yellow); font-family:'Nunito',sans-serif; font-weight:800; line-height:1.4;">Ready to test your GK?</div>
+                <div class="math-options" id="gk-options" style="margin-top:16px;"></div>
                 <div class="feedback" id="gk-feedback"></div>
-                <button class="start-btn" id="gk-start-btn" onclick="startGK()" style="background: var(--yellow); color: #000;">🧠 Start GK Quiz!</button>
+                <button class="start-btn" id="gk-start-btn" onclick="startGK()" style="background:var(--yellow); color:#000;">🧠 Start GK Quiz!</button>
             </div>
         </div>
     </div>
@@ -496,15 +774,15 @@
             <p class="modal-desc">Type the word shown. 60 seconds. How fast can you go?</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Words: <span class="score-val" id="type-words">0</span></span>
-                    <span>⏱️ <span class="score-val" id="type-timer">60</span>s</span>
-                    <span>Accuracy: <span class="score-val" id="type-acc">100</span>%</span>
+                    <span>Words: <span class="score-val" id="type-words" style="color:var(--orange);">0</span></span>
+                    <span>⏱️ <span class="score-val" id="type-timer" style="color:var(--orange);">60</span>s</span>
+                    <span>Accuracy: <span class="score-val" id="type-acc" style="color:var(--green);">100</span>%</span>
                 </div>
                 <div class="timer-bar-wrap"><div class="timer-bar" id="type-timer-bar" style="background: linear-gradient(90deg, var(--orange), var(--yellow));"></div></div>
                 <div class="typing-word" id="typing-word">READY</div>
                 <input type="text" class="typing-input" id="typing-input" placeholder="Type the word here..." autocomplete="off" autocorrect="off" spellcheck="false">
                 <div class="wpm-display" id="wpm-display">WPM: 0</div>
-                <button class="start-btn" id="type-start-btn" onclick="startTyping()" style="background: var(--orange);">⌨️ Start Typing!</button>
+                <button class="start-btn" id="type-start-btn" onclick="startTyping()" style="background:var(--orange);">⌨️ Start Typing!</button>
             </div>
         </div>
     </div>
@@ -517,12 +795,12 @@
             <p class="modal-desc">Match all emoji pairs. Track your moves!</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Pairs: <span class="score-val" id="mem-pairs">0</span>/8</span>
-                    <span>Moves: <span class="score-val" id="mem-moves">0</span></span>
+                    <span>Pairs: <span class="score-val" id="mem-pairs" style="color:var(--pink);">0</span>/8</span>
+                    <span>Moves: <span class="score-val" id="mem-moves" style="color:var(--purple);">0</span></span>
                 </div>
                 <div class="memory-grid" id="memory-grid"></div>
                 <div class="feedback" id="mem-feedback"></div>
-                <button class="start-btn" id="mem-start-btn" onclick="startMemory()" style="background: var(--pink);">🎴 New Game!</button>
+                <button class="start-btn" id="mem-start-btn" onclick="startMemory()" style="background:var(--pink);">🎴 New Game!</button>
             </div>
         </div>
     </div>
@@ -535,17 +813,17 @@
             <p class="modal-desc">Unscramble the letters to form the correct word!</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Score: <span class="score-val" id="word-score">0</span></span>
+                    <span>Score: <span class="score-val" id="word-score" style="color:var(--blue);">0</span></span>
                     <span>Q: <span class="score-val" id="word-qnum">1</span>/10</span>
                 </div>
-                <div class="math-display" id="word-scrambled" style="font-size: 40px; letter-spacing: 8px; color: var(--cyan);">?</div>
-                <input type="text" class="typing-input" id="word-input" placeholder="Type your answer..." autocomplete="off" style="border-color: rgba(6,182,212,0.4);">
-                <div class="feedback" id="word-feedback" style="margin-top: 12px;"></div>
-                <div style="display: flex; gap: 12px; margin-top: 12px;">
-                    <button class="start-btn" id="word-check-btn" onclick="checkWord()" style="background: var(--cyan); color: #000; flex: 1;">✓ Check Answer</button>
-                    <button class="start-btn" id="word-skip-btn" onclick="nextWord()" style="background: rgba(255,255,255,0.1); flex: 0.5;">Skip →</button>
+                <div class="math-display" id="word-scrambled" style="font-size:36px; letter-spacing:8px; color:var(--blue);">?</div>
+                <input type="text" class="typing-input" id="word-input" placeholder="Type your answer..." autocomplete="off" style="border-color: #93C5FD;">
+                <div class="feedback" id="word-feedback" style="margin-top:12px;"></div>
+                <div style="display:flex; gap:10px; margin-top:12px;">
+                    <button class="start-btn" id="word-check-btn" onclick="checkWord()" style="background:var(--blue); flex:1;">✓ Check</button>
+                    <button class="start-btn" id="word-skip-btn" onclick="nextWord()" style="background:#E2E8F0; color:var(--text); flex:0.5;">Skip →</button>
                 </div>
-                <button class="start-btn" id="word-start-btn" onclick="startWord()" style="background: var(--cyan); color: #000;">🔤 Start Game!</button>
+                <button class="start-btn" id="word-start-btn" onclick="startWord()" style="background:var(--blue);">🔤 Start Game!</button>
             </div>
         </div>
     </div>
@@ -558,13 +836,61 @@
             <p class="modal-desc">Find the next number in the sequence!</p>
             <div class="game-area">
                 <div class="game-score">
-                    <span>Score: <span class="score-val" id="logic-score">0</span></span>
+                    <span>Score: <span class="score-val" id="logic-score" style="color:var(--purple);">0</span></span>
                     <span>Q: <span class="score-val" id="logic-qnum">1</span>/10</span>
                 </div>
-                <div class="math-display" id="logic-sequence" style="font-size: 32px; color: var(--purple-light);">2, 4, 8, 16, ?</div>
+                <div class="math-display" id="logic-sequence" style="font-size:28px; color:var(--purple);">2, 4, 8, 16, ?</div>
                 <div class="math-options" id="logic-options"></div>
                 <div class="feedback" id="logic-feedback"></div>
-                <button class="start-btn" id="logic-start-btn" onclick="startLogic()" style="background: var(--purple-light);">🧠 Start Puzzle!</button>
+                <button class="start-btn" id="logic-start-btn" onclick="startLogic()" style="background:var(--purple);">🧠 Start Puzzle!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RUNNER MODAL -->
+    <div class="modal-overlay" id="modal-runner">
+        <div class="modal" style="max-width:520px;">
+            <button class="modal-close" onclick="closeGame('runner')">✕</button>
+            <h2 style="color:var(--cyan);">🚀 Neon Sky Runner</h2>
+            <p class="modal-desc">Dodge obstacles and grab glowing gems! Use Arrow Keys or Tap Left/Right.</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="runner-score" style="color:var(--cyan);">0</span></span>
+                    <span>High: <span class="score-val" id="runner-highscore" style="color:var(--yellow);">0</span></span>
+                    <span>Speed: <span class="score-val" id="runner-speed" style="color:var(--green);">1x</span></span>
+                </div>
+                <div class="runner-wrap">
+                    <canvas id="runner-canvas" width="400" height="380"></canvas>
+                    <div class="runner-overlay" id="runner-overlay">
+                        <h3 id="runner-over-title" style="font-size:24px; color:var(--cyan); margin-bottom:6px; font-family:'Fredoka One',cursive;">Ready to Launch?</h3>
+                        <p id="runner-over-sub" style="font-size:13px; color:var(--sub); margin-bottom:14px;">Use ⬅️ ➡️ Arrow Keys or Tap Left/Right</p>
+                        <button class="start-btn" onclick="startRunnerGame()" style="background:var(--cyan); width:auto; padding:10px 28px; border-radius:50px;">🚀 Play Runner</button>
+                    </div>
+                </div>
+                <div class="runner-ctrl-row">
+                    <button class="runner-ctrl-btn" onclick="moveRunnerLeft()">⬅️ Left</button>
+                    <button class="runner-ctrl-btn" onclick="moveRunnerRight()">Right ➡️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COLOR CATCH MODAL -->
+    <div class="modal-overlay" id="modal-colorcatch">
+        <div class="modal" style="max-width:500px;">
+            <button class="modal-close" onclick="closeGame('colorcatch')">✕</button>
+            <h2 style="color:var(--red);">🎯 Color Catch</h2>
+            <p class="modal-desc">Tap the balls matching the target color! 30 seconds, how many can you catch?</p>
+            <div class="game-area">
+                <div class="game-score">
+                    <span>Score: <span class="score-val" id="cc-score" style="color:var(--red);">0</span></span>
+                    <span>⏱️ <span class="score-val" id="cc-timer" style="color:var(--orange);">30</span>s</span>
+                    <span>Miss: <span class="score-val" id="cc-miss" style="color:var(--sub);">0</span></span>
+                </div>
+                <div class="color-target" id="cc-target">Catch: 🔴 RED balls!</div>
+                <div class="colorcatch-area" id="cc-area"></div>
+                <div class="feedback" id="cc-feedback"></div>
+                <button class="start-btn" id="cc-start-btn" onclick="startColorCatch()" style="background:var(--red);">🎯 Start Game!</button>
             </div>
         </div>
     </div>
@@ -580,34 +906,57 @@
                 </div>
                 <div class="feat-card">
                     <div class="feat-icon">🧠</div>
-                    <h4>Curriculum-Aligned</h4>
-                    <p>Games designed around school curriculum topics — Math, English, Science, GK and more.</p>
+                    <h4>Brain Training</h4>
+                    <p>Games designed to improve memory, math, logic, typing speed & general knowledge.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-icon">📱</div>
                     <h4>Play Anywhere</h4>
-                    <p>Fully optimized for mobile, tablet, and desktop. Play from anywhere, anytime.</p>
+                    <p>Optimized for mobile, tablet & desktop. Large touch targets for easy mobile play.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🏆</div>
+                    <h4>Track Progress</h4>
+                    <p>High score leaderboard, streak tracking & performance stats to motivate you!</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">⚡</div>
+                    <h4>Instant Play</h4>
+                    <p>No downloads, no installs. Just tap and play instantly in your browser!</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">🎓</div>
+                    <h4>Curriculum-Aligned</h4>
+                    <p>Math, English, Science & GK questions aligned with school curriculum topics.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>🎮 GIndia Game | Free Educational Games for Students | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
-        Keywords: free educational games, math games for kids India, GK quiz online, typing speed game, brain games for students</p>
+        <p>🎮 GIndia Game | India's Best Free Online Games for Students | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        Free educational games • Math games for kids India • GK quiz online • Typing speed game • Brain games • Arcade games free</p>
     </footer>
 
     <script>
         // ======= UTILITY =======
         function openGame(name) {
             document.getElementById('modal-' + name).classList.add('open');
+            if (name === 'ladoochor') initLadooGame();
+            if (name === 'wayfinder') initMazeGame();
             if (name === 'memory') initMemory();
+            if (name === 'runner') initRunnerCanvas();
+            document.querySelector('.header-links').classList.remove('open');
         }
         function closeGame(name) {
             document.getElementById('modal-' + name).classList.remove('open');
+            if (name === 'ladoochor') stopLadooGame();
+            if (name === 'wayfinder') stopMazeGame();
             if (name === 'math') clearInterval(mathInterval);
             if (name === 'gk') clearInterval(gkInterval);
             if (name === 'typing') clearInterval(typeInterval);
+            if (name === 'runner') stopRunnerGame();
+            if (name === 'colorcatch') stopColorCatch();
         }
         document.querySelectorAll('.modal-overlay').forEach(m => {
             m.addEventListener('click', function(e) { if (e.target === this) closeGame(this.id.replace('modal-', '')); });
@@ -649,36 +998,29 @@
             const { q, ans } = genMath();
             document.getElementById('math-question').textContent = q;
             const wrongs = new Set();
-            while (wrongs.size < 3) {
-                const w = ans + Math.floor(Math.random() * 20) - 10;
-                if (w !== ans && w >= 0) wrongs.add(w);
-            }
-            const opts = [...wrongs, ans].sort(() => Math.random() - 0.5);
+            while (wrongs.size < 3) { const w = ans + Math.floor(Math.random()*20)-10; if (w!==ans && w>=0) wrongs.add(w); }
+            const opts = [...wrongs, ans].sort(() => Math.random()-0.5);
             const oDiv = document.getElementById('math-options');
             oDiv.innerHTML = '';
             opts.forEach(o => {
                 const btn = document.createElement('button');
-                btn.className = 'math-opt';
-                btn.textContent = o;
+                btn.className = 'math-opt'; btn.textContent = o;
                 btn.onclick = () => checkMath(btn, o, ans);
                 oDiv.appendChild(btn);
             });
             mathAnswered = false;
         }
         function checkMath(btn, chosen, ans) {
-            if (mathAnswered) return;
-            mathAnswered = true;
+            if (mathAnswered) return; mathAnswered = true;
             if (chosen === ans) {
-                mathScore += 1 + Math.floor(mathStreak / 3);
-                mathStreak++;
+                mathScore += 1 + Math.floor(mathStreak/3); mathStreak++;
                 btn.classList.add('correct');
                 document.getElementById('math-feedback').textContent = mathStreak >= 3 ? `🔥 ${mathStreak} Streak!` : '✅ Correct!';
                 document.getElementById('math-score').textContent = mathScore;
                 document.getElementById('math-streak').textContent = mathStreak;
                 setTimeout(nextMathQ, 700);
             } else {
-                mathStreak = 0;
-                btn.classList.add('wrong');
+                mathStreak = 0; btn.classList.add('wrong');
                 document.querySelectorAll('.math-opt').forEach(b => { if (parseInt(b.textContent) === ans) b.classList.add('correct'); });
                 document.getElementById('math-feedback').textContent = `❌ Answer: ${ans}`;
                 document.getElementById('math-streak').textContent = 0;
@@ -693,18 +1035,14 @@
             { q: "Which river is the longest in India?", opts: ["Yamuna", "Ganga", "Godavari", "Brahmaputra"], ans: 3 },
             { q: "In which year did India gain independence?", opts: ["1945", "1947", "1950", "1952"], ans: 1 },
             { q: "What is the national animal of India?", opts: ["Lion", "Elephant", "Tiger", "Leopard"], ans: 2 },
-            { q: "Which is the largest state in India by area?", opts: ["Madhya Pradesh", "Uttar Pradesh", "Rajasthan", "Maharashtra"], ans: 2 },
+            { q: "Which is the largest state by area?", opts: ["Madhya Pradesh", "Uttar Pradesh", "Rajasthan", "Maharashtra"], ans: 2 },
             { q: "Who wrote the Indian National Anthem?", opts: ["Rabindranath Tagore", "Bankim Chandra", "Sarojini Naidu", "Subramania Bharati"], ans: 0 },
-            { q: "Mount Everest is located in which mountain range?", opts: ["Aravalli", "Vindhya", "Himalayas", "Western Ghats"], ans: 2 },
+            { q: "Mount Everest is in which range?", opts: ["Aravalli", "Vindhya", "Himalayas", "Western Ghats"], ans: 2 },
             { q: "What is the currency of India?", opts: ["Dollar", "Rupee", "Euro", "Yen"], ans: 1 },
-            { q: "Which planet is known as the Red Planet?", opts: ["Venus", "Jupiter", "Saturn", "Mars"], ans: 3 },
+            { q: "Which planet is the Red Planet?", opts: ["Venus", "Jupiter", "Saturn", "Mars"], ans: 3 },
         ];
-        let gkIdx = 0, gkScore = 0, gkInterval, gkTime = 30, gkAnswered = false;
-        function startGK() {
-            gkIdx = 0; gkScore = 0;
-            document.getElementById('gk-start-btn').style.display = 'none';
-            showGKQ();
-        }
+        let gkIdx=0, gkScore=0, gkInterval, gkTime=30, gkAnswered=false;
+        function startGK() { gkIdx=0; gkScore=0; document.getElementById('gk-start-btn').style.display='none'; showGKQ(); }
         function showGKQ() {
             if (gkIdx >= gkQuestions.length) {
                 clearInterval(gkInterval);
@@ -716,18 +1054,16 @@
                 return;
             }
             const q = gkQuestions[gkIdx];
-            gkTime = 30; gkAnswered = false;
-            document.getElementById('gk-qnum').textContent = gkIdx + 1;
+            gkTime=30; gkAnswered=false;
+            document.getElementById('gk-qnum').textContent = gkIdx+1;
             document.getElementById('gk-score').textContent = gkScore;
             document.getElementById('gk-question').textContent = q.q;
             document.getElementById('gk-feedback').textContent = '';
             const oDiv = document.getElementById('gk-options');
             oDiv.innerHTML = '';
-            q.opts.forEach((o, i) => {
+            q.opts.forEach((o,i) => {
                 const btn = document.createElement('button');
-                btn.className = 'math-opt';
-                btn.style.fontSize = '16px';
-                btn.textContent = o;
+                btn.className = 'math-opt'; btn.style.fontSize = '16px'; btn.textContent = o;
                 btn.onclick = () => checkGK(btn, i, q.ans);
                 oDiv.appendChild(btn);
             });
@@ -735,220 +1071,1293 @@
             gkInterval = setInterval(() => {
                 gkTime--;
                 document.getElementById('gk-timer').textContent = gkTime;
-                document.getElementById('gk-timer-bar').style.width = (gkTime / 30 * 100) + '%';
+                document.getElementById('gk-timer-bar').style.width = (gkTime/30*100)+'%';
                 if (gkTime <= 0) {
                     clearInterval(gkInterval);
-                    if (!gkAnswered) { document.getElementById('gk-feedback').textContent = `⏰ Time Up! Correct: ${q.opts[q.ans]}`; gkIdx++; setTimeout(showGKQ, 1500); }
+                    if (!gkAnswered) { document.getElementById('gk-feedback').textContent = `⏰ Time Up! Correct: ${q.opts[q.ans]}`; gkIdx++; setTimeout(showGKQ,1500); }
                 }
             }, 1000);
         }
         function checkGK(btn, chosen, ans) {
-            if (gkAnswered) return;
-            gkAnswered = true;
-            clearInterval(gkInterval);
-            if (chosen === ans) { gkScore++; btn.classList.add('correct'); document.getElementById('gk-feedback').textContent = '✅ Correct!'; }
+            if (gkAnswered) return; gkAnswered = true; clearInterval(gkInterval);
+            if (chosen===ans) { gkScore++; btn.classList.add('correct'); document.getElementById('gk-feedback').textContent = '✅ Correct!'; }
             else { btn.classList.add('wrong'); document.querySelectorAll('#gk-options .math-opt')[ans].classList.add('correct'); document.getElementById('gk-feedback').textContent = `❌ Correct: ${gkQuestions[gkIdx].opts[ans]}`; }
             document.getElementById('gk-score').textContent = gkScore;
-            gkIdx++;
-            setTimeout(showGKQ, 1500);
+            gkIdx++; setTimeout(showGKQ, 1500);
         }
 
-        // ======= TYPING GAME =======
+        // ======= TYPING =======
         const typingWords = ['apple','india','learn','happy','world','brain','speed','quick','focus','smart','power','solve','think','write','score','sharp','click','globe','space','study','games','books','ready','skill'];
-        let typeIdx = 0, typeCorrect = 0, typeTotal = 0, typeInterval, typeTime = 60, typeStart;
+        let typeIdx=0, typeCorrect=0, typeTotal=0, typeInterval, typeTime=60, typeStart;
         function startTyping() {
-            typeCorrect = 0; typeTotal = 0; typeTime = 60;
-            document.getElementById('type-start-btn').style.display = 'none';
-            document.getElementById('typing-input').disabled = false;
+            typeCorrect=0; typeTotal=0; typeTime=60;
+            document.getElementById('type-start-btn').style.display='none';
+            document.getElementById('typing-input').disabled=false;
             document.getElementById('typing-input').focus();
             typeStart = Date.now();
             showTypingWord();
             typeInterval = setInterval(() => {
                 typeTime--;
                 document.getElementById('type-timer').textContent = typeTime;
-                document.getElementById('type-timer-bar').style.width = (typeTime / 60 * 100) + '%';
-                const elapsed = (Date.now() - typeStart) / 60000;
-                const wpm = elapsed > 0 ? Math.round(typeCorrect / elapsed) : 0;
-                document.getElementById('wpm-display').textContent = 'WPM: ' + wpm;
-                if (typeTime <= 0) {
+                document.getElementById('type-timer-bar').style.width = (typeTime/60*100)+'%';
+                const elapsed = (Date.now()-typeStart)/60000;
+                const wpm = elapsed>0 ? Math.round(typeCorrect/elapsed) : 0;
+                document.getElementById('wpm-display').textContent = 'WPM: '+wpm;
+                if (typeTime<=0) {
                     clearInterval(typeInterval);
-                    document.getElementById('typing-input').disabled = true;
+                    document.getElementById('typing-input').disabled=true;
                     document.getElementById('typing-word').textContent = `Score: ${typeCorrect} words`;
-                    document.getElementById('type-start-btn').style.display = 'block';
+                    document.getElementById('type-start-btn').style.display='block';
                     document.getElementById('type-start-btn').textContent = '🔄 Play Again';
                 }
             }, 1000);
         }
         function showTypingWord() {
-            const w = typingWords[Math.floor(Math.random() * typingWords.length)];
+            const w = typingWords[Math.floor(Math.random()*typingWords.length)];
             document.getElementById('typing-word').textContent = w.toUpperCase();
             document.getElementById('typing-word').dataset.word = w;
             document.getElementById('typing-input').value = '';
         }
         document.getElementById('typing-input').addEventListener('input', function() {
-            if (typeTime <= 0) return;
+            if (typeTime<=0) return;
             const typed = this.value.trim().toLowerCase();
             const target = document.getElementById('typing-word').dataset.word;
             typeTotal++;
-            if (typed === target) {
+            if (typed===target) {
                 typeCorrect++;
                 document.getElementById('type-words').textContent = typeCorrect;
-                document.getElementById('type-acc').textContent = Math.round(typeCorrect / typeTotal * 100);
+                document.getElementById('type-acc').textContent = Math.round(typeCorrect/typeTotal*100);
                 showTypingWord();
             }
         });
 
-        // ======= MEMORY GAME =======
+        // ======= MEMORY =======
         const memEmojis = ['🦁','🐯','🦊','🐸','🦋','🐬','🦄','🌈'];
-        let memCards = [], memFlipped = [], memPairs = 0, memMoves = 0;
+        let memCards=[], memFlipped=[], memPairs=0, memMoves=0;
         function initMemory() {}
         function startMemory() {
-            memPairs = 0; memMoves = 0;
-            document.getElementById('mem-pairs').textContent = 0;
-            document.getElementById('mem-moves').textContent = 0;
-            document.getElementById('mem-feedback').textContent = '';
-            const allCards = [...memEmojis, ...memEmojis].sort(() => Math.random() - 0.5);
+            memPairs=0; memMoves=0;
+            document.getElementById('mem-pairs').textContent=0;
+            document.getElementById('mem-moves').textContent=0;
+            document.getElementById('mem-feedback').textContent='';
+            const allCards = [...memEmojis,...memEmojis].sort(() => Math.random()-0.5);
             const grid = document.getElementById('memory-grid');
-            grid.innerHTML = '';
-            memCards = [];
-            allCards.forEach((emoji, i) => {
+            grid.innerHTML=''; memCards=[];
+            allCards.forEach((emoji,i) => {
                 const card = document.createElement('div');
-                card.className = 'mem-card';
-                card.innerHTML = '❓';
-                card.dataset.emoji = emoji;
-                card.dataset.idx = i;
+                card.className='mem-card'; card.innerHTML='❓';
+                card.dataset.emoji=emoji; card.dataset.idx=i;
                 card.addEventListener('click', () => flipCard(card));
-                grid.appendChild(card);
-                memCards.push(card);
+                grid.appendChild(card); memCards.push(card);
             });
-            memFlipped = [];
+            memFlipped=[];
         }
         function flipCard(card) {
-            if (card.classList.contains('matched') || card.classList.contains('flipped') || memFlipped.length >= 2) return;
-            card.innerHTML = card.dataset.emoji;
-            card.classList.add('flipped');
+            if (card.classList.contains('matched')||card.classList.contains('flipped')||memFlipped.length>=2) return;
+            card.innerHTML=card.dataset.emoji; card.classList.add('flipped');
             memFlipped.push(card);
-            if (memFlipped.length === 2) {
-                memMoves++;
-                document.getElementById('mem-moves').textContent = memMoves;
-                if (memFlipped[0].dataset.emoji === memFlipped[1].dataset.emoji) {
+            if (memFlipped.length===2) {
+                memMoves++; document.getElementById('mem-moves').textContent=memMoves;
+                if (memFlipped[0].dataset.emoji===memFlipped[1].dataset.emoji) {
                     memFlipped.forEach(c => c.classList.add('matched'));
-                    memPairs++;
-                    document.getElementById('mem-pairs').textContent = memPairs;
-                    memFlipped = [];
-                    if (memPairs === 8) document.getElementById('mem-feedback').textContent = `🏆 You Won in ${memMoves} moves!`;
+                    memPairs++; document.getElementById('mem-pairs').textContent=memPairs;
+                    memFlipped=[]; if (memPairs===8) document.getElementById('mem-feedback').textContent = `🏆 Won in ${memMoves} moves!`;
                 } else {
-                    setTimeout(() => {
-                        memFlipped.forEach(c => { c.innerHTML = '❓'; c.classList.remove('flipped'); });
-                        memFlipped = [];
-                    }, 900);
+                    setTimeout(() => { memFlipped.forEach(c => { c.innerHTML='❓'; c.classList.remove('flipped'); }); memFlipped=[]; }, 900);
                 }
             }
         }
         startMemory();
 
-        // ======= WORD GAME =======
+        // ======= WORD =======
         const wordBank = [
-            { word: 'APPLE', hint: 'A fruit' }, { word: 'TIGER', hint: 'National animal of India' },
-            { word: 'CLOUD', hint: 'Found in the sky' }, { word: 'MUSIC', hint: 'Art of sound' },
-            { word: 'PLANT', hint: 'Green organism' }, { word: 'RIVER', hint: 'Flowing water body' },
-            { word: 'BRAIN', hint: 'Thinking organ' }, { word: 'EARTH', hint: 'Our planet' },
-            { word: 'STONE', hint: 'Hard rock' }, { word: 'LIGHT', hint: 'Opposite of dark' }
+            {word:'APPLE',hint:'A fruit'},{word:'TIGER',hint:'National animal of India'},
+            {word:'CLOUD',hint:'Found in the sky'},{word:'MUSIC',hint:'Art of sound'},
+            {word:'PLANT',hint:'Green organism'},{word:'RIVER',hint:'Flowing water body'},
+            {word:'BRAIN',hint:'Thinking organ'},{word:'EARTH',hint:'Our planet'},
+            {word:'STONE',hint:'Hard rock'},{word:'LIGHT',hint:'Opposite of dark'}
         ];
-        let wordIdx = 0, wordScore = 0;
-        function scramble(w) {
-            const a = w.split('');
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a.join('') === w ? scramble(w) : a.join('');
-        }
+        let wordIdx=0, wordScore=0;
+        function scramble(w) { const a=w.split(''); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a.join('')===w?scramble(w):a.join(''); }
         function startWord() {
-            wordIdx = 0; wordScore = 0;
-            document.getElementById('word-start-btn').style.display = 'none';
-            document.getElementById('word-check-btn').style.display = 'block';
-            document.getElementById('word-skip-btn').style.display = 'block';
+            wordIdx=0; wordScore=0;
+            document.getElementById('word-start-btn').style.display='none';
+            document.getElementById('word-check-btn').style.display='block';
+            document.getElementById('word-skip-btn').style.display='block';
             showWordQ();
         }
         function showWordQ() {
-            if (wordIdx >= wordBank.length) {
+            if (wordIdx>=wordBank.length) {
                 document.getElementById('word-scrambled').textContent = `🏆 Done! ${wordScore}/10`;
-                document.getElementById('word-feedback').textContent = wordScore >= 8 ? '🌟 Word Master!' : '👍 Keep it up!';
-                document.getElementById('word-start-btn').style.display = 'block';
-                document.getElementById('word-start-btn').textContent = '🔄 Play Again';
-                document.getElementById('word-check-btn').style.display = 'none';
-                document.getElementById('word-skip-btn').style.display = 'none';
+                document.getElementById('word-feedback').textContent = wordScore>=8?'🌟 Word Master!':'👍 Keep it up!';
+                document.getElementById('word-start-btn').style.display='block';
+                document.getElementById('word-start-btn').textContent='🔄 Play Again';
+                document.getElementById('word-check-btn').style.display='none';
+                document.getElementById('word-skip-btn').style.display='none';
                 return;
             }
-            const { word, hint } = wordBank[wordIdx];
-            document.getElementById('word-scrambled').textContent = scramble(word);
-            document.getElementById('word-scrambled').dataset.ans = word;
-            document.getElementById('word-feedback').textContent = `💡 Hint: ${hint}`;
-            document.getElementById('word-input').value = '';
-            document.getElementById('word-qnum').textContent = wordIdx + 1;
-            document.getElementById('word-score').textContent = wordScore;
+            const {word,hint}=wordBank[wordIdx];
+            document.getElementById('word-scrambled').textContent=scramble(word);
+            document.getElementById('word-scrambled').dataset.ans=word;
+            document.getElementById('word-feedback').textContent=`💡 Hint: ${hint}`;
+            document.getElementById('word-input').value='';
+            document.getElementById('word-qnum').textContent=wordIdx+1;
+            document.getElementById('word-score').textContent=wordScore;
         }
         function checkWord() {
-            const typed = document.getElementById('word-input').value.trim().toUpperCase();
-            const ans = document.getElementById('word-scrambled').dataset.ans;
-            if (typed === ans) { wordScore++; document.getElementById('word-feedback').textContent = '✅ Correct!'; }
-            else { document.getElementById('word-feedback').textContent = `❌ Answer: ${ans}`; }
-            wordIdx++;
-            setTimeout(showWordQ, 1000);
+            const typed=document.getElementById('word-input').value.trim().toUpperCase();
+            const ans=document.getElementById('word-scrambled').dataset.ans;
+            if (typed===ans) { wordScore++; document.getElementById('word-feedback').textContent='✅ Correct!'; }
+            else { document.getElementById('word-feedback').textContent=`❌ Answer: ${ans}`; }
+            wordIdx++; setTimeout(showWordQ,1000);
         }
         function nextWord() { wordIdx++; showWordQ(); }
 
-        // ======= LOGIC PATTERNS =======
+        // ======= LOGIC =======
         const logicQs = [
-            { seq: '2, 4, 8, 16, ?', ans: 32, opts: [24, 32, 18, 20] },
-            { seq: '3, 6, 9, 12, ?', ans: 15, opts: [15, 14, 16, 13] },
-            { seq: '1, 4, 9, 16, ?', ans: 25, opts: [20, 25, 24, 21] },
-            { seq: '5, 10, 20, 40, ?', ans: 80, opts: [70, 80, 60, 75] },
-            { seq: '1, 2, 4, 7, 11, ?', ans: 16, opts: [14, 15, 16, 13] },
-            { seq: '100, 50, 25, ?', ans: 12.5, opts: [12, 12.5, 15, 10] },
-            { seq: '1, 3, 7, 15, 31, ?', ans: 63, opts: [60, 61, 62, 63] },
-            { seq: '2, 6, 12, 20, 30, ?', ans: 42, opts: [36, 40, 42, 44] },
-            { seq: '10, 9, 7, 4, ?', ans: 0, opts: [1, 0, -1, 2] },
-            { seq: '1, 1, 2, 3, 5, 8, ?', ans: 13, opts: [10, 11, 12, 13] },
+            {seq:'2, 4, 8, 16, ?',ans:32,opts:[24,32,18,20]},
+            {seq:'3, 6, 9, 12, ?',ans:15,opts:[15,14,16,13]},
+            {seq:'1, 4, 9, 16, ?',ans:25,opts:[20,25,24,21]},
+            {seq:'5, 10, 20, 40, ?',ans:80,opts:[70,80,60,75]},
+            {seq:'1, 2, 4, 7, 11, ?',ans:16,opts:[14,15,16,13]},
+            {seq:'100, 50, 25, ?',ans:12.5,opts:[12,12.5,15,10]},
+            {seq:'1, 3, 7, 15, 31, ?',ans:63,opts:[60,61,62,63]},
+            {seq:'2, 6, 12, 20, 30, ?',ans:42,opts:[36,40,42,44]},
+            {seq:'10, 9, 7, 4, ?',ans:0,opts:[1,0,-1,2]},
+            {seq:'1, 1, 2, 3, 5, 8, ?',ans:13,opts:[10,11,12,13]},
         ];
-        let logicIdx = 0, logicScore = 0;
-        function startLogic() {
-            logicIdx = 0; logicScore = 0;
-            document.getElementById('logic-start-btn').style.display = 'none';
-            showLogicQ();
-        }
+        let logicIdx=0, logicScore=0;
+        function startLogic() { logicIdx=0; logicScore=0; document.getElementById('logic-start-btn').style.display='none'; showLogicQ(); }
         function showLogicQ() {
-            if (logicIdx >= logicQs.length) {
-                document.getElementById('logic-sequence').textContent = `🏆 Score: ${logicScore}/10`;
-                document.getElementById('logic-options').innerHTML = '';
-                document.getElementById('logic-feedback').textContent = logicScore >= 8 ? '🧠 Logic Master!' : '💪 Great effort!';
-                document.getElementById('logic-start-btn').style.display = 'block';
-                document.getElementById('logic-start-btn').textContent = '🔄 Play Again';
+            if (logicIdx>=logicQs.length) {
+                document.getElementById('logic-sequence').textContent=`🏆 Score: ${logicScore}/10`;
+                document.getElementById('logic-options').innerHTML='';
+                document.getElementById('logic-feedback').textContent=logicScore>=8?'🧠 Logic Master!':'💪 Great effort!';
+                document.getElementById('logic-start-btn').style.display='block';
+                document.getElementById('logic-start-btn').textContent='🔄 Play Again';
                 return;
             }
-            const q = logicQs[logicIdx];
-            document.getElementById('logic-qnum').textContent = logicIdx + 1;
-            document.getElementById('logic-score').textContent = logicScore;
-            document.getElementById('logic-sequence').textContent = q.seq;
-            document.getElementById('logic-feedback').textContent = '';
-            const oDiv = document.getElementById('logic-options');
-            oDiv.innerHTML = '';
-            [...q.opts].sort(() => Math.random() - 0.5).forEach(o => {
-                const btn = document.createElement('button');
-                btn.className = 'math-opt';
-                btn.textContent = o;
-                btn.onclick = () => checkLogic(btn, o, q.ans);
+            const q=logicQs[logicIdx];
+            document.getElementById('logic-qnum').textContent=logicIdx+1;
+            document.getElementById('logic-score').textContent=logicScore;
+            document.getElementById('logic-sequence').textContent=q.seq;
+            document.getElementById('logic-feedback').textContent='';
+            const oDiv=document.getElementById('logic-options');
+            oDiv.innerHTML='';
+            [...q.opts].sort(()=>Math.random()-0.5).forEach(o => {
+                const btn=document.createElement('button');
+                btn.className='math-opt'; btn.textContent=o;
+                btn.onclick = () => checkLogic(btn,o,q.ans);
                 oDiv.appendChild(btn);
             });
         }
         function checkLogic(btn, chosen, ans) {
-            if (chosen == ans) { logicScore++; btn.classList.add('correct'); document.getElementById('logic-feedback').textContent = '✅ Correct!'; }
-            else { btn.classList.add('wrong'); document.getElementById('logic-feedback').textContent = `❌ Answer: ${ans}`; document.querySelectorAll('#logic-options .math-opt').forEach(b => { if (b.textContent == ans) b.classList.add('correct'); }); }
-            document.getElementById('logic-score').textContent = logicScore;
-            logicIdx++;
-            setTimeout(showLogicQ, 1300);
+            if (chosen==ans) { logicScore++; btn.classList.add('correct'); document.getElementById('logic-feedback').textContent='✅ Correct!'; }
+            else { btn.classList.add('wrong'); document.getElementById('logic-feedback').textContent=`❌ Answer: ${ans}`; document.querySelectorAll('#logic-options .math-opt').forEach(b=>{if(b.textContent==ans)b.classList.add('correct');}); }
+            document.getElementById('logic-score').textContent=logicScore;
+            logicIdx++; setTimeout(showLogicQ,1300);
+        }
+
+        // ======= CYBER RUNNER =======
+        let rCanvas,rCtx,rAnimId,rShip,rObstacles,rCoins,rScore,rHighScore=0,rSpeed,rRunning=false;
+        function initRunnerCanvas() {
+            rCanvas=document.getElementById('runner-canvas');
+            if(!rCanvas) return;
+            rCtx=rCanvas.getContext('2d');
+            rHighScore=parseInt(localStorage.getItem('gindia_runner_high')||'0');
+            document.getElementById('runner-highscore').textContent=rHighScore;
+            rCanvas.onpointerdown=(e)=>{
+                if(!rRunning)return;
+                const rect=rCanvas.getBoundingClientRect();
+                if(e.clientX-rect.left<rect.width/2) moveRunnerLeft();
+                else moveRunnerRight();
+            };
+        }
+        window.addEventListener('keydown',(e)=>{
+            if(!rRunning) return;
+            if(e.key==='ArrowLeft'||e.key==='a') {moveRunnerLeft();e.preventDefault();}
+            if(e.key==='ArrowRight'||e.key==='d') {moveRunnerRight();e.preventDefault();}
+        });
+        function moveRunnerLeft() { if(rShip&&rShip.x>30) rShip.x-=36; }
+        function moveRunnerRight() { if(rShip&&rShip.x<rCanvas.width-30) rShip.x+=36; }
+        function startRunnerGame() {
+            document.getElementById('runner-overlay').style.display='none';
+            rScore=0; rSpeed=3.5;
+            rShip={x:200,y:330,w:28,h:32};
+            rObstacles=[]; rCoins=[]; rRunning=true;
+            document.getElementById('runner-score').textContent=0;
+            document.getElementById('runner-speed').textContent='1x';
+            cancelAnimationFrame(rAnimId); runRunnerLoop();
+        }
+        function stopRunnerGame() { rRunning=false; cancelAnimationFrame(rAnimId); }
+        function runRunnerLoop() {
+            if(!rRunning) return;
+            // Sky gradient background
+            const skyGrad = rCtx.createLinearGradient(0,0,0,rCanvas.height);
+            skyGrad.addColorStop(0,'#E0F2FE'); skyGrad.addColorStop(0.5,'#BAE6FD'); skyGrad.addColorStop(1,'#7DD3FC');
+            rCtx.fillStyle = skyGrad;
+            rCtx.fillRect(0,0,rCanvas.width,rCanvas.height);
+
+            // Clouds
+            rCtx.fillStyle = 'rgba(255,255,255,0.6)';
+            for(let i=0;i<5;i++){
+                const cx=(i*100+(Date.now()*0.02*(i%3+1)))%rCanvas.width;
+                rCtx.beginPath();
+                rCtx.ellipse(cx,30+i*25,40,15,0,0,Math.PI*2);
+                rCtx.fill();
+            }
+
+            // Spawn obstacles
+            if(Math.random()<0.035) {
+                rObstacles.push({
+                    x:Math.random()*(rCanvas.width-40)+10,y:-30,
+                    w:Math.random()*24+20,h:Math.random()*24+20,
+                    color:Math.random()>0.5?'#EF4444':'#F97316'
+                });
+            }
+            // Spawn Gems
+            if(Math.random()<0.025) {
+                rCoins.push({x:Math.random()*(rCanvas.width-30)+15,y:-20,r:8});
+            }
+
+            // Draw obstacles
+            for(let i=rObstacles.length-1;i>=0;i--){
+                const obs=rObstacles[i]; obs.y+=rSpeed;
+                rCtx.fillStyle=obs.color;
+                rCtx.beginPath();
+                rCtx.arc(obs.x+obs.w/2,obs.y+obs.h/2,obs.w/2,0,Math.PI*2);
+                rCtx.fill();
+                if(Math.hypot((obs.x+obs.w/2)-rShip.x,(obs.y+obs.h/2)-rShip.y)<(obs.w/2+12)){gameOverRunner();return;}
+                if(obs.y>rCanvas.height+40){rObstacles.splice(i,1);rScore+=5;document.getElementById('runner-score').textContent=rScore;}
+            }
+
+            // Draw Gems
+            for(let i=rCoins.length-1;i>=0;i--){
+                const c=rCoins[i]; c.y+=rSpeed*1.1;
+                rCtx.fillStyle='#FBBF24';
+                rCtx.beginPath();
+                rCtx.arc(c.x,c.y,c.r,0,Math.PI*2);
+                rCtx.fill();
+                // Star shape
+                rCtx.fillStyle='#FDE68A';
+                rCtx.font='14px serif';
+                rCtx.fillText('⭐',c.x-7,c.y+5);
+                if(Math.hypot(c.x-rShip.x,c.y-rShip.y)<22){rCoins.splice(i,1);rScore+=25;document.getElementById('runner-score').textContent=rScore;}
+                else if(c.y>rCanvas.height+20){rCoins.splice(i,1);}
+            }
+
+            rSpeed+=0.001;
+            document.getElementById('runner-speed').textContent=(rSpeed/3.5).toFixed(1)+'x';
+
+            // Draw Ship (colorful triangle)
+            rCtx.fillStyle='#3B82F6';
+            rCtx.beginPath();
+            rCtx.moveTo(rShip.x,rShip.y-16);
+            rCtx.lineTo(rShip.x-14,rShip.y+14);
+            rCtx.lineTo(rShip.x,rShip.y+8);
+            rCtx.lineTo(rShip.x+14,rShip.y+14);
+            rCtx.closePath();
+            rCtx.fill();
+            // Engine glow
+            rCtx.fillStyle='#F97316';
+            rCtx.beginPath();
+            rCtx.arc(rShip.x,rShip.y+16,5+Math.random()*3,0,Math.PI*2);
+            rCtx.fill();
+
+            rAnimId=requestAnimationFrame(runRunnerLoop);
+        }
+        function gameOverRunner() {
+            rRunning=false;
+            if(rScore>rHighScore){rHighScore=rScore;localStorage.setItem('gindia_runner_high',rHighScore);document.getElementById('runner-highscore').textContent=rHighScore;}
+            const over=document.getElementById('runner-overlay');
+            document.getElementById('runner-over-title').innerHTML=`💥 Game Over!`;
+            document.getElementById('runner-over-sub').innerHTML=`Score: <strong style="color:var(--cyan);">${rScore}</strong> | Best: <strong style="color:var(--yellow);">${rHighScore}</strong>`;
+            over.style.display='flex';
+        }
+
+        // ======= COLOR CATCH GAME =======
+        const ccColors = [
+            {name:'RED',hex:'#EF4444',emoji:'🔴'},
+            {name:'BLUE',hex:'#3B82F6',emoji:'🔵'},
+            {name:'GREEN',hex:'#22C55E',emoji:'🟢'},
+            {name:'YELLOW',hex:'#FBBF24',emoji:'🟡'},
+            {name:'PURPLE',hex:'#A855F7',emoji:'🟣'}
+        ];
+        let ccScore=0,ccMiss=0,ccTime=30,ccInterval,ccSpawnInterval,ccTarget,ccRunning=false;
+        function startColorCatch() {
+            ccScore=0; ccMiss=0; ccTime=30; ccRunning=true;
+            document.getElementById('cc-score').textContent=0;
+            document.getElementById('cc-miss').textContent=0;
+            document.getElementById('cc-timer').textContent=30;
+            document.getElementById('cc-feedback').textContent='';
+            document.getElementById('cc-start-btn').style.display='none';
+            const area=document.getElementById('cc-area');
+            area.innerHTML='';
+
+            // Pick target color
+            ccTarget=ccColors[Math.floor(Math.random()*ccColors.length)];
+            document.getElementById('cc-target').textContent=`Catch: ${ccTarget.emoji} ${ccTarget.name} balls!`;
+            document.getElementById('cc-target').style.color=ccTarget.hex;
+
+            // Timer
+            ccInterval=setInterval(()=>{
+                ccTime--;
+                document.getElementById('cc-timer').textContent=ccTime;
+                if(ccTime<=0) { stopColorCatch(); showCCResult(); }
+            },1000);
+
+            // Spawn balls
+            ccSpawnInterval=setInterval(()=>{
+                if(!ccRunning) return;
+                spawnColorBall();
+            },500);
+        }
+        function spawnColorBall() {
+            const area=document.getElementById('cc-area');
+            const rect=area.getBoundingClientRect();
+            const color=ccColors[Math.floor(Math.random()*ccColors.length)];
+            const ball=document.createElement('div');
+            ball.className='color-ball';
+            const size=28+Math.random()*20;
+            ball.style.width=ball.style.height=size+'px';
+            ball.style.background=color.hex;
+            ball.style.left=Math.random()*(rect.width-size)+'px';
+            ball.style.top='-30px';
+            ball.dataset.color=color.name;
+            ball.dataset.correct=(color.name===ccTarget.name)?'1':'0';
+
+            ball.onclick=()=>{
+                if(!ccRunning) return;
+                if(ball.dataset.correct==='1') {
+                    ccScore++;
+                    document.getElementById('cc-score').textContent=ccScore;
+                    ball.style.transform='scale(1.5)';
+                    ball.style.opacity='0';
+                    setTimeout(()=>ball.remove(),200);
+                } else {
+                    ccMiss++;
+                    document.getElementById('cc-miss').textContent=ccMiss;
+                    ball.style.border='3px solid red';
+                    setTimeout(()=>ball.remove(),300);
+                }
+            };
+
+            area.appendChild(ball);
+
+            // Animate fall
+            let posY=-30;
+            const fallSpeed=2+Math.random()*3;
+            const fallInterval=setInterval(()=>{
+                if(!ccRunning){clearInterval(fallInterval);return;}
+                posY+=fallSpeed;
+                ball.style.top=posY+'px';
+                if(posY>300){
+                    clearInterval(fallInterval);
+                    if(ball.dataset.correct==='1'){ccMiss++;document.getElementById('cc-miss').textContent=ccMiss;}
+                    ball.remove();
+                }
+            },30);
+        }
+        function stopColorCatch() {
+            ccRunning=false;
+            clearInterval(ccInterval);
+            clearInterval(ccSpawnInterval);
+        }
+        function showCCResult() {
+            document.getElementById('cc-feedback').textContent=ccScore>=15?`🏆 Amazing! ${ccScore} caught!`:ccScore>=8?`👍 Good! ${ccScore} caught!`:`💪 ${ccScore} caught. Try again!`;
+            document.getElementById('cc-start-btn').style.display='block';
+            document.getElementById('cc-start-btn').textContent='🔄 Play Again';
+        }
+        // ========================================================
+        // 🎵 WEB AUDIO SYNTHESIZER (ZERO EXTERNAL DEPENDENCIES)
+        // ========================================================
+        let audioCtx = null;
+        function playSound(type) {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                if (!audioCtx) audioCtx = new AudioCtx();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const now = audioCtx.currentTime;
+
+                if (type === 'flip') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(280, now);
+                    osc.frequency.exponentialRampToValueAtTime(750, now + 0.14);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
+                    osc.start(now); osc.stop(now + 0.14);
+                } else if (type === 'ladoo') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(587.33, now);
+                    osc.frequency.setValueAtTime(880, now + 0.06);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.16);
+                    osc.start(now); osc.stop(now + 0.16);
+                } else if (type === 'bonus') {
+                    [523.25, 659.25, 783.99].forEach((f, i) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain); gain.connect(audioCtx.destination);
+                        osc.frequency.setValueAtTime(f, now + i * 0.07);
+                        gain.gain.setValueAtTime(0.2, now + i * 0.07);
+                        gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.07 + 0.12);
+                        osc.start(now + i * 0.07); osc.stop(now + i * 0.07 + 0.12);
+                    });
+                } else if (type === 'hit') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(240, now);
+                    osc.frequency.linearRampToValueAtTime(60, now + 0.28);
+                    gain.gain.setValueAtTime(0.35, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.28);
+                    osc.start(now); osc.stop(now + 0.28);
+                } else if (type === 'step') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(480, now);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now); osc.stop(now + 0.05);
+                } else if (type === 'win') {
+                    [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain); gain.connect(audioCtx.destination);
+                        osc.frequency.setValueAtTime(f, now + i * 0.09);
+                        gain.gain.setValueAtTime(0.25, now + i * 0.09);
+                        gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.09 + 0.2);
+                        osc.start(now + i * 0.09); osc.stop(now + i * 0.09 + 0.2);
+                    });
+                }
+            } catch (e) {}
+        }
+
+        // ========================================================
+        // 🐭 1. ANTIGRAVITY LADOO CHOR ENGINE
+        // ========================================================
+        let ladooCanvas, ladooCtx;
+        let ladooAnimId = null;
+        let ladooRunning = false;
+        let ladooScore = 0;
+        let ladooCombo = 1;
+        let ladooHighScore = parseInt(localStorage.getItem('gindia_ladoo_high') || '0', 10);
+        let gravityVal = 0.44;
+
+        // Player (Rat: Chintu)
+        const chintu = {
+            x: 60,
+            y: 150,
+            w: 40,
+            h: 26,
+            vy: 0,
+            gravity: 0.44,
+            isFlipped: false,
+            rotation: 0,
+            legAngle: 0
+        };
+
+        // Game Entities
+        let ladooItems = [];
+        let catObstacles = [];
+        let particles = [];
+        let bgOffset = 0;
+        let spawnTimer = 0;
+        let obstacleTimer = 0;
+
+        function initLadooGame() {
+            ladooCanvas = document.getElementById('ladoo-canvas');
+            ladooCtx = ladooCanvas.getContext('2d');
+            document.getElementById('ladoo-high').textContent = ladooHighScore;
+            
+            // Touch & Click listener for canvas
+            ladooCanvas.onpointerdown = function(e) {
+                e.preventDefault();
+                triggerGravityFlip();
+            };
+            
+            renderLadooStatic();
+        }
+
+        function triggerGravityFlip() {
+            if (!ladooRunning) return;
+            chintu.gravity = -chintu.gravity;
+            chintu.isFlipped = chintu.gravity < 0;
+            
+            // Haptic Feedback
+            if (navigator.vibrate) navigator.vibrate(20);
+            
+            // Audio Flip
+            playSound('flip');
+            
+            // Spawn Flip Dust
+            for (let i = 0; i < 6; i++) {
+                particles.push({
+                    x: chintu.x + chintu.w / 2,
+                    y: chintu.isFlipped ? chintu.y + chintu.h : chintu.y,
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: chintu.isFlipped ? Math.random() * 3 : -Math.random() * 3,
+                    r: 3 + Math.random() * 3,
+                    color: '#F59E0B',
+                    alpha: 1
+                });
+            }
+        }
+
+        // Global Spacebar listener for Antigravity
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && document.getElementById('modal-ladoochor').classList.contains('open')) {
+                e.preventDefault();
+                triggerGravityFlip();
+            }
+        });
+
+        function startLadooGame() {
+            ladooRunning = true;
+            ladooScore = 0;
+            ladooCombo = 1;
+            chintu.y = 150;
+            chintu.vy = 0;
+            chintu.gravity = 0.44;
+            chintu.isFlipped = false;
+            chintu.rotation = 0;
+            ladooItems = [];
+            catObstacles = [];
+            particles = [];
+            spawnTimer = 0;
+            obstacleTimer = 0;
+
+            document.getElementById('ladoo-overlay').style.display = 'none';
+            document.getElementById('ladoo-score').textContent = '0';
+            document.getElementById('ladoo-combo').textContent = '1x';
+            
+            if (ladooAnimId) cancelAnimationFrame(ladooAnimId);
+            ladooGameLoop();
+        }
+
+        function stopLadooGame() {
+            ladooRunning = false;
+            if (ladooAnimId) cancelAnimationFrame(ladooAnimId);
+        }
+
+        function gameOverLadoo() {
+            ladooRunning = false;
+            if (navigator.vibrate) navigator.vibrate([40, 60, 80]);
+            playSound('hit');
+
+            if (ladooScore > ladooHighScore) {
+                ladooHighScore = ladooScore;
+                localStorage.setItem('gindia_ladoo_high', ladooHighScore);
+                document.getElementById('ladoo-high').textContent = ladooHighScore;
+            }
+
+            document.getElementById('ladoo-overlay').style.display = 'flex';
+            document.getElementById('ladoo-over-title').textContent = '💥 Caught by Cat!';
+            document.getElementById('ladoo-over-sub').innerHTML = `You collected <strong>${ladooScore}</strong> Ladoos 🟡!<br>High Score: <strong>${ladooHighScore}</strong> 🏆`;
+            const playBtn = document.querySelector('#ladoo-overlay button');
+            if (playBtn) playBtn.textContent = '🔄 Play Again';
+        }
+
+        function ladooGameLoop() {
+            if (!ladooRunning) return;
+            updateLadoo();
+            drawLadoo();
+            ladooAnimId = requestAnimationFrame(ladooGameLoop);
+        }
+
+        function updateLadoo() {
+            const cw = ladooCanvas.width;
+            const ch = ladooCanvas.height;
+            const floorY = ch - 32;
+            const ceilingY = 32;
+
+            // Physics Update
+            chintu.vy += chintu.gravity;
+            chintu.y += chintu.vy;
+            chintu.legAngle += 0.3;
+
+            // Floor & Ceiling bounds
+            if (chintu.y + chintu.h >= floorY) {
+                chintu.y = floorY - chintu.h;
+                chintu.vy = 0;
+            } else if (chintu.y <= ceilingY) {
+                chintu.y = ceilingY;
+                chintu.vy = 0;
+            }
+
+            // Smooth rotation towards gravity
+            const targetRot = chintu.isFlipped ? Math.PI : 0;
+            chintu.rotation += (targetRot - chintu.rotation) * 0.2;
+
+            // Parallax scroll
+            const speed = 3.2 + Math.min(ladooScore * 0.04, 3.5);
+            bgOffset = (bgOffset + speed) % 40;
+
+            // Spawn Ladoos
+            spawnTimer++;
+            if (spawnTimer > 40) {
+                spawnTimer = 0;
+                const isBonus = Math.random() < 0.12; // 12% Kaju Katli chance
+                const spawnY = ceilingY + 30 + Math.random() * (floorY - ceilingY - 60);
+                ladooItems.push({
+                    x: cw + 20,
+                    y: spawnY,
+                    r: isBonus ? 16 : 13,
+                    isBonus: isBonus,
+                    floatOffset: Math.random() * Math.PI * 2
+                });
+            }
+
+            // Spawn Cats / Obstacles
+            obstacleTimer++;
+            const obstacleInterval = Math.max(70 - Math.floor(ladooScore * 0.6), 35);
+            if (obstacleTimer > obstacleInterval) {
+                obstacleTimer = 0;
+                const onCeiling = Math.random() < 0.5;
+                const isTrap = Math.random() < 0.35;
+                catObstacles.push({
+                    x: cw + 30,
+                    y: onCeiling ? ceilingY : floorY - (isTrap ? 26 : 38),
+                    w: isTrap ? 32 : 44,
+                    h: isTrap ? 26 : 38,
+                    onCeiling: onCeiling,
+                    isTrap: isTrap,
+                    speed: speed + (isTrap ? 0 : 0.8)
+                });
+            }
+
+            // Update & Collision - Ladoos
+            for (let i = ladooItems.length - 1; i >= 0; i--) {
+                const item = ladooItems[i];
+                item.x -= speed;
+                item.floatOffset += 0.08;
+                const curY = item.y + Math.sin(item.floatOffset) * 6;
+
+                // Check collision with Chintu
+                const dx = (chintu.x + chintu.w / 2) - item.x;
+                const dy = (chintu.y + chintu.h / 2) - curY;
+                const dist = Math.hypot(dx, dy);
+
+                if (dist < item.r + chintu.w / 2) {
+                    // Collected!
+                    const pts = item.isBonus ? 50 : 10 * ladooCombo;
+                    ladooScore += pts;
+                    if (!item.isBonus) ladooCombo = Math.min(ladooCombo + 1, 5);
+                    
+                    document.getElementById('ladoo-score').textContent = ladooScore;
+                    document.getElementById('ladoo-combo').textContent = ladooCombo + 'x';
+                    
+                    if (navigator.vibrate) navigator.vibrate(15);
+                    playSound(item.isBonus ? 'bonus' : 'ladoo');
+
+                    // Sparkle particles
+                    for (let p = 0; p < 8; p++) {
+                        particles.push({
+                            x: item.x,
+                            y: curY,
+                            vx: (Math.random() - 0.5) * 6,
+                            vy: (Math.random() - 0.5) * 6,
+                            r: 3 + Math.random() * 4,
+                            color: item.isBonus ? '#E2E8F0' : '#F59E0B',
+                            alpha: 1
+                        });
+                    }
+                    ladooItems.splice(i, 1);
+                    continue;
+                }
+
+                if (item.x < -40) ladooItems.splice(i, 1);
+            }
+
+            // Update & Collision - Obstacles
+            for (let i = catObstacles.length - 1; i >= 0; i--) {
+                const obs = catObstacles[i];
+                obs.x -= obs.speed;
+
+                // Box Collision
+                const hitX = chintu.x + 6 < obs.x + obs.w && chintu.x + chintu.w - 6 > obs.x;
+                const hitY = chintu.y + 4 < obs.y + obs.h && chintu.y + chintu.h - 4 > obs.y;
+
+                if (hitX && hitY) {
+                    gameOverLadoo();
+                    return;
+                }
+
+                if (obs.x < -60) catObstacles.splice(i, 1);
+            }
+
+            // Update Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.04;
+                if (p.alpha <= 0) particles.splice(i, 1);
+            }
+        }
+
+        function drawLadoo() {
+            const cw = ladooCanvas.width;
+            const ch = ladooCanvas.height;
+            ladooCtx.clearRect(0, 0, cw, ch);
+
+            // 1. Warm Kitchen/Temple Background
+            const bgGrad = ladooCtx.createLinearGradient(0, 0, 0, ch);
+            bgGrad.addColorStop(0, '#FEF3C7');
+            bgGrad.addColorStop(0.5, '#FFFDF0');
+            bgGrad.addColorStop(1, '#FEF3C7');
+            ladooCtx.fillStyle = bgGrad;
+            ladooCtx.fillRect(0, 0, cw, ch);
+
+            // Decorative background pillars
+            ladooCtx.fillStyle = 'rgba(245, 158, 11, 0.06)';
+            for (let x = -bgOffset; x < cw + 60; x += 80) {
+                ladooCtx.fillRect(x, 32, 28, ch - 64);
+            }
+
+            // 2. Ceiling & Floor Borders
+            ladooCtx.fillStyle = '#D97706';
+            ladooCtx.fillRect(0, 0, cw, 26);
+            ladooCtx.fillRect(0, ch - 26, cw, 26);
+
+            // Gold Trim Patterns
+            ladooCtx.fillStyle = '#F59E0B';
+            ladooCtx.fillRect(0, 26, cw, 6);
+            ladooCtx.fillRect(0, ch - 32, cw, 6);
+
+            // Ceiling & Floor Teeth/Pattern
+            ladooCtx.fillStyle = '#B45309';
+            for (let x = 0; x < cw; x += 20) {
+                ladooCtx.beginPath();
+                ladooCtx.arc(x + 10, 26, 4, 0, Math.PI);
+                ladooCtx.fill();
+                ladooCtx.beginPath();
+                ladooCtx.arc(x + 10, ch - 26, 4, Math.PI, 0);
+                ladooCtx.fill();
+            }
+
+            // 3. Draw Ladoos (Floating Sweets)
+            ladooItems.forEach(item => {
+                const curY = item.y + Math.sin(item.floatOffset) * 6;
+                ladooCtx.save();
+                ladooCtx.translate(item.x, curY);
+
+                if (item.isBonus) {
+                    // Kaju Katli (Diamond)
+                    ladooCtx.rotate(Math.PI / 4);
+                    ladooCtx.fillStyle = '#F1F5F9';
+                    ladooCtx.fillRect(-10, -10, 20, 20);
+                    ladooCtx.strokeStyle = '#94A3B8';
+                    ladooCtx.lineWidth = 1.5;
+                    ladooCtx.strokeRect(-10, -10, 20, 20);
+                    // Silver Vark texture
+                    ladooCtx.fillStyle = '#CBD5E1';
+                    ladooCtx.fillRect(-4, -4, 8, 8);
+                } else {
+                    // Motichoor Ladoo (Golden Orb with texture)
+                    const radGrad = ladooCtx.createRadialGradient(-3, -3, 2, 0, 0, item.r);
+                    radGrad.addColorStop(0, '#FDE047');
+                    radGrad.addColorStop(0.6, '#F59E0B');
+                    radGrad.addColorStop(1, '#D97706');
+                    ladooCtx.fillStyle = radGrad;
+                    ladooCtx.beginPath();
+                    ladooCtx.arc(0, 0, item.r, 0, Math.PI * 2);
+                    ladooCtx.fill();
+
+                    // Motichoor granules
+                    ladooCtx.fillStyle = '#B45309';
+                    [-4, 2, -2, 4].forEach((gx, idx) => {
+                        ladooCtx.fillRect(gx, (idx % 2 === 0 ? -3 : 3), 2, 2);
+                    });
+
+                    // Pista / Almond flake
+                    ladooCtx.fillStyle = '#22C55E';
+                    ladooCtx.fillRect(-2, -6, 4, 2);
+                }
+                ladooCtx.restore();
+            });
+
+            // 4. Draw Obstacles (Cats & Traps)
+            catObstacles.forEach(obs => {
+                ladooCtx.save();
+                ladooCtx.translate(obs.x, obs.y);
+
+                if (obs.isTrap) {
+                    // Mousetrap 🧀
+                    ladooCtx.fillStyle = '#B45309';
+                    ladooCtx.fillRect(0, 8, obs.w, 14);
+                    ladooCtx.fillStyle = '#F59E0B';
+                    ladooCtx.beginPath(); // Cheese wedge
+                    ladooCtx.moveTo(8, 8); ladooCtx.lineTo(24, 0); ladooCtx.lineTo(24, 8); ladooCtx.fill();
+                    // Metal snap bar
+                    ladooCtx.strokeStyle = '#EF4444';
+                    ladooCtx.lineWidth = 3;
+                    ladooCtx.strokeRect(4, 4, obs.w - 8, 16);
+                } else {
+                    // Sneaky Cat 🐱
+                    if (obs.onCeiling) {
+                        ladooCtx.scale(1, -1);
+                        ladooCtx.translate(0, -obs.h);
+                    }
+                    // Cat Body
+                    ladooCtx.fillStyle = '#EA580C';
+                    ladooCtx.beginPath();
+                    ladooCtx.roundRect(4, 10, obs.w - 8, obs.h - 10, 10);
+                    ladooCtx.fill();
+
+                    // Cat Head & Ears
+                    ladooCtx.beginPath();
+                    ladooCtx.arc(14, 12, 10, 0, Math.PI * 2);
+                    ladooCtx.fill();
+                    ladooCtx.beginPath(); // Ears
+                    ladooCtx.moveTo(6, 6); ladooCtx.lineTo(10, 0); ladooCtx.lineTo(14, 6);
+                    ladooCtx.moveTo(14, 6); ladooCtx.lineTo(18, 0); ladooCtx.lineTo(22, 6);
+                    ladooCtx.fillStyle = '#C2410C';
+                    ladooCtx.fill();
+
+                    // Glowing Green Eyes
+                    ladooCtx.fillStyle = '#22C55E';
+                    ladooCtx.fillRect(10, 10, 3, 3);
+                    ladooCtx.fillRect(16, 10, 3, 3);
+
+                    // Tail
+                    ladooCtx.strokeStyle = '#EA580C';
+                    ladooCtx.lineWidth = 4;
+                    ladooCtx.beginPath();
+                    ladooCtx.moveTo(obs.w - 8, 20);
+                    ladooCtx.quadraticCurveTo(obs.w + 4, 8, obs.w, 2);
+                    ladooCtx.stroke();
+                }
+                ladooCtx.restore();
+            });
+
+            // 5. Draw Chintu (The Mouse) 🐭
+            ladooCtx.save();
+            ladooCtx.translate(chintu.x + chintu.w / 2, chintu.y + chintu.h / 2);
+            ladooCtx.rotate(chintu.rotation);
+
+            // Mouse Body (Grey / Soft Silver)
+            ladooCtx.fillStyle = '#94A3B8';
+            ladooCtx.beginPath();
+            ladooCtx.ellipse(0, 0, chintu.w / 2, chintu.h / 2, 0, 0, Math.PI * 2);
+            ladooCtx.fill();
+
+            // Head / Snout
+            ladooCtx.beginPath();
+            ladooCtx.moveTo(chintu.w / 4, -chintu.h / 3);
+            ladooCtx.lineTo(chintu.w / 2 + 6, 0);
+            ladooCtx.lineTo(chintu.w / 4, chintu.h / 3);
+            ladooCtx.fill();
+
+            // Pink Nose
+            ladooCtx.fillStyle = '#F43F5E';
+            ladooCtx.beginPath();
+            ladooCtx.arc(chintu.w / 2 + 6, 0, 2.5, 0, Math.PI * 2);
+            ladooCtx.fill();
+
+            // Ear (Pink & Grey)
+            ladooCtx.fillStyle = '#64748B';
+            ladooCtx.beginPath();
+            ladooCtx.arc(-2, -chintu.h / 2, 7, 0, Math.PI * 2);
+            ladooCtx.fill();
+            ladooCtx.fillStyle = '#FDA4AF';
+            ladooCtx.beginPath();
+            ladooCtx.arc(-2, -chintu.h / 2, 4, 0, Math.PI * 2);
+            ladooCtx.fill();
+
+            // Eye
+            ladooCtx.fillStyle = '#0F172A';
+            ladooCtx.beginPath();
+            ladooCtx.arc(chintu.w / 4, -3, 2.5, 0, Math.PI * 2);
+            ladooCtx.fill();
+
+            // Tail (Curled animated tail)
+            ladooCtx.strokeStyle = '#FDA4AF';
+            ladooCtx.lineWidth = 2.5;
+            ladooCtx.beginPath();
+            ladooCtx.moveTo(-chintu.w / 2, 2);
+            const tailWag = Math.sin(chintu.legAngle) * 4;
+            ladooCtx.quadraticCurveTo(-chintu.w / 2 - 10, -8 + tailWag, -chintu.w / 2 - 16, tailWag);
+            ladooCtx.stroke();
+
+            // Tiny Running Legs
+            ladooCtx.fillStyle = '#64748B';
+            const legShift = Math.sin(chintu.legAngle) * 4;
+            ladooCtx.fillRect(-6 + legShift, chintu.h / 2 - 2, 4, 5);
+            ladooCtx.fillRect(6 - legShift, chintu.h / 2 - 2, 4, 5);
+
+            ladooCtx.restore();
+
+            // 6. Draw Sparkle & Dust Particles
+            particles.forEach(p => {
+                ladooCtx.save();
+                ladooCtx.globalAlpha = p.alpha;
+                ladooCtx.fillStyle = p.color;
+                ladooCtx.beginPath();
+                ladooCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ladooCtx.fill();
+                ladooCtx.restore();
+            });
+        }
+
+        function renderLadooStatic() {
+            if (!ladooCanvas) return;
+            drawLadoo();
+        }
+
+        // ========================================================
+        // 🧭 2. WAY FINDER: MAZE ADVENTURE ENGINE
+        // ========================================================
+        let mazeCanvas, mazeCtx;
+        let mazeGrid = [];
+        let mazeCols = 7;
+        let mazeRows = 7;
+        let cellSize = 40;
+        let mazePlayer = { r: 1, c: 1 };
+        let mazeGoal = { r: 5, c: 5 };
+        let mazeTreats = [];
+        let mazeVisited = [];
+        let mazeSteps = 0;
+        let mazeTimer = 0;
+        let mazeTimerInt = null;
+        let mazeRunning = false;
+        let mazeHintPath = [];
+        let mazeTouchStart = null;
+
+        function setMazeLevel(lvl, btn) {
+            document.querySelectorAll('.level-pill').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            if (lvl === 1) { mazeCols = 7; mazeRows = 7; }
+            else if (lvl === 2) { mazeCols = 11; mazeRows = 11; }
+            else if (lvl === 3) { mazeCols = 15; mazeRows = 15; }
+            else if (lvl === 4) { mazeCols = 19; mazeRows = 19; }
+
+            initMazeGame();
+        }
+
+        function initMazeGame() {
+            mazeCanvas = document.getElementById('wayfinder-canvas');
+            mazeCtx = mazeCanvas.getContext('2d');
+            cellSize = Math.floor(mazeCanvas.width / mazeCols);
+
+            generateMaze(mazeCols, mazeRows);
+            mazePlayer = { r: 1, c: 1 };
+            mazeGoal = { r: mazeRows - 2, c: mazeCols - 2 };
+            mazeSteps = 0;
+            mazeTimer = 0;
+            mazeHintPath = [];
+            mazeVisited = [`1,1`];
+            
+            // Place 3 treats
+            mazeTreats = [];
+            let placed = 0;
+            while (placed < 3) {
+                const tr = 1 + Math.floor(Math.random() * (mazeRows - 2));
+                const tc = 1 + Math.floor(Math.random() * (mazeCols - 2));
+                if (mazeGrid[tr][tc] === 0 && (tr !== 1 || tc !== 1) && (tr !== mazeGoal.r || tc !== mazeGoal.c)) {
+                    if (!mazeTreats.some(t => t.r === tr && t.c === tc)) {
+                        mazeTreats.push({ r: tr, c: tc, collected: false });
+                        placed++;
+                    }
+                }
+            }
+
+            document.getElementById('maze-steps').textContent = '0';
+            document.getElementById('maze-time').textContent = '0';
+            document.getElementById('maze-treats').textContent = `0/${mazeTreats.length}`;
+            document.getElementById('maze-feedback').textContent = '🐶 Find the way to the house 🏡!';
+
+            clearInterval(mazeTimerInt);
+            mazeRunning = true;
+            mazeTimerInt = setInterval(() => {
+                if (mazeRunning) {
+                    mazeTimer++;
+                    document.getElementById('maze-time').textContent = mazeTimer;
+                }
+            }, 1000);
+
+            // Touch Swipe & Drag on Maze Canvas
+            mazeCanvas.ontouchstart = (e) => {
+                const t = e.touches[0];
+                mazeTouchStart = { x: t.clientX, y: t.clientY };
+            };
+            mazeCanvas.ontouchmove = (e) => {
+                if (!mazeTouchStart) return;
+                const t = e.touches[0];
+                const dx = t.clientX - mazeTouchStart.x;
+                const dy = t.clientY - mazeTouchStart.y;
+                if (Math.abs(dx) > 25 || Math.abs(dy) > 25) {
+                    if (Math.abs(dx) > Math.abs(dy)) {
+                        moveMazePlayer(dx > 0 ? 1 : -1, 0);
+                    } else {
+                        moveMazePlayer(0, dy > 0 ? 1 : -1);
+                    }
+                    mazeTouchStart = { x: t.clientX, y: t.clientY };
+                }
+            };
+            mazeCanvas.ontouchend = () => { mazeTouchStart = null; };
+
+            drawMaze();
+        }
+
+        function stopMazeGame() {
+            mazeRunning = false;
+            clearInterval(mazeTimerInt);
+        }
+
+        // Perfect Maze Generator (Randomized DFS Backtracker)
+        function generateMaze(cols, rows) {
+            mazeGrid = [];
+            for (let r = 0; r < rows; r++) {
+                mazeGrid[r] = [];
+                for (let c = 0; c < cols; c++) {
+                    mazeGrid[r][c] = 1; // 1 = Wall, 0 = Path
+                }
+            }
+
+            function carve(r, c) {
+                mazeGrid[r][c] = 0;
+                const dirs = [
+                    [-2, 0], [2, 0], [0, -2], [0, 2]
+                ].sort(() => Math.random() - 0.5);
+
+                for (const [dr, dc] of dirs) {
+                    const nr = r + dr;
+                    const nc = c + dc;
+                    if (nr > 0 && nr < rows - 1 && nc > 0 && nc < cols - 1 && mazeGrid[nr][nc] === 1) {
+                        mazeGrid[r + dr / 2][c + dc / 2] = 0;
+                        carve(nr, nc);
+                    }
+                }
+            }
+
+            carve(1, 1);
+            mazeGrid[rows - 2][cols - 2] = 0;
+        }
+
+        function moveMazePlayer(dc, dr) {
+            if (!mazeRunning) return;
+            const nr = mazePlayer.r + dr;
+            const nc = mazePlayer.c + dc;
+
+            if (nr >= 0 && nr < mazeRows && nc >= 0 && nc < mazeCols && mazeGrid[nr][nc] === 0) {
+                mazePlayer.r = nr;
+                mazePlayer.c = nc;
+                mazeSteps++;
+                document.getElementById('maze-steps').textContent = mazeSteps;
+                playSound('step');
+
+                const key = `${nr},${nc}`;
+                if (!mazeVisited.includes(key)) mazeVisited.push(key);
+
+                // Collect treat
+                mazeTreats.forEach(t => {
+                    if (!t.collected && t.r === nr && t.c === nc) {
+                        t.collected = true;
+                        playSound('bonus');
+                        if (navigator.vibrate) navigator.vibrate(20);
+                        const collectedCount = mazeTreats.filter(x => x.collected).length;
+                        document.getElementById('maze-treats').textContent = `${collectedCount}/${mazeTreats.length}`;
+                    }
+                });
+
+                // Clear AI hint on move
+                mazeHintPath = [];
+
+                // Check Goal
+                if (nr === mazeGoal.r && nc === mazeGoal.c) {
+                    mazeVictory();
+                }
+
+                drawMaze();
+            }
+        }
+
+        // Global Arrow Keys for Maze
+        window.addEventListener('keydown', (e) => {
+            if (document.getElementById('modal-wayfinder').classList.contains('open')) {
+                if (['ArrowUp', 'KeyW'].includes(e.code)) { e.preventDefault(); moveMazePlayer(0, -1); }
+                if (['ArrowDown', 'KeyS'].includes(e.code)) { e.preventDefault(); moveMazePlayer(0, 1); }
+                if (['ArrowLeft', 'KeyA'].includes(e.code)) { e.preventDefault(); moveMazePlayer(-1, 0); }
+                if (['ArrowRight', 'KeyD'].includes(e.code)) { e.preventDefault(); moveMazePlayer(1, 0); }
+            }
+        });
+
+        // AI Shortest Path Hint using BFS
+        function showMazeAIHint() {
+            if (!mazeRunning) return;
+            const queue = [[mazePlayer.r, mazePlayer.c, []]];
+            const visited = new Set([`${mazePlayer.r},${mazePlayer.c}`]);
+            let foundPath = null;
+
+            while (queue.length > 0) {
+                const [cr, cc, path] = queue.shift();
+                if (cr === mazeGoal.r && cc === mazeGoal.c) {
+                    foundPath = path.concat([[cr, cc]]);
+                    break;
+                }
+
+                const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+                for (const [dr, dc] of dirs) {
+                    const nr = cr + dr;
+                    const nc = cc + dc;
+                    const key = `${nr},${nc}`;
+                    if (nr >= 0 && nr < mazeRows && nc >= 0 && nc < mazeCols && mazeGrid[nr][nc] === 0 && !visited.has(key)) {
+                        visited.add(key);
+                        queue.push([nr, nc, path.concat([[cr, cc]])]);
+                    }
+                }
+            }
+
+            if (foundPath) {
+                mazeHintPath = foundPath;
+                playSound('ladoo');
+                document.getElementById('maze-feedback').textContent = '🤖 AI Golden Path Hint Activated!';
+                drawMaze();
+            }
+        }
+
+        function mazeVictory() {
+            mazeRunning = false;
+            clearInterval(mazeTimerInt);
+            playSound('win');
+            if (navigator.vibrate) navigator.vibrate([60, 80, 100]);
+
+            const collectedCount = mazeTreats.filter(x => x.collected).length;
+            const stars = collectedCount === 3 ? '⭐⭐⭐' : collectedCount >= 1 ? '⭐⭐' : '⭐';
+            document.getElementById('maze-feedback').innerHTML = `🎉 <strong>VICTORY!</strong> ${stars}<br>Solved in <strong>${mazeSteps}</strong> steps & <strong>${mazeTimer}s</strong>!`;
+        }
+
+        function drawMaze() {
+            if (!mazeCanvas) return;
+            const cw = mazeCanvas.width;
+            const ch = mazeCanvas.height;
+            mazeCtx.clearRect(0, 0, cw, ch);
+
+            // Draw Background & Path
+            mazeCtx.fillStyle = '#ECFDF5';
+            mazeCtx.fillRect(0, 0, cw, ch);
+
+            // Draw Walls & Pathways
+            for (let r = 0; r < mazeRows; r++) {
+                for (let c = 0; c < mazeCols; c++) {
+                    const x = c * cellSize;
+                    const y = r * cellSize;
+
+                    if (mazeGrid[r][c] === 1) {
+                        // Bush / Hedge Green Wall
+                        mazeCtx.fillStyle = '#059669';
+                        mazeCtx.fillRect(x, y, cellSize, cellSize);
+
+                        // Wall 3D Trim
+                        mazeCtx.fillStyle = '#047857';
+                        mazeCtx.fillRect(x + 2, y + 2, cellSize - 4, cellSize - 4);
+                        mazeCtx.fillStyle = '#10B981';
+                        mazeCtx.fillRect(x + 4, y + 4, cellSize - 8, cellSize - 8);
+                    } else {
+                        // Light Path Tile
+                        mazeCtx.fillStyle = '#FFFFFF';
+                        mazeCtx.fillRect(x + 1, y + 1, cellSize - 2, cellSize - 2);
+
+                        // Visited breadcrumbs (Paw Trail)
+                        if (mazeVisited.includes(`${r},${c}`)) {
+                            mazeCtx.fillStyle = 'rgba(16, 185, 129, 0.2)';
+                            mazeCtx.beginPath();
+                            mazeCtx.arc(x + cellSize / 2, y + cellSize / 2, 4, 0, Math.PI * 2);
+                            mazeCtx.fill();
+                        }
+                    }
+                }
+            }
+
+            // Draw AI Shortest Path Hint (Glowing Golden Line)
+            if (mazeHintPath.length > 0) {
+                mazeCtx.strokeStyle = '#F59E0B';
+                mazeCtx.lineWidth = Math.max(cellSize / 4, 4);
+                mazeCtx.lineCap = 'round';
+                mazeCtx.lineJoin = 'round';
+                mazeCtx.beginPath();
+                mazeHintPath.forEach(([r, c], idx) => {
+                    const px = c * cellSize + cellSize / 2;
+                    const py = r * cellSize + cellSize / 2;
+                    if (idx === 0) mazeCtx.moveTo(px, py);
+                    else mazeCtx.lineTo(px, py);
+                });
+                mazeCtx.stroke();
+            }
+
+            // Draw Treats (Bones 🦴)
+            mazeTreats.forEach(t => {
+                if (!t.collected) {
+                    const tx = t.c * cellSize + cellSize / 2;
+                    const ty = t.r * cellSize + cellSize / 2;
+                    mazeCtx.font = `${Math.floor(cellSize * 0.7)}px sans-serif`;
+                    mazeCtx.textAlign = 'center';
+                    mazeCtx.textBaseline = 'middle';
+                    mazeCtx.fillText('🦴', tx, ty);
+                }
+            });
+
+            // Draw Goal (House 🏡)
+            const gx = mazeGoal.c * cellSize + cellSize / 2;
+            const gy = mazeGoal.r * cellSize + cellSize / 2;
+            mazeCtx.font = `${Math.floor(cellSize * 0.75)}px sans-serif`;
+            mazeCtx.textAlign = 'center';
+            mazeCtx.textBaseline = 'middle';
+            mazeCtx.fillText('🏡', gx, gy);
+
+            // Draw Player (Puppy 🐶)
+            const px = mazePlayer.c * cellSize + cellSize / 2;
+            const py = mazePlayer.r * cellSize + cellSize / 2;
+            mazeCtx.font = `${Math.floor(cellSize * 0.8)}px sans-serif`;
+            mazeCtx.textAlign = 'center';
+            mazeCtx.textBaseline = 'middle';
+            mazeCtx.fillText('🐶', px, py);
+        }
+
+        // ======= BG SHAPES =======
+        const shapesContainer=document.getElementById('bg-shapes');
+        const shapeColors=['#FF6B9D','#A855F7','#3B82F6','#22C55E','#FBBF24','#F97316'];
+        for(let i=0;i<10;i++){
+            const shape=document.createElement('div');
+            shape.className='bg-shape';
+            const size=80+Math.random()*200;
+            shape.style.width=shape.style.height=size+'px';
+            shape.style.left=Math.random()*100+'%';
+            shape.style.top=Math.random()*100+'%';
+            shape.style.background=shapeColors[Math.floor(Math.random()*shapeColors.length)];
+            shape.style.animationDuration=(15+Math.random()*20)+'s';
+            shape.style.animationDelay=Math.random()*10+'s';
+            shapesContainer.appendChild(shape);
         }
     </script>
+
+    <!-- GROUP FOOTER -->
+    <div style="background:#fff; border-top:3px solid #FDE68A; padding:32px 20px; text-align:center; position:relative; z-index:1;">
+        <div style="max-width:900px; margin:0 auto;">
+            <div style="font-family:'Fredoka One',cursive; font-size:20px; margin-bottom:12px; color:#1E293B;">🎮 GIndia Game — Part of <a href="https://gindiahr.com" style="color:#F97316; text-decoration:none;">GIndiaHR Group</a></div>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+                <a href="https://gindiahr.com" style="background:#FFF7ED; color:#EA580C; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">🏢 GIndiaHR</a>
+                <a href="https://tech.gindiahr.com" style="background:#EFF6FF; color:#2563EB; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">💻 GIndia Tech</a>
+                <a href="https://hello24.gindiahr.com" style="background:#F5F3FF; color:#7C3AED; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">📞 Hello24</a>
+                <a href="https://kids.gindiahr.com" style="background:#FFF1F2; color:#E11D48; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">🧒 GIndia Kids</a>
+                <a href="https://social.gindiahr.com" style="background:#ECFDF5; color:#059669; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">📱 GIndia Social</a>
+            </div>
+            <p style="color:#64748B; font-size:12px; line-height:1.6;">© 2025 GIndia Game | <a href="https://gindiahr.com" style="color:#F97316; text-decoration:none;">GIndiaHR Group</a> — Patna, Bihar | Malviya Nagar, Delhi | Bhopani, Faridabad<br>
+            Free educational games India • Math games for kids • GK quiz online • Typing speed game • Brain games • Arcade games free</p>
+        </div>
+    </div>
+
 </body>
 </html>
