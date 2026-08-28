@@ -524,6 +524,103 @@
             .hero { padding: 40px 16px 32px; }
             .hero-controller { font-size: 52px; }
             .games-grid { grid-template-columns: 1fr 1fr; }
+
+            /* MOBILE FULLSCREEN ZERO-SCROLL MODALS */
+            .modal-overlay {
+                padding: 0 !important;
+                inset: 0 !important;
+                position: fixed !important;
+                z-index: 9999 !important;
+                align-items: stretch !important;
+                justify-content: stretch !important;
+                background: #1E293B !important;
+            }
+            .modal {
+                width: 100vw !important;
+                height: 100vh !important;
+                height: 100dvh !important;
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                max-height: 100dvh !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 12px 14px 14px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+            .modal h2 {
+                font-size: 20px !important;
+                margin-bottom: 2px !important;
+                padding-right: 36px !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            .modal-desc {
+                font-size: 12px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.3 !important;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .modal-close {
+                top: 8px !important;
+                right: 10px !important;
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 16px !important;
+                background: #E2E8F0 !important;
+                z-index: 10 !important;
+            }
+            .game-area {
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                min-height: 0 !important;
+                overflow: hidden !important;
+                width: 100% !important;
+            }
+            .game-score {
+                font-size: 13px !important;
+                margin-bottom: 6px !important;
+            }
+            .ladoo-wrap, .wayfinder-wrap {
+                max-width: 100% !important;
+                flex: 1 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 0 !important;
+            }
+            .ladoo-wrap canvas, .wayfinder-wrap canvas, #cricket-canvas, #highway-canvas, #snakes-canvas, #runner-canvas, #colorcatch-canvas {
+                max-height: 48vh !important;
+                max-height: 48dvh !important;
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                display: block !important;
+            }
+            .ladoo-flip-btn, .start-btn {
+                padding: 13px !important;
+                font-size: 18px !important;
+                margin-top: 6px !important;
+                border-radius: 12px !important;
+            }
+            .dpad-container {
+                gap: 6px !important;
+                margin-top: 6px !important;
+            }
+            .dpad-btn {
+                width: 50px !important;
+                height: 44px !important;
+                font-size: 20px !important;
+            }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 30px; }
@@ -1061,7 +1158,10 @@
         // ======= UTILITY =======
         function openGame(name) {
             const m = document.getElementById('modal-' + name);
-            if (m) m.classList.add('open');
+            if (m) {
+                m.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
             if (name === 'ladoochor') initLadooGame();
             if (name === 'wayfinder') initMazeGame();
             if (name === 'cricket') initCricketGame();
@@ -1069,7 +1169,11 @@
             if (name === 'snakesladders') initSnakesGame();
             if (name === 'memory') initMemory();
             if (name === 'runner') initRunnerCanvas();
-            document.querySelector('.header-links').classList.remove('open');
+            if (name === 'word') initWord();
+            if (name === 'logic') initLogic();
+            if (name === 'colorcatch') initColorCatch();
+            const links = document.querySelector('.header-links');
+            if (links) links.classList.remove('open');
         }
         function closeGame(name) {
             const m = document.getElementById('modal-' + name);
@@ -1078,11 +1182,17 @@
             if (name === 'wayfinder') stopMazeGame();
             if (name === 'cricket') stopCricketGame();
             if (name === 'highway') stopHighwayGame();
+            if (name === 'snakesladders') { isSnakesRolling = false; }
             if (name === 'math') clearInterval(mathInterval);
             if (name === 'gk') clearInterval(gkInterval);
             if (name === 'typing') clearInterval(typeInterval);
             if (name === 'runner') stopRunnerGame();
             if (name === 'colorcatch') stopColorCatch();
+            
+            const openModals = document.querySelectorAll('.modal-overlay.open');
+            if (openModals.length === 0) {
+                document.body.style.overflow = '';
+            }
         }
         document.querySelectorAll('.modal-overlay').forEach(m => {
             m.addEventListener('click', function(e) { if (e.target === this) closeGame(this.id.replace('modal-', '')); });
@@ -1669,6 +1779,46 @@
             } catch (e) {}
         }
 
+        // Sound & Animation Helpers
+        function playSynthSound(type) {
+            playSound(type);
+        }
+        function vibratePhone(ms) {
+            try {
+                if (navigator.vibrate) navigator.vibrate(ms);
+            } catch(e) {}
+        }
+        function launchConfetti() {
+            try {
+                const colors = ['#EF4444', '#3B82F6', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899'];
+                for (let i = 0; i < 30; i++) {
+                    const conf = document.createElement('div');
+                    conf.style.cssText = `
+                        position: fixed;
+                        z-index: 10000;
+                        width: ${6 + Math.random() * 8}px;
+                        height: ${6 + Math.random() * 8}px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: ${window.innerWidth / 2 + (Math.random() - 0.5) * 120}px;
+                        top: ${window.innerHeight / 3 + (Math.random() - 0.5) * 100}px;
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+                        pointer-events: none;
+                        transition: all ${0.8 + Math.random() * 0.6}s cubic-bezier(0.25, 1, 0.5, 1);
+                        opacity: 1;
+                        transform: scale(1) rotate(${Math.random() * 360}deg);
+                    `;
+                    document.body.appendChild(conf);
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = 80 + Math.random() * 180;
+                    requestAnimationFrame(() => {
+                        conf.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist + 100}px) rotate(${Math.random() * 720}deg)`;
+                        conf.style.opacity = '0';
+                    });
+                    setTimeout(() => conf.remove(), 1500);
+                }
+            } catch(e) {}
+        }
+
         // ========================================================
         // 🐭 1. ANTIGRAVITY LADOO CHOR ENGINE
         // ========================================================
@@ -1703,25 +1853,46 @@
 
         function initLadooGame() {
             ladooCanvas = document.getElementById('ladoo-canvas');
-            ladooCtx = ladooCanvas.getContext('2d');
-            document.getElementById('ladoo-high').textContent = ladooHighScore;
+            if (ladooCanvas) ladooCtx = ladooCanvas.getContext('2d');
+            const highEl = document.getElementById('ladoo-high');
+            if (highEl) highEl.textContent = ladooHighScore;
             
-            // Touch & Click listener for canvas
-            ladooCanvas.onpointerdown = function(e) {
-                e.preventDefault();
-                triggerGravityFlip();
-            };
+            // Touch & Click listener for canvas (starts or flips)
+            if (ladooCanvas) {
+                ladooCanvas.onpointerdown = function(e) {
+                    e.preventDefault();
+                    if (!ladooRunning) {
+                        startLadooGame();
+                    } else {
+                        triggerGravityFlip();
+                    }
+                };
+            }
+            const wrap = document.getElementById('ladoo-wrap');
+            if (wrap) {
+                wrap.onpointerdown = function(e) {
+                    if (e.target.tagName === 'BUTTON') return;
+                    if (!ladooRunning) {
+                        startLadooGame();
+                    } else {
+                        triggerGravityFlip();
+                    }
+                };
+            }
             
             renderLadooStatic();
         }
 
         function triggerGravityFlip() {
-            if (!ladooRunning) return;
+            if (!ladooRunning) {
+                startLadooGame();
+                return;
+            }
             chintu.gravity = -chintu.gravity;
             chintu.isFlipped = chintu.gravity < 0;
             
             // Haptic Feedback
-            if (navigator.vibrate) navigator.vibrate(20);
+            vibratePhone(20);
             
             // Audio Flip
             playSound('flip');
@@ -2466,8 +2637,19 @@
 
         function initCricketGame() {
             cricketCanvas = document.getElementById('cricket-canvas');
-            if (cricketCanvas) cricketCtx = cricketCanvas.getContext('2d');
-            document.getElementById('cricket-overlay').style.display = 'flex';
+            if (cricketCanvas) {
+                cricketCtx = cricketCanvas.getContext('2d');
+                cricketCanvas.onpointerdown = function(e) {
+                    e.preventDefault();
+                    if (!cricketRunning) {
+                        startCricketGame();
+                    } else {
+                        triggerCricketHit();
+                    }
+                };
+            }
+            const overlay = document.getElementById('cricket-overlay');
+            if (overlay) overlay.style.display = 'flex';
             document.getElementById('cricket-over-title').textContent = 'Match Day: Super Over!';
             document.getElementById('cricket-over-sub').textContent = 'Target: 18 runs in 6 balls. Time your shot when the ball reaches the pitch crease!';
             renderCricketScene();
@@ -2740,7 +2922,24 @@
 
         function initHighwayGame() {
             highwayCanvas = document.getElementById('highway-canvas');
-            if (highwayCanvas) highwayCtx = highwayCanvas.getContext('2d');
+            if (highwayCanvas) {
+                highwayCtx = highwayCanvas.getContext('2d');
+                highwayCanvas.onpointerdown = function(e) {
+                    e.preventDefault();
+                    if (!highwayRunning) {
+                        startHighwayGame();
+                    } else {
+                        const rect = highwayCanvas.getBoundingClientRect();
+                        const clientX = e.clientX !== undefined ? e.clientX : (rect.left + rect.width / 2);
+                        const tapX = clientX - rect.left;
+                        if (tapX < rect.width / 2) {
+                            moveHighwayCar(-1);
+                        } else {
+                            moveHighwayCar(1);
+                        }
+                    }
+                };
+            }
             document.getElementById('highway-overlay').style.display = 'flex';
             renderHighwayScene();
         }
@@ -2923,7 +3122,13 @@
 
         function initSnakesGame() {
             snakesCanvas = document.getElementById('snakes-canvas');
-            if (snakesCanvas) snakesCtx = snakesCanvas.getContext('2d');
+            if (snakesCanvas) {
+                snakesCtx = snakesCanvas.getContext('2d');
+                snakesCanvas.onpointerdown = function(e) {
+                    e.preventDefault();
+                    rollSnakesDice();
+                };
+            }
             playerPos = 1; botPos = 1;
             isPlayerTurn = true; isSnakesRolling = false;
             document.getElementById('snakes-player-pos').textContent = '1';
@@ -3118,6 +3323,27 @@
             shape.style.animationDelay=Math.random()*10+'s';
             shapesContainer.appendChild(shape);
         }
+
+        // Global Keyboard Controls for Modals
+        window.addEventListener('keydown', (e) => {
+            const ladooM = document.getElementById('modal-ladoochor');
+            if (ladooM && ladooM.classList.contains('open')) {
+                if (e.code === 'Space') { e.preventDefault(); triggerGravityFlip(); }
+            }
+            const cricketM = document.getElementById('modal-cricket');
+            if (cricketM && cricketM.classList.contains('open')) {
+                if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); triggerCricketHit(); }
+            }
+            const highwayM = document.getElementById('modal-highway');
+            if (highwayM && highwayM.classList.contains('open')) {
+                if (['ArrowLeft', 'KeyA'].includes(e.code)) { e.preventDefault(); moveHighwayCar(-1); }
+                if (['ArrowRight', 'KeyD'].includes(e.code)) { e.preventDefault(); moveHighwayCar(1); }
+            }
+            const snakesM = document.getElementById('modal-snakesladders');
+            if (snakesM && snakesM.classList.contains('open')) {
+                if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); rollSnakesDice(); }
+            }
+        });
     </script>
 
     <!-- GROUP FOOTER -->
