@@ -1,0 +1,31 @@
+name: Add Quest navigation
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  quest-nav:
+    if: "!contains(github.event.head_commit.message, '[skip quest-nav]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Quest link to game pages
+        shell: python
+        run: |
+          from pathlib import Path
+          for p in Path('.').glob('*.html'):
+              if p.name == 'quest.html': continue
+              s=p.read_text(encoding='utf-8-sig')
+              if 'href="quest.html"' in s: continue
+              marker='<nav>'
+              if marker in s:
+                  s=s.replace(marker, marker+'<a href="quest.html" style="background:#7c3aed;color:#fff;padding:7px 13px;border-radius:999px;text-decoration:none;font-weight:900;margin-right:8px">🏆 Quest</a>',1)
+                  p.write_text(s,encoding='utf-8')
+      - name: Commit Quest navigation
+        run: |
+          git config user.name "gindia-quest-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add '*.html'
+          git diff --cached --quiet || git commit -m "Add Quest navigation [skip quest-nav]"
+          git push
