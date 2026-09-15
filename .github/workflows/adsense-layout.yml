@@ -1,0 +1,53 @@
+name: Apply AdSense Layout
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adsense:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Inject responsive AdSense units
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          M='<!-- PR-ADSENSE-INJECTED -->'; SCRIPT='<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5097235456767325" crossorigin="anonymous"></script>'; CSS='<style id="pr-adsense-layout">.pr-adsense-slot{width:100%;box-sizing:border-box;clear:both;margin:28px auto;padding:0 12px;text-align:center;min-height:50px}.pr-adsense-horizontal{max-width:1100px}.pr-adsense-square{max-width:430px}.pr-adsense-vertical{max-width:330px}.pr-adsense-label{font-size:10px;line-height:1.2;color:#8a8a8a;text-align:center;margin:0 0 5px}@media(max-width:767px){.pr-adsense-slot{margin:22px auto;padding:0 8px}}</style>'
+          def ad(slot,cls): return f'{M}\n<div class="pr-adsense-slot {cls}"><div class="pr-adsense-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5097235456767325" data-ad-slot="{slot}" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({{}});</script></div>'
+          H=ad('5119886699','pr-adsense-horizontal'); S=ad('5405248145','pr-adsense-square'); V=ad('7088021599','pr-adsense-vertical')
+          changed=0
+          for p in Path('.').rglob('*.html'):
+              x=str(p).replace('\\','/').lower(); n=p.name.lower()
+              if any(a in x for a in ['/admin/','/images/','/uploads/','/node_modules/','/.git/']) or n in {'login.html','branch-login.html','registration-complete.html','thank-you.html'}: continue
+              try:s=p.read_text(encoding='utf-8')
+              except:continue
+              if M in s or '<html' not in s.lower():continue
+              h=re.search(r'<head[^>]*>',s,re.I)
+              if not h:continue
+              s=s[:h.end()]+'\n'+SCRIPT+'\n'+CSS+'\n'+s[h.end():]
+              if re.search(r'</nav>',s,re.I):s=re.sub(r'</nav>','</nav>\n'+H,s,count=1,flags=re.I)
+              elif re.search(r'</header>',s,re.I):s=re.sub(r'</header>','</header>\n'+H,s,count=1,flags=re.I)
+              elif re.search(r'<main[^>]*>',s,re.I):s=re.sub(r'(<main[^>]*>)',r'\1\n'+H,s,count=1,flags=re.I)
+              else:s=re.sub(r'<body([^>]*)>',r'<body\1>\n'+H,s,count=1,flags=re.I)
+              if '<form' not in s.lower() and len(s)>6000:
+                  q=re.search(r'</section>',s,re.I)
+                  if q:s=s[:q.end()]+'\n'+S+s[q.end():]
+              if '<form' not in s.lower() and len(s)>9000:
+                  q=re.search(r'<footer\b',s,re.I) or re.search(r'</body>',s,re.I)
+                  if q:s=s[:q.start()]+V+'\n'+s[q.start():]
+              p.write_text(s,encoding='utf-8');changed+=1
+          print(f'Updated {changed} HTML files')
+          PY
+      - name: Commit injected ad layout
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.html'
+          if git diff --cached --quiet; then echo "No HTML changes needed"; else git commit -m "Apply responsive AdSense placements" && git push; fi
