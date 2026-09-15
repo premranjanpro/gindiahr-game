@@ -1,0 +1,32 @@
+name: Upgrade Way Finder
+
+on:
+  push:
+    paths:
+      - 'tools/upgrade_wayfinder.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Way Finder upgrade
+        run: python tools/upgrade_wayfinder.py
+      - name: Commit upgrade
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No index.html changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Upgrade Way Finder maze for advanced mobile play'
+          git push
