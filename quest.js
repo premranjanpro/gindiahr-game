@@ -6,9 +6,10 @@
   function save(s){localStorage.setItem(KEY,JSON.stringify(s));}
   function levelFor(xp){return Math.floor(xp/250)+1;}
   function award(game,correct,total,meta){
+    if(total===1)return {gained:0,level:state().level,streak:state().streak,tier:'answer'};
     const s=state(); const ratio=total?correct/total:0; if(ratio<0.7)return null;
     const tier=ratio>=1?'perfect':ratio>=0.9?'gold':'silver';
-    const base=Math.round(correct*10+(meta&&meta.bonus||0)); const bonus=s.streak>=3?25:0; const gained=base+bonus;
+    const gained=Math.round(correct*10+(meta&&meta.bonus||0));
     s.xp+=gained; s.level=levelFor(s.xp); s.streak++; s.bestStreak=Math.max(s.bestStreak,s.streak);
     const today=new Date().toISOString().slice(0,10); s.quests[today]=(s.quests[today]||0)+1;
     if(tier==='perfect'&&!s.badges.includes('perfect'))s.badges.push('perfect');
